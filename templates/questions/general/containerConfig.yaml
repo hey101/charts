@@ -1,0 +1,8 @@
+  - variable: TZ
+    label: Timezone
+    group: "General"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"

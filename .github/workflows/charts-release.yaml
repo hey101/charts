@@ -1,0 +1,88 @@
+name: "Charts: Release"
+
+concurrency: helm-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "charts/**"
+
+jobs:
+  release-scale:
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Prep Helm
+        shell: bash
+        run: |
+          ./.github/scripts/prep_helm.sh
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Collect changes
+        id: collect-changes
+        uses: ./.github/actions/collect-changes
+
+      #- name: Generate Changelog
+      #  shell: bash
+      #  if: |
+      #    steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+      #  run: |
+      #    export GOBIN=/usr/local/bin/
+      #    go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
+      #    CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+      #    parthreads=$(($(nproc) * 2))
+      #    parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
+
+      - name: Fix Pre-Commit issues
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+
+      - name: Checkout Catalog
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        with:
+          fetch-depth: 1
+          repository: petersandor/scale-catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: ''
+          path: catalog
+
+      - name: build catalog
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          ./charttool deps
+          ./charttool buildSCALE
+
+      - name: Commit Catalog
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          cd catalog
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
+          git push
+          cd -
