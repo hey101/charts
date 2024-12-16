@@ -63,7 +63,7 @@ jobs:
           fetch-depth: 1
           repository: hey101/scale-catalog
           token: ${{ secrets.BOT_TOKEN }}
-          ref: ''
+          ref: ""
           path: catalog
 
       - name: build catalog
