@@ -61,7 +61,7 @@ jobs:
           steps.collect-changes.outputs.changesDetected == 'true'
         with:
           fetch-depth: 1
-          repository: petersandor/scale-catalog
+          repository: hey101/scale-catalog
           token: ${{ secrets.BOT_TOKEN }}
           ref: ''
           path: catalog
