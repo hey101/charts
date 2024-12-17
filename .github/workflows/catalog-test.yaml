@@ -33,6 +33,7 @@ jobs:
           fetch-depth: 1
           repository: hey101/tc-archive
           path: .catalog_validation
+          token: ${{ secrets.BOT_TOKEN }}
 
       - name: install catalog_validation
         shell: bash
@@ -90,6 +91,7 @@ jobs:
         with:
           repository: hey101/scale-catalog
           path: catalog
+          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Test Catalog
         shell: bash
