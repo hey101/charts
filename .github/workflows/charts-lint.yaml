@@ -92,6 +92,18 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
           pre-commit run --all || pre-commit run --all
 
+      - name: Make charttool executable
+        run: |
+            chmod +x ./charttool
+
+      - name: Verify charttool Exists
+        run: |
+            ls -la ./charttool
+
+      - name: Display Current Permissions
+        run: |
+            stat ./charttool
+
       - name: Fetch and Verify dependencies
         shell: bash
         if: steps.list-changed.outputs.detected == 'true'
