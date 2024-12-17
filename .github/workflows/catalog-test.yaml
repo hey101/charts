@@ -12,6 +12,9 @@ on:
       modifiedCharts:
         required: true
         type: string
+    secrets:
+      BOT_TOKEN:
+        required: true
 
 jobs:
   catalog-tests:
@@ -32,8 +35,8 @@ jobs:
         with:
           fetch-depth: 1
           repository: hey101/tc-archive
-          path: .catalog_validation
           token: ${{ secrets.BOT_TOKEN }}
+          path: .catalog_validation
 
       - name: install catalog_validation
         shell: bash
@@ -90,8 +93,8 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           repository: hey101/scale-catalog
-          path: catalog
           token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
 
       - name: Test Catalog
         shell: bash
