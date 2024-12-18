@@ -1,7 +1,7 @@
 image:
   repository: feramance/qbitrr
   pullPolicy: IfNotPresent
-  tag: v4.9.20@sha256:1aa46c07c709b134460987bc5e349c94fd98392f31cadec97b2b20e14c9b762f
+  tag: v4.10.5@sha256:5cdedc959040953822de74884a6cac95a2300492f4f7dcda7035447f7c6ef157
 securityContext:
   container:
     readOnlyRootFilesystem: false
