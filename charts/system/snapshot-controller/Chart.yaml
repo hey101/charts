@@ -40,4 +40,4 @@ sources:
   - https://github.com/snapshot-controller/snapshot-controller
   - https://github.com/snapshot-controller/snapshot-controller-helm-chart
 type: application
-version: 3.1.6
+version: 3.1.7

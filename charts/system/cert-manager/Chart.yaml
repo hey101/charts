@@ -42,4 +42,4 @@ sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
 type: application
-version: 6.1.6
+version: 6.1.7
