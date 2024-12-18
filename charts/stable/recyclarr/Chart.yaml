@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "7.2.4"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/recyclarr/recyclarr
   - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
 type: application
-version: 12.2.8
+version: 12.2.9

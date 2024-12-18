@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.21.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/meisnate12/Plex-Meta-Manager
   - https://hub.docker.com/r/meisnate12/plex-meta-manager
 type: application
-version: 8.1.8
+version: 8.1.9

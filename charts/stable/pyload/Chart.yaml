@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "360b2295"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/pyload
   - https://github.com/pyload/pyload
 type: application
-version: 15.1.8
+version: 15.1.9

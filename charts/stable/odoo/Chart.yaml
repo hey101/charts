@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "17.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -39,4 +39,4 @@ sources:
   - https://github.com/odoo/docker
   - https://hub.docker.com/_/odoo
 type: application
-version: 19.1.25
+version: 19.1.26

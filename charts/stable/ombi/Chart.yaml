@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.43.11"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -37,4 +37,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ombi
   - https://github.com/tidusjar/Ombi
 type: application
-version: 20.1.8
+version: 20.1.9

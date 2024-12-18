@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.06.09"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/danmed/TasmoBackupV1
   - https://hub.docker.com/r/danmed/tasmobackupv1
 type: application
-version: 8.2.10
+version: 8.2.11

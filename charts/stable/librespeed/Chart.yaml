@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "5.4.202408"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/librespeed
   - https://github.com/librespeed/speedtest
 type: application
-version: 15.2.5
+version: 15.2.6

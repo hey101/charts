@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "24.05.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/bastienwirtz/homer
   - https://hub.docker.com/r/b4bz/homer
 type: application
-version: 11.1.8
+version: 11.1.9

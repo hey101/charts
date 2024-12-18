@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "RELEASE.20"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/minio/minio
   - https://hub.docker.com/r/minio/minio
 type: application
-version: 13.4.10
+version: 13.4.11

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.3.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://ghcr.io/tzahi12345/youtubedl-material
   - https://github.com/Tzahi12345/YoutubeDL-Material
 type: application
-version: 12.2.5
+version: 12.2.6

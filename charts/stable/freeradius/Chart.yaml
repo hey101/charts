@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "3.2.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
   - https://freeradius.org/
 type: application
-version: 15.1.8
+version: 15.1.9

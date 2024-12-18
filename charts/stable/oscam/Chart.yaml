@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "11719"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/linuxserver/oscam
   - https://trac.streamboard.tv/oscam/browser/trunk
 type: application
-version: 15.1.8
+version: 15.1.9

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "24.9.3.128"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: includeCommon
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://clickhouse.com/
   - https://hub.docker.com/r/clickhouse/clickhouse-server
 type: application
-version: 14.3.12
+version: 14.3.13

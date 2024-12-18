@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.17.5"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/advplyr/audiobookshelf
   - https://hub.docker.com/r/advplyr/audiobookshelf
 type: application
-version: 11.3.13
+version: 11.3.14

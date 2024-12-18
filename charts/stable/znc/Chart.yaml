@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.9.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/znc
   - https://ghcr.io/linuxserver/znc
 type: application
-version: 11.1.18
+version: 11.1.19

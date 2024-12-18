@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.2.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/Xtrendence/cryptofolio
   - https://hub.docker.com/r/xtrendence/cryptofolio
 type: application
-version: 14.1.8
+version: 14.1.9

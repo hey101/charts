@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/_/hello-world
   - https://metallb.universe.tf
 type: application
-version: 8.1.15
+version: 8.1.16

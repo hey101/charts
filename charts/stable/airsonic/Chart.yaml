@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "10.6.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
   - https://github.com/linuxserver/docker-airsonic
 type: application
-version: 15.1.8
+version: 15.1.9

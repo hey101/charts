@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/Peppermint-Lab/peppermint
   - https://hub.docker.com/r/pepperlabs/peppermint
 type: application
-version: 2.1.34
+version: 2.1.35

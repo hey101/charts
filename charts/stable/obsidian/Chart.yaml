@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.1.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/sytone/obsidian-remote
   - https://github.com/sytone/obsidian-remote/pkgs/container/obsidian-remote
 type: application
-version: 8.1.8
+version: 8.1.9

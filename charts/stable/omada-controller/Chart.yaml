@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "5.14"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/mbentley/docker-omada-controller
   - https://hub.docker.com/r/mbentley/omada-controller
 type: application
-version: 16.2.34
+version: 16.2.35

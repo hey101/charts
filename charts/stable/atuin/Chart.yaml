@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "18.3.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/atuinsh/atuin
   - https://github.com/atuinsh/atuin
 type: application
-version: 5.2.8
+version: 5.2.9

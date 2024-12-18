@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2024.07.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/pihole/pihole
   - https://pi-hole.net/
 type: application
-version: 18.3.5
+version: 18.3.6

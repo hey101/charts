@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -39,4 +39,4 @@ sources:
   - https://github.com/AndrewPaglusch/FlashPaper
   - https://github.com/andrewpaglusch/FlashPaper/pkgs/container/flashpaper
 type: application
-version: 3.1.8
+version: 3.1.9

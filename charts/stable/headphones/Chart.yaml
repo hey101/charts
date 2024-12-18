@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "a78f38c1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/linuxserver/docker-headphones
   - https://github.com/rembo10/headphones
 type: application
-version: 13.1.8
+version: 13.1.9

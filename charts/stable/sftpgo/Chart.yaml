@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.6.4"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/drakkan/sftpgo
   - https://github.com/drakkan/sftpgo
 type: application
-version: 8.1.12
+version: 8.1.13

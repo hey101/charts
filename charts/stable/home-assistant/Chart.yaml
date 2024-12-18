@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2024.10.4"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/home-assistant/home-assistant
   - https://hub.docker.com/r/homeassistant/home-assistant
 type: application
-version: 26.4.13
+version: 26.4.14

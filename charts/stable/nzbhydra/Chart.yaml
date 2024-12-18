@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "7.1.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/geek-cookbook/nzbhydra2
   - https://github.com/theotherp/nzbhydra2
 type: application
-version: 23.1.8
+version: 23.1.9

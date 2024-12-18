@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "24.10.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/actualbudget/actual-server
   - https://github.com/Kippenhof/docker-templates
 type: application
-version: 12.4.7
+version: 12.4.8

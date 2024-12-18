@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.0.5"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/node-red/node-red-docker
   - https://hub.docker.com/r/nodered/node-red
 type: application
-version: 21.0.15
+version: 21.0.16

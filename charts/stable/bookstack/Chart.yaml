@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "24.10.2024"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://ghcr.io/linuxserver/bookstack
   - https://www.bookstackapp.com/
 type: application
-version: 15.3.10
+version: 15.3.11

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/mongo-express/mongo-express
   - https://hub.docker.com/_/mongo-express
 type: application
-version: 8.2.7
+version: 8.2.8

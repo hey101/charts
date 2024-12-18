@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "edge"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/airsonic/airsonic-advanced
   - https://hub.docker.com/r/airsonicadvanced/airsonic-advanced
 type: application
-version: 15.1.8
+version: 15.1.9

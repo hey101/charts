@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2201.1.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/booksonic-air
   - https://github.com/popeen/Booksonic-Air
 type: application
-version: 15.1.26
+version: 15.1.27

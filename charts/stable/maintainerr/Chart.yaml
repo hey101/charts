@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.1.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/jorenn92/Maintainerr
   - https://hub.docker.com/r/jorenn92/maintainerr
 type: application
-version: 4.1.13
+version: 4.1.14

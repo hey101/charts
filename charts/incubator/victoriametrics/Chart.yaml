@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.103.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master
   - https://hub.docker.com/r/victoriametrics/victoria-metrics
 type: application
-version: 2.2.7
+version: 2.2.8

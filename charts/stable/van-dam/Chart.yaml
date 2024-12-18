@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.54.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://ghcr.io/floppy/van_dam
   - https://github.com/Floppy/van_dam
 type: application
-version: 6.2.7
+version: 6.2.8

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tar1090
   - https://hub.docker.com/r/mikenye/tar1090
 type: application
-version: 7.1.77
+version: 7.1.78

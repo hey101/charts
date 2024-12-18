@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "main"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/diamkil/socials
   - https://registry.hub.docker.com/r/diamkil/socials/
 type: application
-version: 7.1.8
+version: 7.1.9

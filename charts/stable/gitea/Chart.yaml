@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.22.6"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -46,4 +46,4 @@ sources:
   - https://github.com/go-gitea/gitea
   - https://hub.docker.com/r/gitea/gitea
 type: application
-version: 20.3.11
+version: 20.3.12

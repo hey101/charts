@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.10.3"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/OctoPrint/OctoPrint
   - https://hub.docker.com/r/octoprint/octoprint
 type: application
-version: 15.1.10
+version: 15.1.11

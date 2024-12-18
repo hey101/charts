@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.4.4"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://craftycontrol.com/
   - https://gitlab.com/crafty-controller/crafty-4
 type: application
-version: 9.1.13
+version: 9.1.14

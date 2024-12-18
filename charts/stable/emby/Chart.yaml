@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.8.7.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/geek-cookbook/emby
   - https://github.com/linuxserver/docker-emby.git
 type: application
-version: 20.1.8
+version: 20.1.9

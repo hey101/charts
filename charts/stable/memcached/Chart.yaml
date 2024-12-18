@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.6.33"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: includeCommon
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/bitnami/bitnami-docker-memcached
   - https://hub.docker.com/r/bitnami/memcached
 type: application
-version: 14.1.15
+version: 14.1.16

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.1.14"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/ankicommunity/anki-devops-services
   - https://hub.docker.com/r/ankicommunity/anki-sync-server-rs
 type: application
-version: 8.1.8
+version: 8.1.9

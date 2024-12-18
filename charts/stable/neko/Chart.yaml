@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.8.12"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://ghcr.io/m1k1o/neko/xfce
   - https://github.com/m1k1o/neko
 type: application
-version: 8.1.9
+version: 8.1.10

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.12.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/paperless-ngx/paperless-ngx
   - https://paperless-ngx.readthedocs.io/en/latest/
 type: application
-version: 9.5.12
+version: 9.5.13

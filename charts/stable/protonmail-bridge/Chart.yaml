@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "3.12.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/shenxn/protonmail-bridge-docker
   - https://hub.docker.com/r/shenxn/protonmail-bridge
 type: application
-version: 16.2.6
+version: 16.2.7

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "11.5.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: includeCommon
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://hub.docker.com/r/bitnami/mariadb
   - https://mariadb.org
 type: application
-version: 15.2.15
+version: 15.2.16

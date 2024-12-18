@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.63.7"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/zadam/trilium
   - https://github.com/zadam/trilium
 type: application
-version: 14.1.8
+version: 14.1.9

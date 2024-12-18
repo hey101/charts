@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.4.5"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/rsnapshot
   - https://ghcr.io/linuxserver/rsnapshot
 type: application
-version: 11.1.20
+version: 11.1.21

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.10.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/enchant97/hasty-paste
   - https://github.com/enchant97/hasty-paste/blob/main/docs/install.md
 type: application
-version: 8.2.8
+version: 8.2.9

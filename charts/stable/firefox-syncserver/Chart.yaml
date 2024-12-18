@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.8.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/crazy-max/firefox-syncserver
   - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
 type: application
-version: 19.1.8
+version: 19.1.9

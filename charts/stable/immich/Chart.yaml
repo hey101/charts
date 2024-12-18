@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.115.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://hub.docker.com/r/altran1502/immich-machine-learning
   - https://hub.docker.com/r/altran1502/immich-server
 type: application
-version: 17.6.10
+version: 17.6.11

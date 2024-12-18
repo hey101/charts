@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.44.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/sbondco/watcharr
   - https://github.com/sbondCo/Watcharr
 type: application
-version: 6.3.10
+version: 6.3.11

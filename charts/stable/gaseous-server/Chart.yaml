@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.7.7"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/gaseous-project/gaseous-server
   - https://hub.docker.com/r/gaseousgames/gaseousserver
 type: application
-version: 3.3.10
+version: 3.3.11

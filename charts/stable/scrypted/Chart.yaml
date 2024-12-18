@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.119.3-ja"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/koush/scrypted
   - https://hub.docker.com/r/koush/scrypted
 type: application
-version: 6.13.26
+version: 6.13.27

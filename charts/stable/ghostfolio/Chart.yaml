@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.115.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/ghostfolio/ghostfolio
   - https://hub.docker.com/r/ghostfolio/ghostfolio
 type: application
-version: 6.15.14
+version: 6.15.15

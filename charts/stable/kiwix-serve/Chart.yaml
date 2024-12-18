@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "3.7.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
   - https://www.kiwix.org/
 type: application
-version: 10.1.13
+version: 10.1.14

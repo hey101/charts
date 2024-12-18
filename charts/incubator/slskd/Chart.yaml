@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.21.4"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/slskd/slskd
   - https://github.com/ansible-slskd/slskd
 type: application
-version: 2.1.12
+version: 2.1.13

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.33.2"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/sct/overseerr
   - https://github.com/sct/overseerr
 type: application
-version: 15.1.8
+version: 15.1.9

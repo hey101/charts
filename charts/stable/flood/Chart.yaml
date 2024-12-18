@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.8.5"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/jesec/flood
   - https://hub.docker.com/r/jesec/flood
 type: application
-version: 15.1.11
+version: 15.1.12

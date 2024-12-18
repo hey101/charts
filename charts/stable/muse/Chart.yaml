@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.9.5"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/codetheweb/muse
   - https://hub.docker.com/r/codetheweb/muse
 type: application
-version: 7.2.8
+version: 7.2.9

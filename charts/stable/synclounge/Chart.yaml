@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "5.2.34"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/synclounge
   - https://ghcr.io/linuxserver/synclounge
 type: application
-version: 11.1.33
+version: 11.1.34

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "cpu"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/codeproject/CodeProject.AI-Server
   - https://hub.docker.com/r/codeproject/ai-server
 type: application
-version: 4.1.9
+version: 4.1.10

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "7.59"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/wekanteam/wekan
   - https://wekan.github.io/
 type: application
-version: 16.11.7
+version: 16.11.8

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.2.9-0.9"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/crazy-max/docker-rtorrent-rutorrent
   - https://truecharts.org/charts/stable/rtorrent-rutorrent
 type: application
-version: 6.1.9
+version: 6.1.10

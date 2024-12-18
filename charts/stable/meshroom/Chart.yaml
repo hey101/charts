@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.4.0-cent"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/alicevision/meshroom
   - https://hub.docker.com/r/alicevision/meshroom
 type: application
-version: 11.1.8
+version: 11.1.9

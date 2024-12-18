@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.15.9"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/ajnart/homarr
   - https://github.com/ajnart/homarr
 type: application
-version: 12.1.15
+version: 12.1.16

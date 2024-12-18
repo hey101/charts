@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/lloesche/valheim-server
   - https://github.com/lloesche/valheim-server-docker
 type: application
-version: 12.1.8
+version: 12.1.9

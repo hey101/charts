@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "full"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/PhasecoreX/docker-red-discordbot
   - https://hub.docker.com/r/phasecorex/red-discordbot
 type: application
-version: 7.1.31
+version: 7.1.32

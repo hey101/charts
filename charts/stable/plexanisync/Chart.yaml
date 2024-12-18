@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.4.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/RickDB/PlexAniSync
   - https://github.com/RickDB/PlexAniSync/pkgs/container/plexanisync
 type: application
-version: 8.1.8
+version: 8.1.9

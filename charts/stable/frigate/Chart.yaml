@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "0.14.1"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/blakeblackshear/frigate
   - https://github.com/blakeblackshear/frigate
 type: application
-version: 16.2.6
+version: 16.2.7

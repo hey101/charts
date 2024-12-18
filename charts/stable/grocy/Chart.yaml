@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "4.2.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/grocy
   - https://github.com/grocy/grocy
 type: application
-version: 20.1.24
+version: 20.1.25

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2024.8.0"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/misskey-dev/misskey/
   - https://hub.docker.com/r/misskey/misskey
 type: application
-version: 10.3.7
+version: 10.3.8

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2.5.2.4316"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/onedr0p/lidarr-develop
   - https://github.com/Lidarr/Lidarr
 type: application
-version: 23.2.6
+version: 23.2.7

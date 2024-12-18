@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "6.1.24"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/firefly-iii/firefly-iii/
   - https://hub.docker.com/r/fireflyiii/core
 type: application
-version: 27.2.11
+version: 27.2.12
