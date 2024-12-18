@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/synclounge
   pullPolicy: IfNotPresent
-  tag: 5.2.34@sha256:c8909022f2b566508c20521cc68449d90971498e3cb983c3242cbdf2623509e2
+  tag: 5.2.34@sha256:d9ef252ea9b2074e10a7884e757488b69b85b2f3752f2ed7b862a37e713d5a77
 service:
   main:
     ports:
