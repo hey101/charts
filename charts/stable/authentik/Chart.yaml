@@ -45,4 +45,4 @@ sources:
   - https://github.com/goauthentik/authentik
   - https://goauthentik.io/docs/
 type: application
-version: 27.3.16
+version: 27.3.17
