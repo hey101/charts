@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: sourcegraph/server
-  tag: 5.7.2474@sha256:addcd6e7e9e5e4ba10930d94278553a53adfa3113626f463fbf604ded3b21a11
+  tag: 5.10.2832@sha256:a5f52e2fad375e1bd8feaa3372ededcd05e3534b63f094933ca0dbf787899398
 persistence:
   applicationdatastoragepath:
     enabled: true
