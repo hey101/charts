@@ -1,10 +1,10 @@
 image:
   repository: portainer/portainer-ce
-  tag: 2.21.4@sha256:f2a7f5abd4735f9cd91563c6134e014b15168c4018beea87f1eec9d9618b2ad4
+  tag: 2.25.0@sha256:7a54433da2d375c7a2ffdf0bddab9d240fc7c4167dad830d0bd244a001419bb8
   pullPolicy: IfNotPresent
 beImage:
   repository: portainer/portainer-ee
-  tag: 2.21.4@sha256:7270f8fc038005ba12d8a444303776357f54307764cfebfcd97ba892b69a3168
+  tag: 2.25.0@sha256:0f5d382484ce21fbc9e81e4e40a890631339137f69bedcdeb656f5d839f4756a
   pullPolicy: IfNotPresent
 portainer:
   # Logo URL
