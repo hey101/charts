@@ -1,7 +1,7 @@
 image:
   repository: beromir/servas
   pullPolicy: IfNotPresent
-  tag: 0.2.0@sha256:e3beaf055c5916dc10170305046628a81e117650a7062d26b64da58237d3b8b3
+  tag: 0.4.1@sha256:a60f8aacf152ee76f32a8e07f39ec34293ec3272b154cf83564a0f3d6b60eb51
 securityContext:
   container:
     runAsNonRoot: false
