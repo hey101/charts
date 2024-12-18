@@ -1,6 +1,6 @@
 image:
   repository: difegue/lanraragi
-  tag: v.0.9.21@sha256:0fec3422dc32bb8f8d05b859d85e6ea1fec16b29360eaf42c61aef0152dd1d25
+  tag: v.0.9.22@sha256:1d23ee009a734706055070dfebacd3f0ae5a53625bead7e325b1ad74553a9ad3
   pullPolicy: IfNotPresent
 service:
   main:
