@@ -1,6 +1,6 @@
 image:
   repository: b4bz/homer
-  tag: v24.05.1@sha256:66c2a66e3df660e270eca9a388c4164409c8f54edac7cf3c2424075fef593a39
+  tag: v24.12.1@sha256:4b44a4a9e3294ccef756275271342661c389ae2936e71ac96b911a139de57757
   pullPolicy: IfNotPresent
 service:
   main:
