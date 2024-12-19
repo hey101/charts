@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ich777/online-check-pushover
-  tag: latest@sha256:ac58b449b95cc469a7eef34311140689ed0ef402995afb9fd72b86444908c5e9
+  tag: latest@sha256:0363c5956681f9c8957096dcb407c34e2a273a55e157f1bb8d0b2156cb3169f1
 persistence: {}
 portal:
   open:
