@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ich777/redmserver
-  tag: latest@sha256:05fe3fc7a4e6ebc5f40dbdee7863806af1af4c5cfb2d3b643254a15fb6e0ae8a
+  tag: latest@sha256:66e482a40f21417176594139f09af18097b468df272ea843f4b7903e6d8400d6
 persistence:
   serverfiles:
     enabled: true
