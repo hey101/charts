@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ich777/openttdserver
-  tag: latest@sha256:259924c45cb21e1dcb0f59c4b3d755db7e06e048159465d66cb215b3eabf8cdd
+  tag: latest@sha256:ca754b561cb1aa1725ab498ef951bd365e99d8aa396ac763a087717e5e0d4647
 persistence:
   serverfiles:
     enabled: true
