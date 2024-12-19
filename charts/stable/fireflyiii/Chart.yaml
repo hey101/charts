@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "6.1.24"
+appVersion: "6.1.25"
 dependencies:
   - name: common
     version: 24.1.11
@@ -41,4 +41,4 @@ sources:
   - https://github.com/firefly-iii/firefly-iii/
   - https://hub.docker.com/r/fireflyiii/core
 type: application
-version: 27.2.12
+version: 27.2.13
