@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
     condition: ''
     alias: ''
     tags: []
     import-values: []
   - name: localpv-provisioner
-    version: 4.1.0
+    version: 4.1.2
     repository: https://openebs.github.io/dynamic-localpv-provisioner
     condition: localpv-provisioner.enabled
     alias: ''
@@ -41,4 +41,4 @@ sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
 type: application
-version: 8.0.5
+version: 8.0.6
