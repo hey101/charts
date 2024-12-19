@@ -35,4 +35,4 @@ sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/palworld
   - https://hub.docker.com/r/outdead/rcon
 type: application
-version: 4.1.11
+version: 4.1.12
