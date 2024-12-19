@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ich777/mindustry-server
-  tag: latest@sha256:9358262ccc423848f32a9b980e3c1292510ad83cdb882852db09e2f300b57054
+  tag: latest@sha256:25b1c70625b086cefafe7207b81c7e8df5c602a874656530555eae9bcaf992ad
 persistence:
   serverfiles:
     enabled: true
