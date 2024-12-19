@@ -16,11 +16,11 @@ archXFCEImage:
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-kde@sha256:d51abb6eb87702ce08c130a54190549b5f4e37a6d813b827520200e9af9e08bf
+  tag: alpine-kde@sha256:0e8b08c2603a42cddaf635dfd2a5eacb335f80c017d663aecb2c4bc72317315f
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-kde@sha256:2783da8f821afdd6add45349714bc51b31b7f424b8bd8afba6cba16772c5a825
+  tag: ubuntu-kde@sha256:14bd5a7cf3bb08365568bd774aa6a28a253fe62a5315554bcf3b3c53beccbaa0
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/webtop
