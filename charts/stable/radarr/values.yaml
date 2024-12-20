@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/radarr
   pullPolicy: IfNotPresent
-  tag: 5.12.2.9335@sha256:d7ab75d9280e9067c9c7b4e3fc6366c030a5090dc842785d098f5967417cbac9
+  tag: 5.16.3.9541@sha256:0cb0a7c9b70685aa59f076a757ba5876153788fa0f38db0617e8a50ba0a27fe4
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
