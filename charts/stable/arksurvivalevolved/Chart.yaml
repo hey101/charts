@@ -35,4 +35,4 @@ sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/arkse
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 9.1.10
+version: 9.1.11
