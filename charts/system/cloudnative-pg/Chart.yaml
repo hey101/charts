@@ -42,4 +42,4 @@ sources:
   - https://cloudnative-pg.io/
   - https://github.com/cloudnative-pg
 type: application
-version: 8.1.6
+version: 8.1.7

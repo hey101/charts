@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator
   - https://github.com/prometheus-operator
 type: application
-version: 8.3.3
+version: 8.3.4

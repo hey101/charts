@@ -41,4 +41,4 @@ sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
 type: application
-version: 5.1.7
+version: 5.1.8
