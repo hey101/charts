@@ -9,6 +9,9 @@ persistence:
   data:
     enabled: true
     mountPath: /debian-mirror/data
+  base:
+    enabled: true
+    mountPath: /debian-mirror
 portal:
   open:
     enabled: true
@@ -30,7 +33,10 @@ workload:
       containers:
         main:
           env:
+            DATA_DIR: "/debian-mirror"
+            CONFIG_DIR: "/debian-mirror/config"
+            MIRROR_DIR: "/debian-mirror/data"
             APACHE2_PORT: "980"
-            DATA_PERM: "770"
+            CRON_SCHEDULE: "0 1 * * *"
             FORCE_UPDATE: "false"
-            UMASK: "0000"
+            DATA_PERM: "770"
