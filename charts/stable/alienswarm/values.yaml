@@ -38,8 +38,8 @@ workload:
       containers:
         main:
           env:
-            GAME_ID: "635"
-            GAME_NAME: swarm
+            GAME_ID: "563560"
+            GAME_NAME: reactivedrop
             GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
             GAME_PORT: "27015"
             PASSWRD: ""
@@ -47,11 +47,11 @@ workload:
             VALIDATE: "false"
           probes:
             liveness:
-              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
               type: tcp
             readiness:
-              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
               type: tcp
             startup:
-              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
               type: tcp
