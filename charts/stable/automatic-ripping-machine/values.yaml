@@ -22,6 +22,24 @@ service:
 workload:
   main:
     podSpec:
+      # force 568:568 for /home/arm & etc/arm/config
+      initContainers:
+        arm-perms:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - /bin/sh
+          args:
+            - -c
+            - |
+              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/home/arm] ..."
+              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /home/arm
+
+              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/etc/arm/config] ..."
+              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /etc/arm/config
+
+              echo "Finished."
       containers:
         main:
           env:
@@ -33,9 +51,17 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/arm/config"
+    targetSelector:
+      main:
+        main: {}
+        arm-perms: {}
   arm:
     enabled: true
     mountPath: "/home/arm"
+    targetSelector:
+      main:
+        main: {}
+        arm-perms: {}
 
 portal:
   open:
