@@ -38,8 +38,8 @@ workload:
       containers:
         main:
           env:
-            GAME_ID: "563560"
-            GAME_NAME: reactivedrop
+            GAME_ID: "635"
+            GAME_NAME: swarm
             GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
             GAME_PORT: "27015"
             PASSWRD: ""
