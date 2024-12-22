@@ -34,4 +34,4 @@ sources:
   - https://github.com/rocker-org/rocker-versioned2
   - https://hub.docker.com/r/rocker/rstudio
 type: application
-version: 8.1.15
+version: 8.1.16
