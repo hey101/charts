@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/freshrss
   - https://github.com/FreshRSS/FreshRSS
 type: application
-version: 20.1.28
+version: 20.1.29
