@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/linuxserver/resilio-sync
   - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
 type: application
-version: 16.1.21
+version: 16.1.22
