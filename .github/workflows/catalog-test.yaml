@@ -17,9 +17,23 @@ on:
         required: true
 
 jobs:
-  catalog-tests:
-    name: Test SCALE Catalog
+  determine-runner:
     runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.set-runner.outputs.use-runner }}
+    steps:
+      - name: Determine which runner to use
+        id: set-runner
+        uses: jimmygchen/runner-fallback-action@v1
+        with:
+          primary-runner: "ephemeral"
+          fallback-runner: "ubuntu-latest"
+          github-token: ${{ secrets.BOT_TOKEN }}
+
+  catalog-tests:
+    needs: determine-runner
+    name: Test SCALE Catalog
+    runs-on: ${{ fromJson(needs.determine-runner.outputs.runner) }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         name: Checkout
