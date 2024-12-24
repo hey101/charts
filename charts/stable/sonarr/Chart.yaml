@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/onedr0p/sonarr
   - https://github.com/Sonarr/Sonarr
 type: application
-version: 23.1.17
+version: 23.1.18
