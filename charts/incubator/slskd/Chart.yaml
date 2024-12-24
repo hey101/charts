@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: '3.11'
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: "0.21.4"
+appVersion: "0.22.1"
 dependencies:
   - name: common
     version: 24.1.11
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/slskd/slskd
   - https://github.com/ansible-slskd/slskd
 type: application
-version: 2.1.13
+version: 2.1.14
