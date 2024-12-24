@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "0.7.6"
+appVersion: "0.8.1"
 dependencies:
   - name: common
     version: 24.1.11
@@ -34,4 +34,4 @@ sources:
   - https://github.com/charmbracelet/soft-serve
   - https://hub.docker.com/r/charmcli/soft-serve
 type: application
-version: 8.1.10
+version: 8.1.11
