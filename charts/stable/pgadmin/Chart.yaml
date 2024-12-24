@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "8.12"
+appVersion: "8.14"
 dependencies:
   - name: common
     version: 24.1.11
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/dpage/pgadmin4
   - https://www.pgadmin.org/
 type: application
-version: 17.4.8
+version: 17.4.9
