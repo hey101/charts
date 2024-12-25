@@ -13,6 +13,7 @@
   commitMessageSuffix: 'By Renovate',
   rebaseWhen: 'conflicted',
   prConcurrentLimit: 150,
+  prHourlyLimit: 4,
   timezone: 'Europe/Amsterdam',
   pinDigests: true,
   automerge: false,
