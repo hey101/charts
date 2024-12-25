@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "4.1.2"
+appVersion: "4.3.0"
 dependencies:
   - name: common
     version: 24.1.11
@@ -35,4 +35,4 @@ sources:
   - https://github.com/shlinkio/shlink-web-client
   - https://hub.docker.com/r/shlinkio/shlink-web-client
 type: application
-version: 13.0.6
+version: 13.0.7
