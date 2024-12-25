@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "0.15.0"
+appVersion: "0.15.1"
 dependencies:
   - name: common
     version: 24.1.11
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/external-dns
   - https://github.com/kubernetes-sigs/external-dns
 type: application
-version: 6.1.10
+version: 6.1.11
