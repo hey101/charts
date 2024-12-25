@@ -1,6 +1,6 @@
 image:
   repository: monica
-  tag: 4.1.2@sha256:33963989120f1a5c7e456c737f476138c8333b1c55eca4c2e2b6f771ee3eaca1
+  tag: 4.1.2@sha256:98c5b4c1c51cfde4ad75542f0fcf81d5b3f91671b1993827a7e288a9b6634fca
   pullPolicy: IfNotPresent
 service:
   main:
