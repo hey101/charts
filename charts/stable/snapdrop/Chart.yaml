@@ -33,4 +33,4 @@ sources:
   - https://github.com/linuxserver/docker-snapdrop
   - https://hub.docker.com/r/linuxserver/snapdrop
 type: application
-version: 11.1.23
+version: 11.1.24
