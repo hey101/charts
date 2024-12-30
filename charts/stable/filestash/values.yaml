@@ -1,6 +1,6 @@
 image:
   repository: machines/filestash
-  tag: latest@sha256:41370f310f4140f1a99cbd8aa4ade16a815db83df961bab784e638f83d79f0ce
+  tag: latest@sha256:a4cb390f3c48d15049fcc827009fcd14b7ccca861380bbe4aa6263bfcf282ae9
   pullPolicy: IfNotPresent
 
 securityContext:
