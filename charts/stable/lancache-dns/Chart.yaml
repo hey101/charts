@@ -34,4 +34,4 @@ sources:
   - https://github.com/lancachenet/lancache-dns
   - https://hub.docker.com/r/lancachenet/lancache-dns
 type: application
-version: 10.1.15
+version: 10.1.16
