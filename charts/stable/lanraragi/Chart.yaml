@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: ".0.9.21"
+appVersion: ".0.9.30"
 dependencies:
   - name: common
     version: 24.1.11
@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/difegue/lanraragi
   - https://sugoi.gitbook.io/lanraragi/
 type: application
-version: 11.1.14
+version: 11.1.15
