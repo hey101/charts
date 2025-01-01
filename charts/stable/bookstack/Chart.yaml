@@ -45,4 +45,4 @@ sources:
   - https://ghcr.io/linuxserver/bookstack
   - https://www.bookstackapp.com/
 type: application
-version: 15.3.11
+version: 15.3.12
