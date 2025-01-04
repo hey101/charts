@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/firefox
   - https://github.com/linuxserver/docker-firefox
 type: application
-version: 17.0.12
+version: 17.0.13
