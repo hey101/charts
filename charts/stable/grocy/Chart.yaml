@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/linuxserver/grocy
   - https://github.com/grocy/grocy
 type: application
-version: 20.1.27
+version: 20.1.28
