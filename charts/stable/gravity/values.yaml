@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/beryju/gravity
-  tag: v0.19.1@sha256:dacd44b69d30d078fd2125c89849085073de14163f99e88ad9ab82a597dd0f9e
+  tag: v0.20.0@sha256:0a76c742175972525f9ca122d2f121a8c4274a561fb77ce5c240d63bf115e45b
   pullPolicy: IfNotPresent
 
 securityContext:
