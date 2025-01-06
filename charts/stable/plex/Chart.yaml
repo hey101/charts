@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/onedr0p/plex
   - https://github.com/k8s-at-home/container-images/pkgs/container/plex
 type: application
-version: 19.1.19
+version: 19.1.20
