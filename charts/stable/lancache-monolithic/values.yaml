@@ -1,11 +1,11 @@
 image:
-  repository: lancachenet/monolithic
+  repository: docker.io/lancachenet/monolithic
   pullPolicy: IfNotPresent
   tag: latest@sha256:e6f66f77d959df7f416fb6f5831e816a99d28366a5fe945c11b760b17133c01e
 prefillImage:
-  repository: ich777/lancache-prefill
+  repository: ghcr.io/ich777/lancache-prefill
   pullPolicy: IfNotPresent
-  tag: latest@sha256:30732b121eeff13660a434209edaef7d3f8741d2efd86312141240777e14cfbe
+  tag: latest@sha256:237c5283d9df16b1a2f93f27dec24e9b6e8faf09d0ba71e8737f7614191ac915
 securityContext:
   container:
     readOnlyRootFilesystem: false

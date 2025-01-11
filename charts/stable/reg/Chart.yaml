@@ -1,19 +1,18 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: utilities
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "2"
+appVersion: 2.0.0
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -29,9 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: reg
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
   - https://github.com/genuinetools/reg
   - https://github.com/k8s-at-home/container-images/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
   - https://hub.docker.com/_/registry
 type: application
-version: 15.1.17
+version: 15.4.2

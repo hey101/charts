@@ -1,5 +1,5 @@
 image:
-  repository: syncthing/syncthing
+  repository: docker.io/syncthing/syncthing
   pullPolicy: IfNotPresent
   tag: 1.29.1@sha256:982cac030eecabfd6e6ce293e14b282fb9a89704a101e5456bfb7b4b7ba037a1
 workload:

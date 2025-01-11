@@ -1,26 +1,25 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "0.260.1"
+appVersion: 0.260.1
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 15.2.2
-    repository: https://petersandor.github.io/truecharts-common
+    version: 15.5.1
+    repository: oci://tccr.io/truecharts
     condition: redis.enabled
-    alias: ''
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -36,8 +35,8 @@ maintainers:
     url: https://truecharts.org
 name: nocodb
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://github.com/nocodb/nocodb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://hub.docker.com/r/nocodb/nocodb
 type: application
-version: 15.6.12
+version: 15.17.1

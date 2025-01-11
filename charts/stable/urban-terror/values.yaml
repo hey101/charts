@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/urbanterror
-  tag: latest@sha256:7f0336f76c3546878f3c94a762d79961eb1c979014df43b655eb994950b153e6
+  repository: ghcr.io/ich777/urbanterror
+  tag: latest@sha256:a1c4a9d0d7036263a87cb14b92849bf3fda11f55505f9d94ba3cb35d926ed8c6
 persistence:
   datadir:
     enabled: true

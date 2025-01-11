@@ -1,5 +1,5 @@
 image:
-  repository: flowiseai/flowise
+  repository: docker.io/flowiseai/flowise
   pullPolicy: IfNotPresent
   tag: 2.2.3@sha256:bd99a55d707cc9640930ffe75f5c96b42b19b7fb69abce94ad9f367c395dd601
 securityContext:

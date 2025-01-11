@@ -1,5 +1,5 @@
 image:
-  repository: homeassistant/home-assistant
+  repository: docker.io/homeassistant/home-assistant
   pullPolicy: IfNotPresent
   tag: 2025.1.2@sha256:871f84a00db8d05856a70ee3761b138a8e91eb108d61f2fa176e7eeadb5eda03
 service:
@@ -17,11 +17,7 @@ workload:
           enabled: true
           imageSelector: yqImage
           command: /config/init/init.sh
-# # Enable devices to be discoverable
-# hostNetwork: true
 
-# # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
-# dnsPolicy: ClusterFirstWithHostNet
 homeassistant:
   trusted_proxies: []
 # Enable a prometheus-operator servicemonitor

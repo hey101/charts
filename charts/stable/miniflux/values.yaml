@@ -1,6 +1,6 @@
 image:
   pullPolicy: IfNotPresent
-  repository: miniflux/miniflux
+  repository: docker.io/miniflux/miniflux
   tag: 2.2.4@sha256:20adbf84f0d8cd24b4ebbc138e31087419a274fd9c717c6a909b0773b4538b98
 persistence:
   config:

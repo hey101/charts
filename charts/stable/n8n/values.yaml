@@ -1,5 +1,5 @@
 image:
-  repository: n8nio/n8n
+  repository: docker.io/n8nio/n8n
   tag: 1.74.1@sha256:44bcadc60856f08493624514486a0c3edc91c618a6c82c705403db5ee5a63923
   pullPolicy: IfNotPresent
 timezoneandlocale: {}

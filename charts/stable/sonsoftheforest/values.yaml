@@ -1,6 +1,6 @@
 image:
-  repository: ich777/steamcmd
-  tag: sonsoftheforest@sha256:7648db1c10c28a35f7a2037b39a32be11e0917e7af6118c04c497d96c39b7933
+  repository: ghcr.io/ich777/steamcmd
+  tag: sonsoftheforest@sha256:f454f7468510f5c83b271b8ac5fb700738d385c23c944c10993e0275aa729718
   pullPolicy: IfNotPresent
 
 securityContext:

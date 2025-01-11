@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/quake3
-  tag: latest@sha256:4e0a6509a3fc087edf8b7ebfeedce4bcddd2356c02d0cb0f9fe84517a9d9ec6f
+  repository: ghcr.io/ich777/quake3
+  tag: latest@sha256:921d9f076b2f8e7f2eea0b947ddc7949013480b8f0a088b1333dc5603d2f28a3
 persistence:
   serverfiles:
     enabled: true

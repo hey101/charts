@@ -1,19 +1,18 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: 'true'
   truecharts.org/category: database
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: "1.109.0"
+appVersion: 1.108.1
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -31,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: victoriametrics
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/victoriametrics
   - https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/victoriametrics
   - https://hub.docker.com/r/victoriametrics/victoria-metrics
 type: application
-version: 2.2.10
+version: 2.11.0

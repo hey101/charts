@@ -1,0 +1,46 @@
+image:
+  repository: docker.io/itzg/mc-router
+  pullPolicy: IfNotPresent
+  tag: 1.25.0@sha256:c471cb6883fe61dfb04b023b60c19f11946e77a907b8c00b4bc049329eed1653
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        port: 25564
+
+mcrouter:
+  default: vanilla:25565
+  mappings:
+    - vanilla:25565
+    - forge:25565
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+            readiness:
+              enabled: true
+              type: tcp
+            startup:
+              enabled: true
+              type: tcp
+          env:
+            API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            DEFAULT: "{{ .Values.mcrouter.default }}"
+            MAPPING: '{{ join "," .Values.mcrouter.mappings }}'
+
+portal:
+  open:
+    enabled: false

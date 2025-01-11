@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: hl2dm@sha256:8c923ae5ee7de1abaf58d425fad34602c586ac4ed53b74f1b343bab841b4fe49
+  repository: ghcr.io/ich777/steamcmd
+  tag: hl2dm@sha256:90734cad0bfa1f79dafdec123386f883f9df23d760f860544fd6a4272c62e7bf
 persistence:
   serverfiles:
     enabled: true

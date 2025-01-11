@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/starmade-server
-  tag: latest@sha256:3f97d9800053e128228adaec2d176c8682a7d1ff7e456a60cf230893756920b4
+  repository: ghcr.io/ich777/starmade-server
+  tag: latest@sha256:d80bb3b93a0e00d86b884f0e05ee778b9dc1dea43c79308a5b08735a47e17cd2
 persistence:
   serverfiles:
     enabled: true

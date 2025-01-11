@@ -1,19 +1,18 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: database
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "24.12.2.29"
+appVersion: 24.12.2.29
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
     condition: includeCommon
-    alias: ''
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -31,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: clickhouse
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/clickhouse
   - https://clickhouse.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/clickhouse
   - https://hub.docker.com/r/clickhouse/clickhouse-server
 type: application
-version: 14.3.15
+version: 14.10.1

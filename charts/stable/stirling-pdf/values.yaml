@@ -1,0 +1,53 @@
+image:
+  repository: ghcr.io/stirling-tools/s-pdf
+  pullPolicy: IfNotPresent
+  tag: 0.36.6-ultra-lite@sha256:e0b077baaed97e04f6dbc09efecfd3e3ebd5f092e4f2a8f82d14b330fe48e96f
+fatImage:
+  repository: ghcr.io/stirling-tools/s-pdf
+  pullPolicy: IfNotPresent
+  tag: 0.36.6-fat@sha256:002ef64728ef44ee0671a4899f224b50e0142b58b5e47c68414d9bf86f8484bd
+fullImage:
+  repository: ghcr.io/stirling-tools/s-pdf
+  pullPolicy: IfNotPresent
+  tag: 0.36.6@sha256:05b680a2dfb127b31f4b4e3d04637bee2fd84e9005b96f0e32c639e61ca6039e
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 18080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          # checkout the difference between the images.
+          # https://github.com/Stirling-Tools/Stirling-PDF/blob/main/Version-groups.md
+          imageSelector: image
+          env:
+            # enable to add login support
+            DOCKER_ENABLE_SECURITY: false
+            # uncomment to set the intial auth
+            # default auth below
+            # SECURITY_INITIALLOGIN_USERNAME: admin
+            # SECURITY_INITIALLOGIN_PASSWORD: stirling
+            # Download Calibre onto Stirling-PDF to enable PDF to/from book and advanced HTML conversion
+            INSTALL_BOOK_AND_ADVANCED_HTML_OPS: false
+            LANGS: en_US
+persistence:
+  configs:
+    enabled: true
+    mountPath: "/configs"
+  tessdata:
+    enabled: true
+    mountPath: "/usr/share/tessdata"
+  custom-files:
+    enabled: true
+    mountPath: "/customFiles"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+portal:
+  open:
+    enabled: true

@@ -1,23 +1,22 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: network
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "1.0.202109"
+appVersion: 1.0.20210914
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: WireGuard is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
+description: WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
 home: https://truecharts.org/charts/stable/wireguard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireguard.webp
 keywords:
@@ -30,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: wireguard
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wireguard
   - https://ghcr.io/k8s-at-home/wireguard
   - https://github.com/k8s-at-home/container-images/tree/main/apps/wireguard
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wireguard
 type: application
-version: 10.1.9
+version: 10.4.0

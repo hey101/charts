@@ -1,5 +1,5 @@
 image:
-  repository: nocodb/nocodb
+  repository: docker.io/nocodb/nocodb
   tag: 0.260.1@sha256:c111d28fb0dfa26e7779ffd8695a76bde3b2dbcd89c69a1f7b6181927c9e074a
   pullPolicy: IfNotPresent
 securityContext:

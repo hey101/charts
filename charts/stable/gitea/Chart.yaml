@@ -1,26 +1,25 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: GIT
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "1.23.1"
+appVersion: 1.23.1
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
   - name: memcached
-    version: 14.1.6
-    repository: https://petersandor.github.io/truecharts-common
+    version: 14.4.0
+    repository: oci://tccr.io/truecharts
     condition: memcached.enabled
-    alias: ''
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -41,9 +40,9 @@ maintainers:
     url: https://truecharts.org
 name: gitea
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://gitea.com/gitea/helm-chart
   - https://github.com/go-gitea/gitea
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://hub.docker.com/r/gitea/gitea
 type: application
-version: 20.3.14
+version: 20.10.1

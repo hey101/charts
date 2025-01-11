@@ -1,5 +1,5 @@
 image:
-  repository: metabase/metabase
+  repository: docker.io/metabase/metabase
   pullPolicy: IfNotPresent
   tag: v0.52.5@sha256:5ead2fd7c85e44caac9758f9974704921af12e7f6c87be19dc54463596f2f8d9
 service:
