@@ -62,15 +62,15 @@ jobs:
         uses: ./.github/actions/collect-changes
 
       - name: Generate Changelog
-       shell: bash
-       if: |
-         steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-       run: |
-         export GOBIN=/usr/local/bin/
-         go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
-         CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-         parthreads=$(($(nproc) * 2))
-         parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          export GOBIN=/usr/local/bin/
+          go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          parthreads=$(($(nproc) * 2))
+          parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
