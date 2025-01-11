@@ -50,6 +50,7 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
+      modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
     secrets:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
