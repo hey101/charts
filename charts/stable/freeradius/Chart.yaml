@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
   - https://freeradius.org/
 type: application
-version: 15.1.9
+version: 15.2.0
