@@ -10,7 +10,7 @@ appVersion: 24.04.11.1.1
 dependencies:
   - name: common
     version: 25.3.1
-    repository: oci://tccr.io/truecharts
+    repository: https://petersandor.github.io/truecharts-common
     condition: ""
     alias: ""
     tags: []

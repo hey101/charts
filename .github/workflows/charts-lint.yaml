@@ -100,13 +100,25 @@ jobs:
           else
             echo "changes_detected=false" >> $GITHUB_OUTPUT
           fi
+          
+      - name: Stash changes (if any)
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        run: |
+          git config user.name "hey101"
+          git config user.email "hey101[bot]@users.noreply.github.com"
+          git stash
 
-      - name: Commit and push changes
+      - name: Checkout & rebase PR branch
         if: steps.check_changes.outputs.changes_detected == 'true'
         run: |
           git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
           git checkout ${{ github.head_ref }}
           git pull --rebase origin ${{ github.head_ref }}
+
+      - name: Pop stash & commit changes
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        run: |
+          git stash pop || echo "No stash to pop (nothing changed?)"
           git config user.name "hey101"
           git config user.email "hey101[bot]@users.noreply.github.com"
           git add .
