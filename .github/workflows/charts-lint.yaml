@@ -94,6 +94,9 @@ jobs:
 
       - name: Check for changes
         id: check_changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             echo "changes_detected=true" >> $GITHUB_OUTPUT
@@ -105,9 +108,7 @@ jobs:
         if: steps.check_changes.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-        with:
-          access_token: ${{ secrets.BOT_TOKEN }
-          token: ${{ secrets.BOT_TOKEN }
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git config user.name "hey101"
           git config user.email "hey101[bot]@users.noreply.github.com"
@@ -117,9 +118,8 @@ jobs:
         if: steps.check_changes.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         with:
-          access_token: ${{ secrets.BOT_TOKEN }
-          token: ${{ secrets.BOT_TOKEN }
         run: |
           git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
           git checkout ${{ github.head_ref }}
@@ -129,9 +129,7 @@ jobs:
         if: steps.check_changes.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-        with:
-          access_token: ${{ secrets.BOT_TOKEN }
-          token: ${{ secrets.BOT_TOKEN }
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git stash pop || echo "No stash to pop (nothing changed?)"
           git config user.name "hey101"
