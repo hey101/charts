@@ -58,3 +58,4 @@ helm/
 node_modules/
 search.py
 ignoreme
+search_executable.py
