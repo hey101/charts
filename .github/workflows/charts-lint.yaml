@@ -136,14 +136,6 @@ jobs:
           git add .
           git commit -m "chore: auto-fixes from lint" || echo "No changes to commit"
           git push origin HEAD:${{ github.head_ref }}
-
-      - name: Cancel workflow due to new commit
-        if: steps.check_changes.outputs.changes_detected == 'true'
-        uses: vishnudxb/cancel-workflow@v1.2
-        with:
-          repo: ${{ github.repository }}
-          workflow_id: ${{ github.run_id }}
-          access_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Make charttool executable
         run: |
@@ -205,3 +197,11 @@ jobs:
           repo: ${{ github.repository }}
           workflow_id: ${{ github.run_id }}
           access_token: ${{ github.token }}
+
+      - name: Cancel workflow due to new commit
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        uses: vishnudxb/cancel-workflow@v1.2
+        with:
+          repo: ${{ github.repository }}
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ secrets.GITHUB_TOKEN }}
