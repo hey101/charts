@@ -117,8 +117,6 @@ jobs:
 
       - name: Pop stash & commit changes
         if: steps.check_changes.outputs.changes_detected == 'true'
-        with:
-          github-token: ${{ secrets.BOT_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
