@@ -1,3 +1,5 @@
+allowDefaultNamespace: true
+
 image:
   repository: tccr.io/tccr/scratch
   pullPolicy: IfNotPresent
