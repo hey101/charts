@@ -68,109 +68,109 @@ workload:
             - -c
           args:
             - |
-                serverfiles={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
-                config=${serverfiles}/Pal/Saved/Config/LinuxServer
-                cfgFile=${config}/PalWorldSettings.ini
-                dfCfgFile=${serverfiles}/DefaultPalWorldSettings.ini
+              serverfiles={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
+              config=${serverfiles}/Pal/Saved/Config/LinuxServer
+              cfgFile=${config}/PalWorldSettings.ini
+              dfCfgFile=${serverfiles}/DefaultPalWorldSettings.ini
 
-                mkdir -p ${config}
-                if [ ! -f "${cfgFile}" ]; then
-                    if [ -f "${dfCfgFile}" ]; then
-                        echo "Default config file found, copying as cfgFile..."
-                        cp "${dfCfgFile}" "${cfgFile}"
-                    else
-                        echo "Config file not found, fetching..."
-                        # Fetch the config file if it doesn't exist, just like the container does
-                        wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+              mkdir -p ${config}
+              if [ ! -f "${cfgFile}" ]; then
+                  if [ -f "${dfCfgFile}" ]; then
+                      echo "Default config file found, copying as cfgFile..."
+                      cp "${dfCfgFile}" "${cfgFile}"
+                  else
+                      echo "Config file not found, fetching..."
+                      # Fetch the config file if it doesn't exist, just like the container does
+                      wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+                  fi
+              fi
+
+              set_ini() {
+                local key="${1}"
+                local value="${2}"
+                local flags=""  # Initialize an empty string for flags
+
+                # Loop through arguments starting from the third one
+                for arg in "$@"; do
+                    if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
+                        flags="$flags $arg"  # Append each flag to the flags string
                     fi
+                done
+
+                # Check if the key exists in the OptionSettings section
+                if ! grep -q 'OptionSettings=(' "$cfgFile"; then
+                    echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
+                    return
                 fi
 
-                set_ini() {
-                  local key="${1}"
-                  local value="${2}"
-                  local flags=""  # Initialize an empty string for flags
+                # Check if the key exists within the OptionSettings section
+                if ! grep -q "${key}=" "$cfgFile"; then
+                    echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
+                    return
+                fi
 
-                  # Loop through arguments starting from the third one
-                  for arg in "$@"; do
-                      if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
-                          flags="$flags $arg"  # Append each flag to the flags string
-                      fi
-                  done
+                # Iterate over flags
+                for flag in $flags; do
+                    case $flag in
+                        -q)
+                            # Add quotes around the value
+                            value="\"$value\""
+                            ;;
+                        -b)
+                            # Handle boolean flag
+                            if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
+                                value="True"
+                            else
+                                value="False"
+                            fi
+                            ;;
+                        *)
+                            echo "Unknown flag: $flag. Skipping..."
+                            ;;
+                    esac
+                done
 
-                  # Check if the key exists in the OptionSettings section
-                  if ! grep -q 'OptionSettings=(' "$cfgFile"; then
-                      echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                # Update the value within the OptionSettings section
+                sed -i "/OptionSettings=(/ {
+                    :loop
+                    /)$/! {
+                        N
+                        b loop
+                    }
+                    s|\(${key}=\)[^,]*|\1${value}|
+                }" "${cfgFile}"
 
-                  # Check if the key exists within the OptionSettings section
-                  if ! grep -q "${key}=" "$cfgFile"; then
-                      echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                # Check if the closing parenthesis is missing, and if so, add it
+                if ! grep -q ')$' "${cfgFile}"; then
+                    sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
+                fi
 
-                  # Iterate over flags
-                  for flag in $flags; do
-                      case $flag in
-                          -q)
-                              # Add quotes around the value
-                              value="\"$value\""
-                              ;;
-                          -b)
-                              # Handle boolean flag
-                              if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
-                                  value="True"
-                              else
-                                  value="False"
-                              fi
-                              ;;
-                          *)
-                              echo "Unknown flag: $flag. Skipping..."
-                              ;;
-                      esac
-                  done
+                echo "Set ${key} to ${value}"
+              }
 
-                  # Update the value within the OptionSettings section
-                  sed -i "/OptionSettings=(/ {
-                      :loop
-                      /)$/! {
-                          N
-                          b loop
-                      }
-                      s|\(${key}=\)[^,]*|\1${value}|
-                  }" "${cfgFile}"
+              echo "the following options are updating...."
 
-                  # Check if the closing parenthesis is missing, and if so, add it
-                  if ! grep -q ')$' "${cfgFile}"; then
-                      sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
-                  fi
+              set_ini "RCONEnabled" "True" -b
 
-                  echo "Set ${key} to ${value}"
-                }
+              set_ini "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
+              set_ini "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+              set_ini "RESTAPIEnabled" "True" -b
+              set_ini "RESTAPIPort" "{{ .Values.service.api.ports.api.port }}"
 
-                echo "the following options are updating...."
+              {{- range $key, $value := .Values.palworld.game }}
+                {{- $numRegex := "^[0-9]+([.][0-9]+)?$" -}}
+                {{- $boolRegex := "^(true|false)$" -}}
+                {{- $valueStr := toString $value -}}
 
-                set_ini "RCONEnabled" "True" -b
-
-                set_ini "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
-                set_ini "PublicPort" "{{ .Values.service.main.ports.main.port }}"
-                set_ini "RESTAPIEnabled" "True" -b
-                set_ini "RESTAPIPort" "{{ .Values.service.api.ports.api.port }}"
-
-                {{- range $key, $value := .Values.palworld.game }}
-                  {{- $numRegex := "^[0-9]+([.][0-9]+)?$" -}}
-                  {{- $boolRegex := "^(true|false)$" -}}
-                  {{- $valueStr := toString $value -}}
-
-                  {{- if (mustRegexMatch $numRegex $valueStr) }}
-                    set_ini "{{ $key }}" {{ $value }}
-                  {{- else if (mustRegexMatch $boolRegex (lower $valueStr)) }}
-                    set_ini "{{ $key }}" {{ $valueStr | title }} -b
-                  {{- else }}
-                    set_ini "{{ $key }}" {{ quote $valueStr }} -q
-                  {{- end }}
+                {{- if (mustRegexMatch $numRegex $valueStr) }}
+                  set_ini "{{ $key }}" {{ $value }}
+                {{- else if (mustRegexMatch $boolRegex (lower $valueStr)) }}
+                  set_ini "{{ $key }}" {{ $valueStr | title }} -b
+                {{- else }}
+                  set_ini "{{ $key }}" {{ quote $valueStr }} -q
                 {{- end }}
-                echo "Done!"
+              {{- end }}
+              echo "Done!"
       containers:
         main:
           probes:

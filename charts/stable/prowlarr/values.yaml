@@ -34,8 +34,9 @@ workload:
             startup:
               type: tcp
           env:
-            PROWLARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
-             # External | Basic | Forms
+            PROWLARR__SERVER__PORT:
+              "{{ .Values.service.main.ports.main.port }}"
+              # External | Basic | Forms
             PROWLARR__AUTH__METHOD: ""
             # DisabledForLocalAddresses | Enabled
             PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
