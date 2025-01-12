@@ -32,6 +32,9 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedFiles: ${{ needs.pr-changes.outputs.addedOrModifiedFiles }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
+    secrets:
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
