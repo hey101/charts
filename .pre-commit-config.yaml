@@ -1,4 +1,9 @@
 # See https://pre-commit.com for more information
+default_stages: [commit, push]
+
+# This regex excludes ANY file under ".github/workflows/" from *every* hook.
+exclude: '^\.github/workflows/.*'
+
 repos:
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
