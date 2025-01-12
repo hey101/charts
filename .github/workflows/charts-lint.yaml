@@ -117,6 +117,8 @@ jobs:
 
       - name: Pop stash & commit changes
         if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git stash pop || echo "No stash to pop (nothing changed?)"
           git config user.name "hey101"
