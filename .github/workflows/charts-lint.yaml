@@ -103,6 +103,8 @@ jobs:
           
       - name: Stash changes (if any)
         if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git config user.name "hey101"
           git config user.email "hey101[bot]@users.noreply.github.com"
@@ -110,6 +112,8 @@ jobs:
 
       - name: Checkout & rebase PR branch
         if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
           git checkout ${{ github.head_ref }}
