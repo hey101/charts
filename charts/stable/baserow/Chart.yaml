@@ -7,7 +7,7 @@ annotations:
   truecharts.org/train: stable
   truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "1.23.2"
+appVersion: "1.30.1"
 dependencies:
   - name: common
     version: 24.1.11
@@ -40,4 +40,4 @@ sources:
   - https://gitlab.com/bramw/baserow/
   - https://hub.docker.com/r/baserow/baserow
 type: application
-version: 14.2.13
+version: 14.2.14
