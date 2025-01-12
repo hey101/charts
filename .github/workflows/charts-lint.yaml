@@ -92,6 +92,33 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
           pre-commit run --all || pre-commit run --all
 
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        run: |
+          git config user.name "hey101"
+          git config user.email "hey101[bot]@users.noreply.github.com"
+
+          git add .
+          git commit -m "chore: auto-fixes from lint" || echo "No changes to commit"
+          git push origin HEAD:${{ github.head_ref }}
+
+      - name: Cancel workflow due to new commit
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        uses: vishnudxb/cancel-workflow@v1.2
+        with:
+          repo: ${{ github.repository }}
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Make charttool executable
         run: |
             chmod +x ./charttool
@@ -152,30 +179,3 @@ jobs:
           repo: ${{ github.repository }}
           workflow_id: ${{ github.run_id }}
           access_token: ${{ github.token }}
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            echo "changes_detected=true" >> $GITHUB_OUTPUT
-          else
-            echo "changes_detected=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changes_detected == 'true'
-        run: |
-          git config user.name "hey101"
-          git config user.email "hey101[bot]@users.noreply.github.com"
-
-          git add .
-          git commit -m "chore: auto-fixes from lint" || echo "No changes to commit"
-          git push origin HEAD:${{ github.head_ref }}
-
-      - name: Cancel workflow due to new commit
-        if: steps.check_changes.outputs.changes_detected == 'true'
-        uses: vishnudxb/cancel-workflow@v1.2
-        with:
-          repo: ${{ github.repository }}
-          workflow_id: ${{ github.run_id }}
-          access_token: ${{ secrets.GITHUB_TOKEN }}
