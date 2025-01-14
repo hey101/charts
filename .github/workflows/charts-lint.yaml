@@ -15,6 +15,9 @@ on:
       modifiedCharts:
         required: true
         type: string
+    secrets:
+      BOT_TOKEN:
+        required: true
 
 jobs:
   lint-and-verify:
@@ -129,11 +132,11 @@ jobs:
         if: steps.check_changes.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git stash pop || echo "No stash to pop (nothing changed?)"
           git config user.name "hey101"
           git config user.email "hey101[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           git add .
           git commit -m "chore: auto-fixes from lint" || echo "No changes to commit"
           git push origin HEAD:${{ github.head_ref }}
