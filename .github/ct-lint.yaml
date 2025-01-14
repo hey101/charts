@@ -9,7 +9,9 @@ chart-dirs:
   - charts/dev
   - charts/premium
   - charts/system
-excluded-charts: []
+excluded-charts:
+  - charts/library/common
+  - charts/library/common-test
 chart-repos:
   - jetstack=https://charts.jetstack.io
   - grafana=https://grafana.github.io/helm-charts

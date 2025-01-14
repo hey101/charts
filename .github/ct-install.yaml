@@ -130,6 +130,8 @@ excluded-charts:
   - charts/stable/zalando-postgres-cluster
   - charts/stable/zigbee2mqtt
   - charts/system/
+  - charts/library/common
+  - charts/library/common-test
 chart-repos:
   - jetstack=https://charts.jetstack.io
   - grafana=https://grafana.github.io/helm-charts
