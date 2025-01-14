@@ -9,8 +9,8 @@ apiVersion: v2
 appVersion: 3.0.1
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
@@ -28,7 +28,7 @@ home: https://truecharts.org/charts/premium/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.webp
 keywords:
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/bitnami/prometheus
   - https://quay.io/thanos/thanos
 type: application
-version: 20.2.0
+version: 20.3.0

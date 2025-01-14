@@ -9,8 +9,8 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
@@ -22,7 +22,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.webp
 keywords:
   - metallb
   - loadbalancer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
