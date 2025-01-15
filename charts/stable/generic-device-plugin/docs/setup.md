@@ -18,10 +18,10 @@ For addons like our gluetun addon you can add it like this if you are using flux
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-    name: chart
-    namespace: namespace
+  name: chart
+  namespace: namespace
 spec:
-    postRenderers:
+  postRenderers:
     - kustomize:
         patches:
           - target:
@@ -32,6 +32,6 @@ spec:
               - op: add
                 path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
                 value: 1
-    interval: 5m
-    chart:
+  interval: 5m
+  chart:
 ```

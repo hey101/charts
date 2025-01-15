@@ -10,7 +10,6 @@ Set the `IGDB_CLIENT_ID` and `IGDB_CLIENT_SECRET` with the API key from [IGDB](h
 
 MobyGames API is no longer free.
 
-
 ## Rom Library Structure
 
 This app has two folder structures found [here](https://github.com/zurdi15/romm/blob/master/README.md#-folder-structure).

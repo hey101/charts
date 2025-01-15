@@ -6,6 +6,7 @@ title: Installation Notes
 
 To access the ThreadFin administration webpage please add /web to the URL.
 You will need to configure:
+
 1. A Playlist/s setting the location of the M3U file
 2. Review the settings page and configure as required including number of tuners.
 
