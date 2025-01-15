@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/go-shiori/shiori
   pullPolicy: IfNotPresent
-  tag: v1.7.1@sha256:7578ccecaec8bfa9170135e512ea8e700751c3f5ba19824ef7632ee801838b40
+  tag: v1.7.4@sha256:c49bd7e05c5e759188d2affb16c254a23b68f28f99b888930cdd5dbccde1bbb0
 service:
   main:
     ports:

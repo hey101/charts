@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: barotrauma@sha256:7e04c88d0aeae1a482f1b027598301fcbd9fe8c01dcc65f942b4619e7183cd2c
+  repository: ghcr.io/ich777/steamcmd
+  tag: barotrauma@sha256:50f088288938f04b389c2e669d3c7a8dcae3fcf39976772d746150c37e0736d4
 persistence:
   serverfiles:
     enabled: true

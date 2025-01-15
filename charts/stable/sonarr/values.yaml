@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/sonarr
   pullPolicy: IfNotPresent
-  tag: 4.0.11.2680@sha256:61fe40251b0a8684520e6d3897e321430cab9994dd4d77e6ab35b587e0204a6d
+  tag: 4.0.12.2823@sha256:f453b589cd553e09244b2fb48d74ae4047e6fab1fa837e008755be1200a62407
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -12,14 +12,12 @@ service:
       main:
         port: 8989
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 8990
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -39,18 +37,17 @@ workload:
               type: http
               path: /ping
           env:
-            SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            SONARR__AUTHENTICATION_METHOD: ""
-  exportarr:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
+            SONARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
+             # External | Basic | Forms
+            SONARR__AUTH__METHOD: ""
+            # DisabledForLocalAddresses | Enabled
+            SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
+            # SONARR__APP__THEME: dark
+            # SONARR__APP__INSTANCENAME: Sonarr
+            # SONARR__LOG__LEVEL: info
+            # SONARR__UPDATE__BRANCH: develop
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - sonarr
@@ -86,7 +83,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
@@ -103,4 +99,3 @@ metrics:
 portal:
   open:
     enabled: true
-updated: true

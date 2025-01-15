@@ -1,17 +1,16 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
-  truecharts.org/SCALE-support: "true"
 apiVersion: v2
-appVersion: "5.7.3"
+appVersion: 5.8.0
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
@@ -24,7 +23,7 @@ keywords:
   - ring-mqtt
   - home-automation
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +34,4 @@ sources:
   - https://github.com/tsightler/ring-mqtt
   - https://hub.docker.com/r/tsightler/ring-mqtt
 type: application
-version: 10.2.10
+version: 10.6.0

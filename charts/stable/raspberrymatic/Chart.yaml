@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "false"
   truecharts.org/category: iot
@@ -7,11 +7,11 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/raspberrymatic.webp
 keywords:
   - raspberrymatic
   - iot
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: raspberrymatic
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/raspberrymatic
   - https://ghcr.io/jens-maus/raspberrymatic
   - https://github.com/jens-maus/RaspberryMatic
   - https://github.com/jens-maus/RaspberryMatic/pkgs/container/raspberrymatic
+  - https://github.com/truecharts/charts/tree/master/charts/stable/raspberrymatic
 type: application
-version: 7.1.15
+version: 7.4.0

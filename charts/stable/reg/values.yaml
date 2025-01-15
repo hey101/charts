@@ -1,7 +1,7 @@
 image:
   repository: registry
   pullPolicy: IfNotPresent
-  tag: 2@sha256:543dade69668e02e5768d7ea2b0aa4fae6aa7384c9a5a8dbecc2be5136079ddb
+  tag: 2@sha256:319881be2ee9e345d5837d15842a04268de6a139e23be42654fc7664fc6eaf52
 service:
   main:
     ports:

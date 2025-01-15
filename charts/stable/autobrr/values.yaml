@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/autobrr/autobrr
   pullPolicy: IfNotPresent
-  tag: v1.47.1@sha256:5364237a98b12bb269384dd4f4feaf7583027591c26bc2e6aaac0baa4e142b34
+  tag: v1.57.0@sha256:fbc0fea58925c43357a2a43dad543dcda5b354a28a95a28e5d7289d34dc5edb9
 
 service:
   main:
