@@ -104,13 +104,3 @@ jobs:
           else
             echo "All jobs succeeded!"
           fi
-          
-          
-          
-          needs:
-      - pr-changes
-      - catalog-test
-      - charts-test
-      - charts-lint
-      - print_head_msg
-    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) }}
