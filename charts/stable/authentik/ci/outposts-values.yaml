@@ -22,3 +22,6 @@ ingress:
     enabled: true
     hosts:
       - host: authentik.example.com
+        paths:
+          - path: /
+            pathType: Prefix

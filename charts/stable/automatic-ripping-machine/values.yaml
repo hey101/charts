@@ -1,7 +1,7 @@
 image:
-  repository: docker.io/automaticrippingmachine/automatic-ripping-machine
+  repository: automaticrippingmachine/automatic-ripping-machine
   pullPolicy: IfNotPresent
-  tag: 2.10.1@sha256:efe1e89ccd643ca49967aaa22a8632185a6263c81d1d636bbbdd6ba79bb1d1c4
+  tag: 2.8.1@sha256:66f34edf7f52c209732ce5f39f698d4bb09bebf2b782e0e6841e83ecc74aa8c5
 
 securityContext:
   container:
@@ -22,24 +22,6 @@ service:
 workload:
   main:
     podSpec:
-      # force 568:568 for /home/arm & etc/arm/config
-      initContainers:
-        arm-perms:
-          type: install
-          enabled: true
-          imageSelector: "image"
-          command:
-            - /bin/sh
-          args:
-            - -c
-            - |
-              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/home/arm] ..."
-              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /home/arm
-
-              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/etc/arm/config] ..."
-              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /etc/arm/config
-
-              echo "Finished."
       containers:
         main:
           env:
@@ -51,17 +33,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/arm/config"
-    targetSelector:
-      main:
-        main: {}
-        arm-perms: {}
   arm:
     enabled: true
     mountPath: "/home/arm"
-    targetSelector:
-      main:
-        main: {}
-        arm-perms: {}
 
 portal:
   open:

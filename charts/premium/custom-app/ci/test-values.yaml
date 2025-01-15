@@ -1,0 +1,43 @@
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: v1.10.3@sha256:43a68d10b9dfcfc3ffbfe4dd42100dc9aeaf29b3a5636c856337a5940f1b4f1c
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --port
+            - "8080"
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+    portsList:
+      - name: "extraport"
+        enabled: true
+        port: 9118
+        targetPort: 9118
+
+serviceList:
+  - name: extraservice
+    enabled: true
+    portsList:
+      - name: "extrasvcport"
+        enabled: true
+        port: 9119
+        targetPort: 9119
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

@@ -1,18 +1,19 @@
 annotations:
-  max_scale_version: 24.04.1
+  max_scale_version: 24.04.2.5
   min_scale_version: 24.04.0
   truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/max_helm_version: '3.15'
+  truecharts.org/min_helm_version: '3.11'
   truecharts.org/train: stable
+  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: 24.12.2
+appVersion: "24.07.1"
 dependencies:
   - name: common
     version: 24.1.11
     repository: https://petersandor.github.io/truecharts-common
-    condition: ""
-    alias: ""
+    condition: ''
+    alias: ''
     tags: []
     import-values: []
 deprecated: false
@@ -22,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/timetagger.webp
 keywords:
   - time
   - timetagger
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: timetagger
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/timetagger
   - https://ghcr.io/almarklein/timetagger
   - https://github.com/almarklein/timetagger
-  - https://github.com/truecharts/charts/tree/master/charts/stable/timetagger
   - https://timetagger.app
 type: application
-version: 8.6.0
+version: 8.2.6

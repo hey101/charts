@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/tccr/traefik
-  tag: v3.3.1@sha256:73128e87e766442f2fda276221c8dc0ec963bf0b82ddef0e9a90c3ec02f121e3
+  tag: v3.1.7@sha256:f16565c6c68287804608b0a8f225bbfc827f10ed2cd09f4d5c5e28ba644f6f9e
   pullPolicy: IfNotPresent
 
 workload:
@@ -176,6 +176,7 @@ tlsOptions:
 # from.
 service:
   main:
+    type: LoadBalancer
     ports:
       main:
         port: 9000
@@ -190,7 +191,8 @@ service:
   tcp:
     enabled: true
     type: LoadBalancer
-    externalTrafficPolicy: Local
+    ## In most cases, you want this changed to `Local`
+    externalTrafficPolicy: Cluster
     ports:
       web:
         enabled: true
@@ -272,67 +274,19 @@ rbac:
       - apiGroups:
           - ""
         resources:
-          - nodes
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
+          - services
           - endpoints
-          - services
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - discovery.k8s.io
-        resources:
-          - endpointslices
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - services
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - discovery.k8s.io
-        resources:
-          - endpointslices
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
           - secrets
         verbs:
           - get
           - list
           - watch
-          - update
-          - create
-          - delete
-          - deletecollection
-      - apiGroups:
-          - policy
-        resources:
-          - podsecuritypolicies
-        verbs:
-          - use
       - apiGroups:
           - extensions
           - networking.k8s.io
         resources:
+          - ingresses
           - ingressclasses
-          - ingresses
         verbs:
           - get
           - list
@@ -345,126 +299,19 @@ rbac:
         verbs:
           - update
       - apiGroups:
+          - traefik.containo.us
           - traefik.io
         resources:
-          - ingressroutes
-          - ingressroutetcps
-          - ingressrouteudps
           - middlewares
           - middlewaretcps
-          - serverstransports
-          - serverstransporttcps
+          - ingressroutes
+          - traefikservices
+          - ingressroutetcps
+          - ingressrouteudps
           - tlsoptions
           - tlsstores
-          - traefikservices
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - namespaces
-          - endpoints
-          - secrets
-          - services
-          - configmaps
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - discovery.k8s.io
-        resources:
-          - endpointslices
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - gateway.networking.k8s.io
-        resources:
-          - backendtlspolicies
-          - gatewayclasses
-          - gateways
-          - grpcroutes
-          - httproutes
-          - referencegrants
-          - tcproutes
-          - tlsroutes
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - gateway.networking.k8s.io
-        resources:
-          - backendtlspolicies/status
-          - gatewayclasses/status
-          - gateways/status
-          - grpcroutes/status
-          - httproutes/status
-          - tcproutes/status
-          - tlsroutes/status
-        verbs:
-          - update
-      - apiGroups:
-          - coordination.k8s.io
-        resources:
-          - leases
-        verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-      - apiGroups:
-          - ""
-        resources:
-          - endpoints
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - namespaces
-          - pods
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - hub.traefik.io
-        resources:
-          - accesscontrolpolicies
-          - apiaccesses
-          - apiportals
-          - apiratelimits
-          - apis
-          - apiversions
-          - apibundles
-          - apiplans
-        verbs:
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-          - get
-      - apiGroups:
-          - ""
-        resources:
-          - events
-        verbs:
-          - create
-          - patch
-      - apiGroups:
-          - apps
-        resources:
-          - replicasets
+          - serverstransports
+          - serverstransporttcps
         verbs:
           - get
           - list
@@ -474,93 +321,6 @@ rbac:
         resources:
           - nodes
         verbs:
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - endpoints
-          - services
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - services
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - discovery.k8s.io
-        resources:
-          - endpointslices
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - secrets
-        verbs:
-          - list
-      - apiGroups:
-          - ""
-        resources:
-          - secrets
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses/status
-        verbs:
-          - update
-      - apiGroups:
-          - traefik.io
-        resources:
-          - ingressroutes
-          - ingressroutetcps
-          - ingressrouteudps
-          - middlewares
-          - middlewaretcps
-          - tlsoptions
-          - tlsstores
-          - traefikservices
-          - serverstransports
-          - serverstransporttcps
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-        resources:
-          - podsecuritypolicies
-        verbs:
-          - use
-      - apiGroups:
-          - ""
-        resources:
-          - services
-          - endpoints
-          - namespaces
-          - pods
-        verbs:
           - get
           - list
           - watch
@@ -572,19 +332,6 @@ rbac:
           - get
           - list
           - watch
-      - apiGroups:
-          - coordination.k8s.io
-        resources:
-          - leases
-        verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:

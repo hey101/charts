@@ -1,14 +1,13 @@
 image:
-  repository: docker.io/clamav/clamav
+  repository: clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.1@sha256:268a6ad4bc1dbe6645204f3ab421827587a1ec131f21d92b5ce5dba751f43bdd
+  tag: 1.4.1@sha256:421fb66fd636ae9d14373e549fe2bc9cdf1ddf97eed55d9fa0c15bd3d8d46589
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 clamav:
   report_path: "/logs"
   # User Defined

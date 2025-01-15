@@ -8,7 +8,7 @@ workload:
 
 ingress:
   main:
-    enabled: false
+    enabled: true
     hosts:
       - host: seafile.example.com
         paths:

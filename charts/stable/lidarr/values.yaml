@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/elfhosted/lidarr
+  repository: ghcr.io/onedr0p/lidarr-develop
   pullPolicy: IfNotPresent
-  tag: 2.8.2.4493@sha256:77a2d2b5a6176e62c63a3aa5318fe946141c3ecc4d4fb68b0ac5ae2f9f594293
+  tag: 2.5.2.4316@sha256:6b1b51ca85dad4f0376b6f86df4cb24d1d6c621ba9d47c1bde26cdb940f2aeb6
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -15,12 +15,14 @@ service:
       main:
         port: 8686
   metrics:
-    enabled: "{{ .Values.metrics.main.enabled }}"
+    enabled: true
     type: ClusterIP
+    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 8687
+        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -40,18 +42,18 @@ workload:
               type: http
               path: /ping
           env:
-            LIDARR__SERVER__PORT:
-              "{{ .Values.service.main.ports.main.port }}"
-              # External | Basic | Forms
-            LIDARR__AUTH__METHOD: ""
-            # DisabledForLocalAddresses | Enabled
-            LIDARR__AUTH__REQUIRED: DisabledForLocalAddresses
-            # LIDARR__APP__THEME: dark
-            # LIDARR__APP__INSTANCENAME: Lidarr
-            # LIDARR__LOG__LEVEL: info
-            # LIDARR__UPDATE__BRANCH: develop
+            LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            LIDARR__AUTHENTICATION_METHOD: ""
+  exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
         exportarr:
-          enabled: "{{ .Values.metrics.main.enabled }}"
+          primary: true
+          enabled: true
           imageSelector: exportarrImage
           args:
             - lidarr
@@ -87,6 +89,7 @@ persistence:
       main:
         main:
           mountPath: /config
+      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true

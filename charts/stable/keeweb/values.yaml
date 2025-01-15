@@ -1,10 +1,9 @@
 image:
   pullPolicy: IfNotPresent
-  repository: docker.io/antelle/keeweb
+  repository: antelle/keeweb
   tag: latest@sha256:8ff5e10baa2ca50967964bf26af41461da79ef62a481094a00f75726623bcb36
 ingress:
   http:
-    enabled: false
     autoLink: true
 persistence:
   nginx:

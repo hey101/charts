@@ -18,13 +18,22 @@ probes:
   liveness:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command:
+      - npm
+      - run
+      - healthcheck
   readiness:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command:
+      - npm
+      - run
+      - healthcheck
   startup:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command:
+      - npm
+      - run
+      - healthcheck
 {{- end -}}

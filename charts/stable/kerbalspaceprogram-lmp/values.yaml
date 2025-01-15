@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ghcr.io/ich777/lunamultiplayer-ksp
-  tag: latest@sha256:f82799aa7b0cd8020136aaa1caf34095537a048579117ee5541034c3c7163973
+  repository: ich777/lunamultiplayer-ksp
+  tag: latest@sha256:8766e80caf2dfce23bf8708ba98ad2e23da034cfbc36f65e4fc760ba7eea844c
 persistence:
   serverfiles:
     enabled: true

@@ -4,4 +4,4 @@ workload:
       containers:
         main:
           env:
-            SONARR__AUTH__METHOD: Basic
+            SONARR__AUTHENTICATION_METHOD: Basic

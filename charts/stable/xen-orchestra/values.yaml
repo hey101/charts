@@ -1,6 +1,6 @@
 image:
-  repository: docker.io/ronivay/xen-orchestra
-  tag: 5.168.1@sha256:048be1eb21ec5a5625d0fbd668b38fa1e54348317965caa00e453070135aa2cb
+  repository: ronivay/xen-orchestra
+  tag: 5.154.0@sha256:0f441e20078b4e1d0eb19b064704116c19ee0a0c9b48fdfd6a41cec81f5f9130
   pullPolicy: IfNotPresent
 service:
   main:

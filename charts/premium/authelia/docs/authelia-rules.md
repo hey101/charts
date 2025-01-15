@@ -26,63 +26,116 @@ Members of the `user` group will only have access to a select set of apps you ch
 
 This rule will bypass Authelia for API level access in most apps. This should always be your first rule.
 
-```yaml
-// values.yaml
-- domain: "*.example.com"
-  policy: bypass
-  resources:
-  - "^/api([/?].*)?$"
-  - "^/api([/?].*)?$"
-  - "^/identity.*$"
-  - "^/triggers.*$"
-  - "^/meshagents.*$"
-  - "^/meshsettings.*$"
-  - "^/agent.*$"
-  - "^/control.*$"
-  - "^/meshrelay.*$"
-  - "^/wl.*$"
-```
+Domain: `*.domain.tld`
+
+Policy: `bypass`
+
+Subject: `Not Used (Do Not Add)`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources:
+
+- `^/api([/?].*)?$`
+- `^/identity.*$`
+- `^/triggers.*$`
+- `^/meshagents.*$`
+- `^/meshsettings.*$`
+- `^/agent.*$`
+- `^/control.*$`
+- `^/meshrelay.*$`
+- `^/wl.*$`
+
+![authelia-api](./img/authelia-api.png)
 
 ## Vaultwarden
 
-This rule will allow users of the `admin` group to access the Vaultwarden admin page and bypass Authelia when accessing the webportal as auth is already provided by vaultwarden.
+These rules will protect the Vaultwarden admin page with Authelia but bypass when accessing the web vault. The order of these rules is critical or the admin page will not be protected.
 
-```yaml
-// values.yaml
-- domain: "vaultwarden.example.com"
-  policy: two_factor
-  subject: group:admin
-  resources: "^*/admin.*$"
-- domain: "vaultwarden.example.com"
-  policy: deny
-  resources: "^*/admin.*$"
-- domain: "vaultwarden.example.com"
-  policy: bypass
-```
+### Rule 1
+
+This rule will allow users of the `admin` group to access the Vaultwarden admin page.
+
+Domain: `vaultwarden.domain.tld`
+
+Policy: `two_factor`
+
+Subject: `group:admin`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources: `^*/admin.*$`
+
+![authelia-vw1](./img/authelia-vw1.png)
+
+### Rule 2
+
+This rule will prevent users not in the `admin` group to access the Vaultwarden admin page.
+This is necessary even if the your default policy is set to `deny` because of the `bypass` rule below.
+
+Domain: `vaultwarden.domain.tld`
+
+Policy: `deny`
+
+Subject: `Not Used (Do Not Add)`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources: `^*/admin.*$`
+
+![authelia-vw1](./img/authelia-vw2.png)
+
+### Rule 3
+
+This rule will bypass Authelia when accessing the webportal as auth is already provided by vaultwarden.
+
+Domain: `vaultwarden.domain.tld`
+
+Policy: `bypass`
+
+Subject: `Not Used (Do Not Add)`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources: `Not Used (Do Not Add)`
+
+![authelia-vw2](./img/authelia-vw3.png)
 
 ## User Rule
 
 This rule will allow users in the `user` group access to only the specified applications.
 
-```yaml
-// values.yaml
-- domain:
-  - "jellyfin.example.com"
-  - "nextcloud.example.com"
-  - "whateveryouwant.example.com"
-  policy: two_factor
-  subject: group:user
-```
+Domain:
+
+- `jellyfin.domain.tld`
+- `nextcloud.domain.tld`
+- `whateveryouwant.domain.tld`
+
+Policy: `two_factor`
+
+Subject: `group:user`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources: `Not Used (Do Not Add)`
+
+![authelia-user](./img/authelia-user.png)
 
 ## Catch All Rule
 
 This rule will give access to everything to users of the `admin` group.
 
-```yaml
-// values.yaml
-- domain:
-  - "example.com"
-  - "*.example.com"
-  policy: two_factor
-  subject: group:admin
-```
+Domain:
+
+- `domain.tld`
+- `*.domain.tld`
+
+Policy: `two_factor`
+
+Subject: `group:admin`
+
+Networks: `Not Used (Do Not Add)`
+
+Resources: `Not Used (Do Not Add)`
+
+![authelia-catch](./img/authelia-catch.png)

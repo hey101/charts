@@ -1,5 +1,5 @@
 image:
-  repository: docker.io/serverlein/tsn-ranksystem-webserver
+  repository: serverlein/tsn-ranksystem-webserver
   pullPolicy: IfNotPresent
   tag: latest@sha256:8b4319648c091c911935a81e37c17f2736de99e846334de52b895f84bc10c8d1
 

@@ -1,24 +1,25 @@
 annotations:
-  max_scale_version: 24.04.1
+  max_scale_version: 24.04.2.5
   min_scale_version: 24.04.0
   truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/max_helm_version: '3.15'
+  truecharts.org/min_helm_version: '3.11'
   truecharts.org/train: system
+  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
+    version: 24.1.10
+    repository: https://petersandor.github.io/truecharts-common
+    condition: ''
+    alias: ''
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 67.10.0
+    version: 62.6.0
     repository: oci://ghcr.io/prometheus-community/charts
-    condition: ""
+    condition: ''
     alias: kps
     tags: []
     import-values: []
@@ -30,15 +31,14 @@ keywords:
   - operator
   - prometheus
   - metics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: prometheus-operator
 sources:
-  - https://github.com/prometheus-operator
   - https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator
-  - https://github.com/truecharts/containers/tree/master/apps/scratch
+  - https://github.com/prometheus-operator
 type: application
-version: 9.3.0
+version: 8.3.3

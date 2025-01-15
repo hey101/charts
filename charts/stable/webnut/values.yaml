@@ -1,5 +1,5 @@
 image:
-  repository: docker.io/edgd1er/webnut
+  repository: edgd1er/webnut
   pullPolicy: IfNotPresent
   tag: latest@sha256:cb2c70ec1d0b584c41f4a73ca92c0920c710699f25c17538d012d20f39645fd1
 service:
@@ -28,7 +28,3 @@ workload:
             UPS_PORT: 3493
             UPS_USER: monuser
             UPS_PASSWORD: secret
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"

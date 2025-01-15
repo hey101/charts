@@ -1,12 +1,12 @@
 image:
   repository: docker.io/odoo
   pullPolicy: IfNotPresent
-  tag: 18.0@sha256:543477de90679293a85df149702b36f495669635efe12d1720ae1bc13f686e2c
+  tag: 17.0@sha256:fd978e5ed607b345cd97234152ebbf82aac32956def81cacf6a4a25e1575654f
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsUser: 1000
-    runAsGroup: 1000
+    runAsUser: 101
+    runAsGroup: 101
 service:
   main:
     ports:
