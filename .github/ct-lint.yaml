@@ -9,9 +9,7 @@ chart-dirs:
   - charts/dev
   - charts/premium
   - charts/system
-excluded-charts:
-  - charts/library/common
-  - charts/library/common-test
+excluded-charts: []
 chart-repos:
   - jetstack=https://charts.jetstack.io
   - grafana=https://grafana.github.io/helm-charts
@@ -20,5 +18,3 @@ chart-repos:
   - openebs=https://openebs.github.io/charts
   - csi-driver-smb=https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
   - csi-driver-nfs=https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-  - vmwaretanzu=https://vmware-tanzu.github.io/helm-charts
-  - prometheus-community=https://prometheus-community.github.io/helm-charts
