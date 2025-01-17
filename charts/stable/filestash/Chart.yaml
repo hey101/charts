@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.3.1
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: filestash
 sources:
-  - https://github.com/mickael-kerjean/filestash
   - https://github.com/truecharts/charts/tree/master/charts/stable/filestash
+  - https://github.com/mickael-kerjean/filestash
   - https://hub.docker.com/r/machines/filestash
   - https://www.filestash.app/
 type: application
-version: 8.4.3
+version: 8.4.4
