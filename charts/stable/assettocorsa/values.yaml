@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: assettocorsa@sha256:f0053a9dc42e27309f3fcdcc26020044086829db417bdb036cc49b0e06212cac
+  repository: ghcr.io/ich777/steamcmd
+  tag: assettocorsa@sha256:ae225d6d3b2e777f8be99ac3bb6c3eace7057aef8d78abbeb8b3407e51b87acf
 persistence:
   serverfiles:
     enabled: true
@@ -32,6 +32,14 @@ service:
         port: 9600
         protocol: tcp
         targetPort: 9600
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 9600
+        protocol: udp
+        targetPort: 9600
   stracker:
     enabled: true
     ports:
@@ -48,14 +56,6 @@ service:
         port: 8081
         protocol: tcp
         targetPort: 8081
-  udp:
-    enabled: true
-    ports:
-      udp:
-        enabled: true
-        port: 9600
-        protocol: udp
-        targetPort: 9600
 workload:
   main:
     podSpec:

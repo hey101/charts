@@ -1,7 +1,7 @@
 image:
-  repository: jenkins/jenkins
+  repository: docker.io/jenkins/jenkins
   pullPolicy: IfNotPresent
-  tag: 2.492-jdk17@sha256:db5f83e66d1717a4b8293693ead6f905a0a8d577767cbae37a4ef95cbc941d30
+  tag: 2.492-jdk17@sha256:fbde64db718de226bdb3d69d97b09ef61967e746c02bbb2ea811a804be726521
 security:
   container:
     runAsGroup: 1000

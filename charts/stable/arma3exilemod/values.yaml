@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: arma3exilemod@sha256:4695662d089dab98c8f8a1f0144439d5bf0d7a3e1927c4c0b5a99ddef918bfca
+  repository: ghcr.io/ich777/steamcmd
+  tag: arma3exilemod@sha256:c664f8b47d669e3893f767f099c62792a070f295e52d7610dcd6a5391ea13994
 persistence:
   profiles:
     enabled: true
@@ -27,6 +27,14 @@ service:
         port: 2302
         protocol: tcp
         targetPort: 2302
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 2302
+        protocol: udp
+        targetPort: 2302
   tcpmariadb:
     enabled: true
     ports:
@@ -43,14 +51,6 @@ service:
         port: 2306
         protocol: udp
         targetPort: 2306
-  udpgameport:
-    enabled: true
-    ports:
-      udpgameport:
-        enabled: true
-        port: 2302
-        protocol: udp
-        targetPort: 2302
   udpsteammaster:
     enabled: true
     ports:

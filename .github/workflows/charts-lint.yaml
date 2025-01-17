@@ -15,6 +15,9 @@ on:
       modifiedCharts:
         required: true
         type: string
+    secrets:
+      BOT_TOKEN:
+        required: true
 
 jobs:
   lint-and-verify:
@@ -22,21 +25,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout [master]
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           ref: master
 
       - name: Checkout [commit]
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Install go-yq
+        if: inputs.chartChangesDetected == 'true'
         run: |
           mkdir -p $HOME/.local/bin
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
@@ -44,24 +48,28 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install pre-commit, yamale and yamllint
+        if: inputs.chartChangesDetected == 'true'
         run: |
           pip3 install --no-cache-dir pre-commit yamale yamllint
 
       - name: Install Helm
+        if: inputs.chartChangesDetected == 'true'
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
           version: v3.14.2
 
       - name: Prep Helm
+        if: inputs.chartChangesDetected == 'true'
         run: |
           helm repo add jetstack https://charts.jetstack.io
+          helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+          helm repo add openebs https://openebs.github.io/charts
+          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
           helm repo update
 
       - name: Collect changes (branch-based)
@@ -92,6 +100,51 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
           pre-commit run --all || pre-commit run --all
 
+      - name: Check for changes
+        id: check_changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Stash changes (if any)
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          git config user.name "hey101"
+          git config user.email "hey101[bot]@users.noreply.github.com"
+          git stash
+
+      - name: Checkout & rebase PR branch
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
+          git checkout ${{ github.head_ref }}
+          git pull --rebase origin ${{ github.head_ref }}
+
+      - name: Pop stash & commit changes
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          git stash pop || echo "No stash to pop (nothing changed?)"
+          git config user.name "hey101"
+          git config user.email "lmark101@yahoo.com"
+          git remote set-url origin https://x-access-token:${secrets.BOT_TOKEN}@github.com/${{ github.repository }}.git
+          git add .
+          git commit -m "chore: auto-fixes from lint" || echo "No changes to commit"
+          git push origin HEAD:${{ github.head_ref }}
+          
       - name: Make charttool executable
         run: |
             chmod +x ./charttool
@@ -129,7 +182,7 @@ jobs:
         continue-on-error: true
         uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3
         with:
-          file-Path: /tmp/lint_result.txt
+          file-path: /tmp/lint_result.txt
           comment-tag: lint_results
           mode: recreate
           github-token: ${{ github.token }}
@@ -149,6 +202,6 @@ jobs:
       - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
         if: failure()
         with:
-          repo: truecharts/chart
+          repo: ${{ github.repository }}
           workflow_id: ${{ github.run_id }}
           access_token: ${{ github.token }}

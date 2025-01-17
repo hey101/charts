@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: arkse@sha256:0725d7cfe1ff8a703c659d1230f2bae911775d07f8d648bef595238674112ef2
+  repository: ghcr.io/ich777/steamcmd
+  tag: arkse@sha256:ed49b692950ce7eb7cf8c1f3cf032aed22da7085b982d175e3ccd18b761d6ad1
 securityContext:
   container:
     runAsNonRoot: false

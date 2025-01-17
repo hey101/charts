@@ -1,8 +1,0 @@
-ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: slink.example.com
-        paths:
-          - path: /
-            pathType: Prefix

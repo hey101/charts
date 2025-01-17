@@ -1,0 +1,69 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+  "prefix": "chore(deps)",
+  "packageRules": [
+    {
+      "matchManagers": ["helm-values"],
+      "updateTypes": ["major", "minor", "patch"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(helm)"
+    },
+    {
+      "matchManagers": ["helm-values"],
+      "updateTypes": ["digest", "pin"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "digest to {{newDigestShort}}",
+      "prefix": "chore(helm)"
+    },
+    {
+      "matchManagers": ["docker"],
+      "updateTypes": ["major", "minor", "patch"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(container)"
+    },
+    {
+      "matchManagers": ["docker"],
+      "updateTypes": ["digest", "pin"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "digest to {{newDigestShort}}",
+      "prefix": "chore(container)"
+    },
+    {
+      "matchManagers": ["flux"],
+      "matchPackagePatterns": ["!(.*/.*)"],
+      "commitMessageTopic": "chart {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["flux"],
+      "updateTypes": ["major", "minor", "patch"],
+      "matchPackagePatterns": [".*/.*"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["flux"],
+      "updateTypes": ["digest", "pin"],
+      "matchPackagePatterns": [".*/.*"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "digest to {{newDigestShort}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["helmv3"],
+      "commitMessageTopic": "chart {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(helm)"
+    },
+    {
+      "matchPaths": ["clustertool/**"],
+      "commitMessageSuffix": "(clustertool)"
+    }
+  ]
+}

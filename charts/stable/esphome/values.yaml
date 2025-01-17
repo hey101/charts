@@ -1,5 +1,5 @@
 image:
-  repository: esphome/esphome
+  repository: docker.io/esphome/esphome
   pullPolicy: IfNotPresent
   tag: 2024.12.2@sha256:b2c6322700acb67ecf14e6781d5ee953ee6a0e888c0037ee8ac9d49ba48294a9
 securityContext:

@@ -25,7 +25,7 @@ def add_shebang(file_path):
     try:
         with file_path.open('r', encoding='utf-8') as f:
             lines = f.readlines()
-        
+
         if not lines:
             # Empty file, add shebang
             lines = [shebang]

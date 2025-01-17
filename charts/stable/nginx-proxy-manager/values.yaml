@@ -1,5 +1,5 @@
 image:
-  repository: jc21/nginx-proxy-manager
+  repository: docker.io/jc21/nginx-proxy-manager
   pullPolicy: IfNotPresent
   tag: 2.12.2@sha256:170f1974d8fc8ca245bcfae5590bc326de347b19719972bf122400fb13dfa42c
 service:

@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: colonysurvival@sha256:3508ded0c13913115fc696e259008a67751406917f0210ee4090799e89936822
+  repository: ghcr.io/ich777/steamcmd
+  tag: colonysurvival@sha256:7e4f6d09caed6a1f566f599b0b3788f8805bc92f8ca9f4c6fade4d6bd3e3d566
 persistence:
   serverfiles:
     enabled: true

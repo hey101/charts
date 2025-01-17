@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: dontstarve@sha256:77b4fe79ab530e817c08b47279199f310f0f99805b81c7bfe07781f79b03a03e
+  repository: ghcr.io/ich777/steamcmd
+  tag: dontstarve@sha256:e44a30b09306bc16d29f306f282b7a72c567eb7f8b6f1e36ff7ecfb378b1dfc6
 persistence:
   serverfiles:
     enabled: true

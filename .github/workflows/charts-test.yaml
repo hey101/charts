@@ -50,12 +50,13 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install go-yq
+        if: inputs.chartChangesDetected == 'true'
         run: |
           mkdir -p $HOME/.local/bin
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
@@ -67,6 +68,24 @@ jobs:
         if: inputs.chartChangesDetected == 'true'
         shell: bash
         run: |
+          # Get the PR title
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          # Check if the PR title contains "chart common"
+          if [[ "$PR_TITLE" == *"chart common"* ]]; then
+                echo "charts1=[]" >> $GITHUB_OUTPUT
+                echo "charts2=[]" >> $GITHUB_OUTPUT
+                echo "charts3=[]" >> $GITHUB_OUTPUT
+                echo "charts4=[]" >> $GITHUB_OUTPUT
+                echo "charts5=[]" >> $GITHUB_OUTPUT
+                echo "charts6=[]" >> $GITHUB_OUTPUT
+                echo "detected1=false" >> $GITHUB_OUTPUT
+                echo "detected2=false" >> $GITHUB_OUTPUT
+                echo "detected3=false" >> $GITHUB_OUTPUT
+                echo "detected4=false" >> $GITHUB_OUTPUT
+                echo "detected5=false" >> $GITHUB_OUTPUT
+                echo "detected6=false" >> $GITHUB_OUTPUT
+                exit 0  # Exit the script
+          fi
           CHARTS="${{ inputs.modifiedCharts }}"
           echo "Modified Charts: ${CHARTS}"
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
@@ -111,19 +130,26 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -131,6 +157,19 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -145,17 +184,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -163,7 +194,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts2:
     needs:
@@ -173,11 +209,11 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -185,7 +221,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -193,6 +229,19 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -207,17 +256,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -225,7 +266,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts3:
     needs:
@@ -235,11 +281,11 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix3) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -247,7 +293,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -255,6 +301,19 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -269,17 +328,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -287,7 +338,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts4:
     needs:
@@ -297,11 +353,11 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix4) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -309,7 +365,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -317,6 +373,19 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -331,17 +400,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -349,7 +410,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts5:
     needs:
@@ -359,11 +425,11 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix5) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -371,7 +437,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -379,6 +445,20 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/certs.d/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -393,17 +473,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -411,7 +483,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts6:
     needs:
@@ -421,11 +498,11 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix6) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -433,7 +510,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
-          version: v3.13.2
+          version: v3.14.0
 
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
@@ -441,6 +518,19 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -455,17 +545,9 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add grafana https://grafana.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add  openebs https://openebs.github.io/charts
-          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
@@ -473,7 +555,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:

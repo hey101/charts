@@ -1,19 +1,18 @@
 annotations:
-  max_scale_version: 24.04.2.5
+  max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/category: network
-  truecharts.org/max_helm_version: '3.15'
-  truecharts.org/min_helm_version: '3.11'
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
-  truecharts.org/SCALE-support: 'true'
 apiVersion: v2
-appVersion: "0.9.1"
+appVersion: 0.11.0
 dependencies:
   - name: common
-    version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
-    condition: ''
-    alias: ''
+    version: 25.3.1
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
@@ -23,18 +22,18 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/volsync.webp
 keywords:
   - volsync
   - ingress
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: volsync
 sources:
+  - https://github.com/backube/helm-charts
+  - https://github.com/backube/volsync
   - https://github.com/truecharts/charts/tree/master/charts/system/volsync
-  - https://github.com/volsync/volsync
-  - https://github.com/volsync/volsync-helm-chart
   - https://quay.io/backube/volsync
   - https://quay.io/brancz/kube-rbac-proxy
   - https://volsync.readthedocs.io/
 type: application
-version: 2.2.7
+version: 2.7.0

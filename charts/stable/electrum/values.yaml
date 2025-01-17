@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/electrum
-  tag: latest@sha256:5f63293696239e193d6c95af00820387d3cf23ec18fec049114141ff50e73bb2
+  repository: ghcr.io/ich777/electrum
+  tag: latest@sha256:7d2a9c232fec2963dc7c4c1f2597f510d8bea82f75bdecf5aba30deab34ff46e
 persistence:
   datapath:
     enabled: true

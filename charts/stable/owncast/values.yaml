@@ -1,5 +1,5 @@
 image:
-  repository: gabekangas/owncast
+  repository: docker.io/gabekangas/owncast
   tag: 0.2.0@sha256:3f490ea2f8a92503ee46f81b633d1664f11b5d70a6be06ee32173e55619f5487
   pullPolicy: IfNotPresent
 service:

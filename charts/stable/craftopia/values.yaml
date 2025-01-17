@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: craftopia@sha256:395e5b4f76999cf6742d6dbc0e6b3187ece3d7d56657ea0a84e5314f7bb2a931
+  repository: ghcr.io/ich777/steamcmd
+  tag: craftopia@sha256:6c14fc1c35fac2928ec96e9a034cf16acd66f72c3fa63135cc7a539f5f89af7e
 persistence:
   serverfiles:
     enabled: true

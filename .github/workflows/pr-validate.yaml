@@ -17,12 +17,14 @@ jobs:
       addedOrModifiedCharts: ${{ steps.collect-changes.outputs.addedOrModifiedCharts }}
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
 
       - name: Collect changes
         id: collect-changes
         uses: ./.github/actions/collect-changes
-
+  common-tests:
+    uses: ./.github/workflows/common-tests.yaml
+    
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
@@ -32,6 +34,9 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedFiles: ${{ needs.pr-changes.outputs.addedOrModifiedFiles }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
+    secrets:
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
@@ -59,9 +64,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       head-commit-message: ${{ steps.get_head_commit_message.outputs.headCommitMsg }}
+      pr-title: ${{ github.event.pull_request.title }}
     steps:
       - name: Get repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: verbose head git commit message
@@ -69,25 +75,31 @@ jobs:
       - name: Print head git commit message
         id: get_head_commit_message
         run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
+      - name: Print PR title
+        run: |
+          echo "PR title: ${{ github.event.pull_request.title }}"
 
-  automerge-and-approve:
+
+  finished:
+    name: Finished PR Tests
+    runs-on: ubuntu-latest
+    if: always()
     needs:
       - pr-changes
-      - catalog-test
-      - charts-test
       - charts-lint
+      - charts-test
       - print_head_msg
-    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) }}
-    name: Automerge and Approve build
-    runs-on: ubuntu-latest
+      - common-tests
     steps:
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: "${{ secrets.PERS_PAT }}"
-      - name: automerge
-        uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
-        env:
-          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          UPDATE_RETRIES: 12
-          UPDATE_RETRY_SLEEP: 60000
-          MERGE_METHOD: squash
+      - name: Check Results
+        run: |
+          if [[ "${{ needs.pr-changes.result }}" != "success" || \
+                "${{ needs.charts-lint.result }}" != "success" || \
+                "${{ needs.charts-test.result }}" != "success" || \
+                "${{ needs.common-tests.result }}" != "success" || \
+                "${{ needs.print_head_msg.result }}" != "success" ]]; then
+            echo "One or more jobs failed!"
+            exit 1
+          else
+            echo "All jobs succeeded!"
+          fi

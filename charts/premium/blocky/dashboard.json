@@ -421,7 +421,7 @@
             "datasource": {
                 "uid": "${DS_PROMETHEUS}"
             },
-            "description": "Number of blacklist entries",
+            "description": "Number of denylist entries",
             "fieldConfig": {
                 "defaults": {
                     "mappings": [
@@ -477,7 +477,7 @@
                         "uid": "${DS_PROMETHEUS}"
                     },
                     "exemplar": true,
-                    "expr": "sum(blocky_blacklist_cache) / sum(up{job=~\"$job\"})",
+                    "expr": "sum(blocky_denylist_cache) / sum(up{job=~\"$job\"})",
                     "format": "table",
                     "instant": false,
                     "interval": "",
@@ -485,7 +485,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Blacklist entries total",
+            "title": "Denylist entries total",
             "transparent": true,
             "type": "stat"
         },
@@ -1637,7 +1637,7 @@
                         "uid": "${DS_PROMETHEUS}"
                     },
                     "exemplar": false,
-                    "expr": "topk(1, blocky_blacklist_cache) by (group)",
+                    "expr": "topk(1, blocky_denylist_cache) by (group)",
                     "format": "time_series",
                     "instant": true,
                     "interval": "",
@@ -1645,7 +1645,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Blacklist by group",
+            "title": "Denylist by group",
             "transparent": true,
             "type": "piechart"
         },
@@ -1933,7 +1933,6 @@
     },
     "timezone": "",
     "title": "blocky",
-    "uid": "JvOqE4gRk",
     "version": 1,
     "weekStart": ""
 }

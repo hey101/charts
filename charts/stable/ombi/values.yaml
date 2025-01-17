@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/tccr/ombi
+  repository: linuxserver/ombi
   pullPolicy: IfNotPresent
-  tag: v4.43.11@sha256:d4b081323f8094b21dcba866c66887f1deff420857098f5aa50c13f1e097bc9b
+  tag: 4.47.1@sha256:7fb984cba51cfc80c355bc4dc7866a0dfe6b0832b74891bcdbbf5e2064bda9ee
 service:
   main:
     ports:
@@ -12,21 +12,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-# Enabled mariadb
-# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb
-mariadb:
-  enabled: false
-  architecture: standalone
-  auth:
-    database: ombi
-    username: ombi
-    password: ombi
-  primary:
-    persistence:
-      enabled: false
 portal:
   open:
     enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    allowPrivilegeEscalation: true
