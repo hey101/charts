@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: full
+appVersion: "full"
 dependencies:
   - name: common
     version: 25.3.1
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: red-discordbot
 sources:
-  - https://github.com/PhasecoreX/docker-red-discordbot
   - https://github.com/truecharts/charts/tree/master/charts/stable/red-discordbot
+  - https://github.com/PhasecoreX/docker-red-discordbot
   - https://hub.docker.com/r/phasecorex/red-discordbot
 type: application
-version: 7.4.0
+version: 7.4.1
