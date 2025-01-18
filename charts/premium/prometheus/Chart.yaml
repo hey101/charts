@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
-home: https://truecharts.org/charts/premium/prometheus
+home: https://github.com/hey101/charts/premium/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.webp
 keywords:
   - metrics
@@ -35,6 +35,7 @@ maintainers:
     url: https://truecharts.org
 name: prometheus
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/premium/prometheus
   - https://github.com/truecharts/charts/tree/master/charts/premium/prometheus
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
@@ -42,4 +43,4 @@ sources:
   - https://hub.docker.com/r/bitnami/prometheus
   - https://quay.io/thanos/thanos
 type: application
-version: 20.3.1
+version: 20.3.2
