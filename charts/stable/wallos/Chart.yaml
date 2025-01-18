@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "2.43.1"
+appVersion: "2.44.0"
 dependencies:
   - name: common
     version: 25.3.1
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Wallos - Self Hosted Subscription tracker
-home: https://truecharts.org/charts/stable/wallos
+home: https://github.com/hey101/charts/stable/wallos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wallos.webp
 keywords:
   - dashboard
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: wallos
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/wallos
   - https://github.com/truecharts/charts/tree/master/charts/stable/wallos
   - https://ghcr.io/ellite/wallos
   - https://github.com/ellite/Wallos
 type: application
-version: 6.7.1
+version: 6.7.2
