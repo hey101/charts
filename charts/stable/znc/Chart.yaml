@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.9.1
+appVersion: "1.9.1"
 dependencies:
   - name: common
     version: 25.3.1
@@ -28,7 +28,7 @@ maintainers:
     url: https://truecharts.org
 name: znc
 sources:
-  - https://ghcr.io/linuxserver/znc
   - https://github.com/truecharts/charts/tree/master/charts/stable/znc
+  - https://ghcr.io/linuxserver/znc
 type: application
-version: 11.4.0
+version: 11.4.1
