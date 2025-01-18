@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.11.2
+appVersion: "3.11.2"
 dependencies:
   - name: common
     version: 25.3.1
@@ -28,7 +28,7 @@ maintainers:
     url: https://truecharts.org
 name: ddclient
 sources:
-  - https://ghcr.io/linuxserver/ddclient
   - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
+  - https://ghcr.io/linuxserver/ddclient
 type: application
-version: 11.4.1
+version: 11.4.2
