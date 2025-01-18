@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 8.5.0
+appVersion: "8.5.0"
 dependencies:
   - name: common
     version: 25.3.1
@@ -32,9 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: digikam
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
   - https://ghcr.io/linuxserver/digikam
   - https://github.com/linuxserver/docker-digikam
-  - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
   - https://www.digikam.org/
 type: application
-version: 14.1.1
+version: 14.1.2
