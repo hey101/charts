@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: KubeApps is a Kubernetes-as-Apps solution
-home: https://truecharts.org/charts/system/kubeapps
+home: https://github.com/hey101/charts/system/kubeapps
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.webp
 keywords:
   - kubeapps
@@ -37,9 +37,10 @@ maintainers:
     url: https://truecharts.org
 name: kubeapps
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/system/kubeapps
   - https://github.com/truecharts/charts/tree/master/charts/system/kubeapps
   - https://cert-manager.io/
   - https://ghcr.io/xstar97/my-proxy-service
   - https://github.com/cert-manager
 type: application
-version: 5.2.4
+version: 5.2.5
