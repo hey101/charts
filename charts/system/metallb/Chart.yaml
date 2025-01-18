@@ -41,4 +41,4 @@ sources:
   - https://github.com/metallb/metallb
   - https://metallb.universe.tf
 type: application
-version: 16.1.6
+version: 16.1.7
