@@ -11,20 +11,21 @@ jobs:
   renovate-bump:
     name: Get changed Apps
     runs-on: ubuntu-24.04
-    container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        name: Checkout
+        name: Checkout triggering branch
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
+          
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        name: Checkout
+        name: Checkout hey101/charts master
         with:
-          fetch-depth: 0
+          repository: hey101/charts
           ref: master
+          fetch-depth: 0
           path: master
+          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -79,15 +80,15 @@ jobs:
               echo "Updating icon of ${chartname}..."
               sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.webp|" "${chart}/Chart.yaml"
               echo "Updating home of ${chartname}..."
-              sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+              sed -i -e "s|home: .*|home: https:\/\/github.com\/hey101\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
-              # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+              # Get all sources (except hey101)
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/hey101*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
-              tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+              tcsource="https://github.com/hey101/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
               # Add the rest of the sources
               while IFS= read -r line; do
                 src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml" || echo "src set error"
@@ -150,7 +151,7 @@ jobs:
       - name: Commit and Push new version
         run: |
           git config user.name "hey101"
-          git config user.email "bot@truecharts.org"
+          git config user.email "bot@github.com"
           git add --all
           git commit -sm "Commit bumped Chart Version" || exit 0
           git push
