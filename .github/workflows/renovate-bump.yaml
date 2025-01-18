@@ -26,6 +26,14 @@ jobs:
           fetch-depth: 0
           path: master
           token: ${{ secrets.BOT_TOKEN }}
+          
+      - name: Install go-yq
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
