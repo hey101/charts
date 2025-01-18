@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.3.1
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: jelu
 sources:
-  - https://github.com/bayang/jelu
   - https://github.com/truecharts/charts/tree/master/charts/stable/jelu
+  - https://github.com/bayang/jelu
   - https://hub.docker.com/r/wabayang/jelu
 type: application
-version: 7.4.1
+version: 7.4.2
