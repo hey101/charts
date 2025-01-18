@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.6.3
+appVersion: "2.6.3"
 dependencies:
   - name: common
     version: 25.3.1
@@ -28,8 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: heimdall
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
   - https://fleet.linuxserver.io/image?name=linuxserver/heimdall
   - https://github.com/linuxserver/Heimdall/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
 type: application
-version: 23.3.2
+version: 23.3.3
