@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Container management made easy
-home: https://truecharts.org/charts/stable/portainer
+home: https://github.com/hey101/charts/stable/portainer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.webp
 keywords:
   - portainer
@@ -28,10 +28,11 @@ maintainers:
     url: https://truecharts.org
 name: portainer
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/portainer
   - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
   - https://docs.portainer.io/start/install-ce/server
   - https://docs.portainer.io/start/install/server
   - https://hub.docker.com/r/portainer/portainer-ce
   - https://hub.docker.com/r/portainer/portainer-ee
 type: application
-version: 10.9.1
+version: 10.9.2
