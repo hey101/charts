@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.3.3
+appVersion: "2.3.3"
 dependencies:
   - name: common
     version: 25.3.1
@@ -35,7 +35,7 @@ maintainers:
     url: https://truecharts.org
 name: fleet
 sources:
-  - https://ghcr.io/linuxserver/fleet
   - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
+  - https://ghcr.io/linuxserver/fleet
 type: application
-version: 14.10.2
+version: 14.10.3
