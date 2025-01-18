@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.2.0
+appVersion: "0.2.1"
 dependencies:
   - name: common
     version: 25.3.1
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: owncast
 sources:
-  - https://github.com/owncast/owncast
   - https://github.com/truecharts/charts/tree/master/charts/stable/owncast
+  - https://github.com/owncast/owncast
   - https://hub.docker.com/r/gabekangas/owncast
   - https://owncast.online/
 type: application
-version: 15.5.0
+version: 15.5.1
