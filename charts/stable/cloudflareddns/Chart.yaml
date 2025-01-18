@@ -35,4 +35,4 @@ sources:
   - https://github.com/hotio/cloudflareddns
   - https://hotio.dev/containers/cloudflareddns/
 type: application
-version: 11.4.3
+version: 11.4.4
