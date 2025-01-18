@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.3.1
@@ -28,8 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: sshwifty
 sources:
-  - https://github.com/niruix/sshwifty
   - https://github.com/truecharts/charts/tree/master/charts/stable/sshwifty
+  - https://github.com/niruix/sshwifty
   - https://hub.docker.com/r/niruix/sshwifty
 type: application
-version: 7.4.0
+version: 7.4.1
