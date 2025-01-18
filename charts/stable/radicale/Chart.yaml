@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.3.3.0
+appVersion: "3.4.0.0"
 dependencies:
   - name: common
     version: 25.3.1
@@ -34,10 +34,10 @@ maintainers:
     url: https://truecharts.org
 name: radicale
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/radicale
   - https://github.com/Kozea/Radicale
   - https://github.com/tomsquest/docker-radicale
-  - https://github.com/truecharts/charts/tree/master/charts/stable/radicale
   - https://hub.docker.com/r/tomsquest/docker-radicale
   - https://radicale.org/
 type: application
-version: 7.5.1
+version: 7.5.2
