@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: OpenEBS is a umbrella chart for multiple container storage provisioners
-home: https://truecharts.org/charts/system/openebs
+home: https://github.com/hey101/charts/system/openebs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.webp
 keywords:
   - openebs
@@ -37,8 +37,9 @@ maintainers:
     url: https://truecharts.org
 name: openebs
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/system/openebs
   - https://github.com/truecharts/charts/tree/master/charts/system/openebs
   - https://cert-manager.io/
   - https://github.com/cert-manager
 type: application
-version: 8.0.6
+version: 8.0.7
