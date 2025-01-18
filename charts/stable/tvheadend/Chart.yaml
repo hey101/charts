@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.3.1
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: tvheadend
 sources:
-  - https://ghcr.io/linuxserver/tvheadend
   - https://github.com/truecharts/charts/tree/master/charts/stable/tvheadend
+  - https://ghcr.io/linuxserver/tvheadend
   - https://github.com/tvheadend/tvheadend
 type: application
-version: 21.4.1
+version: 21.4.2
