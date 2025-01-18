@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.7.48
+appVersion: "1.7.48"
 dependencies:
   - name: common
     version: 25.3.1
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: grav
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/grav
   - https://ghcr.io/linuxserver/grav
   - https://github.com/getgrav/grav/
   - https://github.com/linuxserver/docker-grav
-  - https://github.com/truecharts/charts/tree/master/charts/stable/grav
 type: application
-version: 13.4.1
+version: 13.4.2
