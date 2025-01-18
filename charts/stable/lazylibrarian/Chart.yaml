@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Get all your books, like series with Sonarr...
-home: https://truecharts.org/charts/stable/lazylibrarian
+home: https://github.com/hey101/charts/stable/lazylibrarian
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.webp
 keywords:
   - lazylibrarian
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: lazylibrarian
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/lazylibrarian
   - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
   - https://ghcr.io/linuxserver/lazylibrarian
   - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
   - https://lazylibrarian.gitlab.io
 type: application
-version: 20.4.5
+version: 20.4.6
