@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/pylon
   pullPolicy: IfNotPresent
-  tag: 2.10.0@sha256:0852384a098f55b2263b7d89efbb4131a411af333d85f0d8369e23c97d071254
+  tag: 2.10.0@sha256:1bb1fc464f729e5203d5188abdbe82e1450cba4da1f9435f8d79daeaa210b945
 service:
   main:
     ports:
