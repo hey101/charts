@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.107.55
+appVersion: "0.107.55"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Free and open source, powerful network-wide ads & trackers blocking DNS server.
-home: https://truecharts.org/charts/stable/adguard-home
+home: https://github.com/hey101/charts/stable/adguard-home
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguard-home.webp
 keywords:
   - adblock
@@ -29,7 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: adguard-home
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/adguard-home
   - https://github.com/truecharts/charts/tree/master/charts/stable/adguard-home
   - https://hub.docker.com/r/adguard/adguardhome
 type: application
-version: 11.4.0
+version: 11.4.1

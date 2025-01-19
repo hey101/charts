@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.0.0
+appVersion: "9.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Program for forwarding ADS-B data to FlightAware
-home: https://truecharts.org/charts/stable/piaware
+home: https://github.com/hey101/charts/stable/piaware
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/piaware.webp
 keywords:
   - piaware
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: piaware
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/piaware
   - https://github.com/flightaware/piaware
   - https://github.com/truecharts/charts/tree/master/charts/stable/piaware
   - https://hub.docker.com/r/mikenye/piaware
 type: application
-version: 14.4.0
+version: 14.4.1

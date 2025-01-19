@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: GLAuth is a secure, easy-to-use, LDAP server with configurable backends.
-home: https://truecharts.org/charts/stable/glauth
+home: https://github.com/hey101/charts/stable/glauth
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/glauth.webp
 keywords:
   - glauth
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: glauth
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/glauth
   - https://github.com/truecharts/charts/tree/master/charts/stable/glauth
   - https://glauth.github.io
   - https://hub.docker.com/r/glauth/glauth
 type: application
-version: 7.4.0
+version: 7.4.1

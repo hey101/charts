@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: GoAccess for Nginx Proxy Manager Logs
-home: https://truecharts.org/charts/stable/goaccess-npm-logs
+home: https://github.com/hey101/charts/stable/goaccess-npm-logs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess-npm-logs.webp
 keywords:
   - goaccess-npm-logs
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: goaccess-npm-logs
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/goaccess-npm-logs
   - https://github.com/truecharts/charts/tree/master/charts/stable/goaccess-npm-logs
   - https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager
   - https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager
 type: application
-version: 7.4.1
+version: 7.4.2

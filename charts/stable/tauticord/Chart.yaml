@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.10.0
+appVersion: "5.10.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Discord bot that displays live data from Tautulli.
-home: https://truecharts.org/charts/stable/tauticord
+home: https://github.com/hey101/charts/stable/tauticord
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tauticord.webp
 keywords:
   - tauticord
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: tauticord
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/tauticord
   - https://ghcr.io/nwithan8/tauticord
   - https://github.com/nwithan8/tauticord
   - https://github.com/truecharts/charts/tree/master/charts/stable/tauticord
 type: application
-version: 7.8.0
+version: 7.8.1

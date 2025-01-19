@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.12.1
+appVersion: "24.12.1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: PuTTY is a free and open-source terminal emulator, serial console and network file transfer application.
-home: https://truecharts.org/charts/stable/putty
+home: https://github.com/hey101/charts/stable/putty
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/putty.webp
 keywords:
   - ssh
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: putty
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/putty
   - https://github.com/jlesage/docker-putty
   - https://github.com/truecharts/charts/tree/master/charts/stable/putty
   - https://hub.docker.com/r/jlesage/putty
 type: application
-version: 11.9.0
+version: 11.9.1

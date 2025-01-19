@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.12.2
+appVersion: "2.12.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Managing Nginx proxy hosts with a simple, powerful interface.
-home: https://truecharts.org/charts/stable/nginx-proxy-manager
+home: https://github.com/hey101/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.webp
 keywords:
   - nginx-proxy-manager
@@ -37,9 +37,10 @@ maintainers:
     url: https://truecharts.org
 name: nginx-proxy-manager
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
   - https://nginxproxymanager.com/
 type: application
-version: 11.11.0
+version: 11.11.1

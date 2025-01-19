@@ -11,7 +11,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
@@ -42,4 +42,4 @@ sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
 type: application
-version: 8.0.7
+version: 8.0.8

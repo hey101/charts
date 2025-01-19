@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.4.2
+appVersion: "4.4.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
-home: https://truecharts.org/charts/stable/appdaemon
+home: https://github.com/hey101/charts/stable/appdaemon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.webp
 keywords:
   - appdaemon
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: appdaemon
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/appdaemon
   - https://github.com/AppDaemon/appdaemon
   - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
   - https://hub.docker.com/r/acockburn/appdaemon
 type: application
-version: 18.4.0
+version: 18.4.1

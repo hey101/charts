@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.3.2
+appVersion: "3.3.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Container for proxmox backup server
-home: https://truecharts.org/charts/stable/proxmox-backup-server
+home: https://github.com/hey101/charts/stable/proxmox-backup-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/proxmox-backup-server.webp
 keywords:
   - proxmox-backup-server
@@ -29,7 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: proxmox-backup-server
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/proxmox-backup-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/proxmox-backup-server
   - https://hub.docker.com/r/ayufan/proxmox-backup-server
 type: application
-version: 5.5.0
+version: 5.5.1

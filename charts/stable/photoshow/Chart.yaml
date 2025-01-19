@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 48aabb98
+appVersion: "48aabb98"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A gallery software at its easiest, it doesn't even require a database.
-home: https://truecharts.org/charts/stable/photoshow
+home: https://github.com/hey101/charts/stable/photoshow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.webp
 keywords:
   - photoshow
@@ -32,9 +32,10 @@ maintainers:
     url: https://truecharts.org
 name: photoshow
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/photoshow
   - https://ghcr.io/linuxserver/photoshow
   - https://github.com/linuxserver/docker-photoshow
   - https://github.com/thibaud-rohmer/PhotoShow
   - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
 type: application
-version: 12.4.0
+version: 12.4.1

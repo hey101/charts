@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: x86_64
+appVersion: "x86_64"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Home Assistant online configurator Chart from https://github.com/danielperna84/hass-configurator
-home: https://truecharts.org/charts/stable/hassconfigurator
+home: https://github.com/hey101/charts/stable/hassconfigurator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hassconfigurator.webp
 keywords:
   - hassconfigurator
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: hassconfigurator
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/hassconfigurator
   - https://github.com/danielperna84/hass-configurator
   - https://github.com/truecharts/charts/tree/master/charts/stable/hassconfigurator
   - https://hub.docker.com/r/causticlab/hass-configurator-docker
 type: application
-version: 7.4.0
+version: 7.4.1

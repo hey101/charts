@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.1.15
+appVersion: "4.1.15"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
-home: https://truecharts.org/charts/stable/qbitmanage
+home: https://github.com/hey101/charts/stable/qbitmanage
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitmanage.webp
 keywords:
   - qbitmanage
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: qbitmanage
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/qbitmanage
   - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
   - https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
   - https://hub.docker.com/r/bobokun/qbit_manage
 type: application
-version: 10.4.1
+version: 10.4.2

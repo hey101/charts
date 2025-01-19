@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: This Chart will download and install Rapid Photo Downloader.
-home: https://truecharts.org/charts/stable/rapidphotodownloader
+home: https://github.com/hey101/charts/stable/rapidphotodownloader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rapidphotodownloader.webp
 keywords:
   - rapidphotodownloader
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: rapidphotodownloader
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/rapidphotodownloader
   - https://ghcr.io/ich777/rapidphotodownloader
   - https://github.com/truecharts/charts/tree/master/charts/stable/rapidphotodownloader
   - https://www.damonlynch.net/rapid/
 type: application
-version: 7.4.1
+version: 7.4.2

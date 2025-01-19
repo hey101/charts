@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.9.1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels.
-home: https://truecharts.org/charts/stable/znc
+home: https://github.com/hey101/charts/stable/znc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/znc.webp
 keywords:
   - znc
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: znc
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/znc
   - https://github.com/truecharts/charts/tree/master/charts/stable/znc
   - https://ghcr.io/linuxserver/znc
 type: application
-version: 11.4.1
+version: 11.4.2

@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2024.3.1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An Automatic Video Library Manager for TV Shows
-home: https://truecharts.org/charts/stable/sickchill
+home: https://github.com/hey101/charts/stable/sickchill
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.webp
 keywords:
   - sickchill
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: sickchill
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/sickchill
   - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
   - https://ghcr.io/linuxserver/sickchill
   - https://github.com/SickChill/SickChill
   - https://github.com/linuxserver/docker-sickchill
 type: application
-version: 13.4.2
+version: 13.4.3

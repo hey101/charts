@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.5.1
+appVersion: "0.5.1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A lightweight, self-hosted paste platform.
-home: https://truecharts.org/charts/stable/pastey
+home: https://github.com/hey101/charts/stable/pastey
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pastey.webp
 keywords:
   - pastey
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: pastey
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/pastey
   - https://github.com/Cesura/pastey
   - https://github.com/truecharts/charts/tree/master/charts/stable/pastey
   - https://hub.docker.com/r/cesura/pastey
 type: application
-version: 8.4.0
+version: 8.4.1

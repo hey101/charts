@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.6.17
+appVersion: "0.6.17"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Synchronize AdGuardHome config to replica instances.
-home: https://truecharts.org/charts/stable/adguardhome-sync
+home: https://github.com/hey101/charts/stable/adguardhome-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.webp
 keywords:
   - adguardhome-sync
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: adguardhome-sync
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/adguardhome-sync
   - https://ghcr.io/bakito/adguardhome-sync
   - https://github.com/bakito/adguardhome-sync/
   - https://github.com/truecharts/charts/tree/master/charts/stable/adguardhome-sync
 type: application
-version: 8.4.0
+version: 8.4.1

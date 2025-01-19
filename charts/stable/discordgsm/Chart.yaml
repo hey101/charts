@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.17.0
+appVersion: "2.17.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A discord bot that monitors your game server and tracks the live data of your game servers.
-home: https://truecharts.org/charts/stable/discordgsm
+home: https://github.com/hey101/charts/stable/discordgsm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/discordgsm.webp
 keywords:
   - discordgsm
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: discordgsm
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/discordgsm
   - https://github.com/DiscordGSM/GameServerMonitor
   - https://github.com/truecharts/charts/tree/master/charts/stable/discordgsm
   - https://hub.docker.com/r/discordgsm/discord-game-server-monitor
 type: application
-version: 9.4.0
+version: 9.4.1

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: YouTransfer is a simple but elegant self-hosted file transfer sharing solution.
-home: https://truecharts.org/charts/stable/youtransfer
+home: https://github.com/hey101/charts/stable/youtransfer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtransfer.webp
 keywords:
   - youtransfer
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: youtransfer
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/youtransfer
   - https://github.com/YouTransfer/YouTransfer
   - https://github.com/truecharts/charts/tree/master/charts/stable/youtransfer
   - https://hub.docker.com/r/remie/youtransfer
 type: application
-version: 9.4.0
+version: 9.4.1

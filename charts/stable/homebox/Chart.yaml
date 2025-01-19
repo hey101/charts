@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.17.2
+appVersion: "0.17.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Inventory and organization system built for the Home User.
-home: https://truecharts.org/charts/stable/homebox
+home: https://github.com/hey101/charts/stable/homebox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebox.webp
 keywords:
   - homebox
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: homebox
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/homebox
   - https://ghcr.io/sysadminsmedia/homebox
   - https://github.com/sysadminsmedia/homebox
   - https://github.com/truecharts/charts/tree/master/charts/stable/homebox
 type: application
-version: 8.10.0
+version: 8.10.1

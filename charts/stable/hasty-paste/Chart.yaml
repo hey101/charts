@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.10.0
+appVersion: "1.10.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A fast and minimal paste bin, written in Python using Quart.
-home: https://truecharts.org/charts/stable/hasty-paste
+home: https://github.com/hey101/charts/stable/hasty-paste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hasty-paste.webp
 keywords:
   - hasty-paste
@@ -39,9 +39,10 @@ maintainers:
     url: https://truecharts.org
 name: hasty-paste
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/hasty-paste
   - https://ghcr.io/enchant97/hasty-paste
   - https://github.com/enchant97/hasty-paste
   - https://github.com/enchant97/hasty-paste/blob/main/docs/install.md
   - https://github.com/truecharts/charts/tree/master/charts/stable/hasty-paste
 type: application
-version: 8.9.1
+version: 8.9.2

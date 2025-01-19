@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "4.3.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: OpenHab is a home-automation application
-home: https://truecharts.org/charts/stable/openhab
+home: https://github.com/hey101/charts/stable/openhab
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openhab.webp
 keywords:
   - openhab
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: openhab
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/openhab
   - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
   - https://hub.docker.com/r/openhab/openhab
 type: application
-version: 11.6.2
+version: 11.6.3

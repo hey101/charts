@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole.
-home: https://truecharts.org/charts/stable/dns-doh-companion
+home: https://github.com/hey101/charts/stable/dns-doh-companion
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dns-doh-companion.webp
 keywords:
   - dns-doh-companion
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: dns-doh-companion
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/dns-doh-companion
   - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
   - https://github.com/truecharts/charts/tree/master/charts/stable/dns-doh-companion
   - https://hub.docker.com/r/testdasi/simple-dns-doh
 type: application
-version: 7.4.2
+version: 7.4.3

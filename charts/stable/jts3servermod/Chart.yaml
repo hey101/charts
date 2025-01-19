@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 20240301.0.0
+appVersion: "20240301-1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: JTS3ServerMod by Stefan1200
-home: https://truecharts.org/charts/stable/jts3servermod
+home: https://github.com/hey101/charts/stable/jts3servermod
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jts3servermod.webp
 keywords:
   - teamspeak
@@ -30,10 +30,11 @@ maintainers:
     url: https://truecharts.org
 name: jts3servermod
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/jts3servermod
   - https://ghcr.io/galexrt/jts3servermod
   - https://github.com/galexrt/container-jts3servermod
   - https://github.com/truecharts/charts/tree/master/charts/stable/jts3servermod
   - https://www.stefan1200.de/documentation/jts3servermod/readme.html
   - https://www.stefan1200.de/forum/index.php?PHPSESSID=r0m44032akt9jk7903ru9ejv2f&topic=2.0
 type: application
-version: 3.4.0
+version: 3.4.1

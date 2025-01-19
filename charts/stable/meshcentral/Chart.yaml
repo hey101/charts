@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.1.38
+appVersion: "1.1.38"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: MeshCentral is a full computer management web site
-home: https://truecharts.org/charts/stable/meshcentral
+home: https://github.com/hey101/charts/stable/meshcentral
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshcentral.webp
 keywords:
   - meshcentral
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: meshcentral
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/meshcentral
   - https://ghcr.io/ylianst/meshcentral
   - https://github.com/Ylianst/MeshCentral
   - https://github.com/truecharts/charts/tree/master/charts/stable/meshcentral
 type: application
-version: 17.4.1
+version: 17.4.2

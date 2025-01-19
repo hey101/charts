@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.7.0
+appVersion: "3.7.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
-home: https://truecharts.org/charts/stable/kiwix-serve
+home: https://github.com/hey101/charts/stable/kiwix-serve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.webp
 keywords:
   - kiwix-serve
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: kiwix-serve
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/kiwix-serve
   - https://ghcr.io/kiwix/kiwix-serve
   - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve
   - https://www.kiwix.org/
 type: application
-version: 10.4.0
+version: 10.4.1

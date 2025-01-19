@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
-home: https://truecharts.org/charts/premium/metallb-config
+home: https://github.com/hey101/charts/premium/metallb-config
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.webp
 keywords:
   - metallb
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: metallb-config
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/premium/metallb-config
   - https://github.com/truecharts/charts/tree/master/charts/premium/metallb-config
   - https://github.com/metallb/metallb
   - https://hub.docker.com/_/hello-world
   - https://metallb.io
 type: application
-version: 8.4.1
+version: 8.4.2

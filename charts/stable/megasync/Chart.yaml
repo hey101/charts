@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: MEGAsync can synchronize all of your devices with your MEGA account.
-home: https://truecharts.org/charts/stable/megasync
+home: https://github.com/hey101/charts/stable/megasync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/megasync.webp
 keywords:
   - megasync
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: megasync
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/megasync
   - https://github.com/truecharts/charts/tree/master/charts/stable/megasync
   - https://ghcr.io/ich777/megasync
   - https://github.com/ich777/docker-megasync
 type: application
-version: 8.4.1
+version: 8.4.2

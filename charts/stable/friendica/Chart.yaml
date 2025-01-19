@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2024.12"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,7 +31,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Welcome to the free social web
-home: https://truecharts.org/charts/stable/friendica
+home: https://github.com/hey101/charts/stable/friendica
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/friendica.webp
 keywords:
   - friend
@@ -43,8 +43,9 @@ maintainers:
     url: https://truecharts.org
 name: friendica
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/friendica
   - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
   - https://friendi.ca/
   - https://hub.docker.com/_/friendica
 type: application
-version: 16.14.2
+version: 16.14.3

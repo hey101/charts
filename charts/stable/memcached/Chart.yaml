@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.6.34
+appVersion: "1.6.34"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Memcached is a memory-backed database caching solution
-home: https://truecharts.org/charts/stable/memcached
+home: https://github.com/hey101/charts/stable/memcached
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/memcached.webp
 keywords:
   - memcached
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: memcached
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/memcached
   - https://github.com/bitnami/bitnami-docker-memcached
   - https://github.com/truecharts/charts/tree/master/charts/stable/memcached
   - https://hub.docker.com/r/bitnami/memcached
 type: application
-version: 14.4.0
+version: 14.4.1

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.7.5
+appVersion: "3.7.5"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,7 +31,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: CTFd is a Capture The Flag framework focusing on ease of use and customizability.
-home: https://truecharts.org/charts/stable/ctfd
+home: https://github.com/hey101/charts/stable/ctfd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ctfd.webp
 keywords:
   - ctfd
@@ -43,8 +43,9 @@ maintainers:
     url: https://truecharts.org
 name: ctfd
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/ctfd
   - https://ghcr.io/ctfd/ctfd
   - https://github.com/CTFd/CTFd
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
 type: application
-version: 6.12.1
+version: 6.12.2

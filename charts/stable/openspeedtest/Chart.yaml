@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: HTML5 Network Speed Test Server. You can test download & upload speed from any device within your network with a web browser that is IE10 or new.
-home: https://truecharts.org/charts/stable/openspeedtest
+home: https://github.com/hey101/charts/stable/openspeedtest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openspeedtest.webp
 keywords:
   - speedtest
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: openspeedtest
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/openspeedtest
   - https://github.com/openspeedtest/Speed-Test
   - https://github.com/truecharts/charts/tree/master/charts/stable/openspeedtest
   - https://hub.docker.com/r/openspeedtest/latest
 type: application
-version: 10.4.1
+version: 10.4.2

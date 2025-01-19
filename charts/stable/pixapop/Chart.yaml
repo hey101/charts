@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.0
+appVersion: "1.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An open-source single page application to view your photos in the easiest way possible.
-home: https://truecharts.org/charts/stable/pixapop
+home: https://github.com/hey101/charts/stable/pixapop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixapop.webp
 keywords:
   - pixapop
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: pixapop
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/pixapop
   - https://ghcr.io/linuxserver/pixapop
   - https://github.com/bierdok/pixapop
   - https://github.com/linuxserver/docker-pixapop
   - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
 type: application
-version: 12.4.0
+version: 12.4.1

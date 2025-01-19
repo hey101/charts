@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "30.0.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A private cloud server that puts the control and security of your own data back into your hands.
-home: https://truecharts.org/charts/premium/nextcloud
+home: https://github.com/hey101/charts/premium/nextcloud
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.webp
 keywords:
   - nextcloud
@@ -39,6 +39,7 @@ maintainers:
     url: https://truecharts.org
 name: nextcloud
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/premium/nextcloud
   - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
@@ -46,4 +47,4 @@ sources:
   - https://hub.docker.com/r/collabora/code
   - https://hub.docker.com/r/nginxinc/nginx-unprivileged
 type: application
-version: 32.6.7
+version: 32.6.8

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Mediaelch is a Tool to manage your movie and show libary regarding the metadata and artwork.
-home: https://truecharts.org/charts/stable/mediaelch
+home: https://github.com/hey101/charts/stable/mediaelch
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mediaelch.webp
 keywords:
   - mediaelch
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: mediaelch
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/mediaelch
   - https://github.com/Komet/MediaElch
   - https://github.com/truecharts/charts/tree/master/charts/stable/mediaelch
   - https://hub.docker.com/r/masonxx/mediaelch
 type: application
-version: 7.4.0
+version: 7.4.1

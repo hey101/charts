@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
 deprecated: false
 description: |
   Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
-home: https://truecharts.org/charts/stable/bitcoinwalletgui
+home: https://github.com/hey101/charts/stable/bitcoinwalletgui
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.webp
 keywords:
   - bitcoinwalletgui
@@ -30,7 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: bitcoinwalletgui
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/bitcoinwalletgui
   - https://github.com/truecharts/charts/tree/master/charts/stable/bitcoinwalletgui
   - https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
 type: application
-version: 7.4.0
+version: 7.4.1

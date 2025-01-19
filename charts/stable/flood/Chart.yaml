@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "4.9.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Flood is a monitoring service for various torrent clients
-home: https://truecharts.org/charts/stable/flood
+home: https://github.com/hey101/charts/stable/flood
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flood.webp
 keywords:
   - flood
@@ -31,8 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: flood
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/flood
   - https://github.com/truecharts/charts/tree/master/charts/stable/flood
   - https://github.com/jesec/flood
   - https://hub.docker.com/r/jesec/flood
 type: application
-version: 15.4.1
+version: 15.4.2

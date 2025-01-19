@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.0.108
+appVersion: "9.0.108"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Ubiquiti Network's Unifi Controller
-home: https://truecharts.org/charts/stable/unifi
+home: https://github.com/hey101/charts/stable/unifi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.webp
 keywords:
   - ubiquiti
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: unifi
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/unifi
   - https://ghcr.io/goofball222/unifi
   - https://github.com/jacobalberty/unifi-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
   - https://unifi-network.ui.com
 type: application
-version: 23.0.0
+version: 23.0.1

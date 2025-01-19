@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.48.06
+appVersion: "0.48.06"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: The best and simplest free open source website change detection, website watcher, restock monitor and notification service
-home: https://truecharts.org/charts/stable/changedetection-io
+home: https://github.com/hey101/charts/stable/changedetection-io
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/changedetection-io.webp
 keywords:
   - monitoring
@@ -30,9 +30,10 @@ maintainers:
     url: https://truecharts.org
 name: changedetection-io
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/changedetection-io
   - https://changedetection.io/
   - https://ghcr.io/dgtlmoon/changedetection.io
   - https://github.com/dgtlmoon/changedetection.io/tree/master
   - https://github.com/truecharts/charts/tree/master/charts/stable/changedetection-io
 type: application
-version: 4.7.1
+version: 4.7.2

@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.30.0.492"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
-home: https://truecharts.org/charts/stable/prowlarr
+home: https://github.com/hey101/charts/stable/prowlarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prowlarr.webp
 keywords:
   - prowlarr
@@ -30,10 +30,11 @@ maintainers:
     url: https://truecharts.org
 name: prowlarr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/prowlarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
   - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/prowlarr-develop
   - https://github.com/Prowlarr/Prowlarr
   - https://github.com/k8s-at-home/container-images
 type: application
-version: 18.12.2
+version: 18.12.3

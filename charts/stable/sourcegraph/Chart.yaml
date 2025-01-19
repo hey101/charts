@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.11.5234"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Sourcegraph Chart.
-home: https://truecharts.org/charts/stable/sourcegraph
+home: https://github.com/hey101/charts/stable/sourcegraph
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sourcegraph.webp
 keywords:
   - sourcegraph
@@ -33,7 +33,8 @@ maintainers:
     url: https://truecharts.org
 name: sourcegraph
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/sourcegraph
   - https://github.com/truecharts/charts/tree/master/charts/stable/sourcegraph
   - https://hub.docker.com/r/sourcegraph/server
 type: application
-version: 7.10.3
+version: 7.10.4

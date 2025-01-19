@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.0
+appVersion: "2.0.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Bridges events and allows you to control your Zigbee devices via MQTT
-home: https://truecharts.org/charts/stable/zigbee2mqtt
+home: https://github.com/hey101/charts/stable/zigbee2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zigbee2mqtt.webp
 keywords:
   - zigbee
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: zigbee2mqtt
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/zigbee2mqtt
   - https://github.com/Koenkk/zigbee2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
   - https://hub.docker.com/r/koenkk/zigbee2mqtt
 type: application
-version: 14.0.0
+version: 14.0.1

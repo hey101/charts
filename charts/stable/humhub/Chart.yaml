@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.16.2
+appVersion: "1.16.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,7 +31,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A feature rich and highly flexible OpenSource Social Network Kit written in PHP.
-home: https://truecharts.org/charts/stable/humhub
+home: https://github.com/hey101/charts/stable/humhub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.webp
 keywords:
   - humhub
@@ -43,8 +43,9 @@ maintainers:
     url: https://truecharts.org
 name: humhub
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/humhub
   - https://ghcr.io/mriedmann/humhub-nginx
   - https://ghcr.io/mriedmann/humhub-phponly
   - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
 type: application
-version: 9.13.1
+version: 9.13.2

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: 0.11.0
+appVersion: "0.11.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: volsync is a storage backup and synchronisation tool.
-home: https://truecharts.org/charts/system/volsync
+home: https://github.com/hey101/charts/system/volsync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/volsync.webp
 keywords:
   - volsync
@@ -29,6 +29,7 @@ maintainers:
     url: https://truecharts.org
 name: volsync
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/system/volsync
   - https://github.com/backube/helm-charts
   - https://github.com/backube/volsync
   - https://github.com/truecharts/charts/tree/master/charts/system/volsync
@@ -36,4 +37,4 @@ sources:
   - https://quay.io/brancz/kube-rbac-proxy
   - https://volsync.readthedocs.io/
 type: application
-version: 2.7.0
+version: 2.7.1

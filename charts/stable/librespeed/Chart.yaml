@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.4.20240804
+appVersion: "5.4.202408"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Librespeed is a HTML5 webpage to test upload and download speeds
-home: https://truecharts.org/charts/stable/librespeed
+home: https://github.com/hey101/charts/stable/librespeed
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/librespeed.webp
 keywords:
   - librespeed
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: librespeed
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/librespeed
   - https://ghcr.io/linuxserver/librespeed
   - https://github.com/librespeed/speedtest
   - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
 type: application
-version: 15.5.0
+version: 15.5.1

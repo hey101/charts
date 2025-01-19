@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.44.2
+appVersion: "1.44.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source, self-hostable watched list
-home: https://truecharts.org/charts/stable/watcharr
+home: https://github.com/hey101/charts/stable/watcharr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.webp
 keywords:
   - watcharr
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: watcharr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/watcharr
   - https://ghcr.io/sbondco/watcharr
   - https://github.com/sbondCo/Watcharr
   - https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
 type: application
-version: 6.9.0
+version: 6.9.1

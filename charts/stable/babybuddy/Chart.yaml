@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2.7.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
-home: https://truecharts.org/charts/stable/babybuddy
+home: https://github.com/hey101/charts/stable/babybuddy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/babybuddy.webp
 keywords:
   - baby
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: babybuddy
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/babybuddy
   - https://github.com/truecharts/charts/tree/master/charts/stable/babybuddy
   - https://ghcr.io/linuxserver/babybuddy
   - https://github.com/babybuddy/babybuddy
 type: application
-version: 18.7.2
+version: 18.7.3

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.32.1
+appVersion: "0.32.1"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: IPFS is a global, versioned, peer-to-peer Interplanetary Filesystem.
-home: https://truecharts.org/charts/stable/ipfs
+home: https://github.com/hey101/charts/stable/ipfs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ipfs.webp
 keywords:
   - ipfs
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: ipfs
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/ipfs
   - https://github.com/ipfs/kubo
   - https://github.com/truecharts/charts/tree/master/charts/stable/ipfs
   - https://hub.docker.com/r/ipfs/kubo
 type: application
-version: 12.8.0
+version: 12.8.1

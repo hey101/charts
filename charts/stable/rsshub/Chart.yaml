@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: RSSHub can generate RSS feeds from pretty much everything
-home: https://truecharts.org/charts/stable/rsshub
+home: https://github.com/hey101/charts/stable/rsshub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsshub.webp
 keywords:
   - rsshub
@@ -36,10 +36,11 @@ maintainers:
     url: https://truecharts.org
 name: rsshub
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/rsshub
   - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
   - https://docs.rsshub.app/en/install/
   - https://github.com/DIYgod/RSSHub
   - https://hub.docker.com/r/browserless/chrome
   - https://hub.docker.com/r/diygod/rsshub
 type: application
-version: 14.9.8
+version: 14.9.9

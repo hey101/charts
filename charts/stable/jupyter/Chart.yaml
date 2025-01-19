@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2023-10"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Jupyter a web based IDE
-home: https://truecharts.org/charts/stable/jupyter
+home: https://github.com/hey101/charts/stable/jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.webp
 keywords:
   - Jupyter
@@ -30,6 +30,7 @@ maintainers:
     url: https://truecharts.org
 name: jupyter
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/jupyter
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
   - https://github.com/jupyter/docker-stacks
   - https://hub.docker.com/r/jupyter/all-spark-notebook
@@ -41,4 +42,4 @@ sources:
   - https://hub.docker.com/r/jupyter/scipy-notebook
   - https://hub.docker.com/r/jupyter/tensorflow-notebook
 type: application
-version: 10.4.1
+version: 10.4.2

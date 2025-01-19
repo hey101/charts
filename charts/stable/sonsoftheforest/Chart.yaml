@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: sonsoftheforest
+appVersion: "sonsofthef"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A custom SteamCMD chart that runs Sons Of The Forest Server.
-home: https://truecharts.org/charts/stable/sonsoftheforest
+home: https://github.com/hey101/charts/stable/sonsoftheforest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonsoftheforest.webp
 keywords:
   - sonsoftheforest
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: sonsoftheforest
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/sonsoftheforest
   - https://ghcr.io/ich777/steamcmd
   - https://github.com/ich777/docker-steamcmd-server/tree/sonsoftheforest
   - https://github.com/truecharts/charts/tree/master/charts/stable/sonsoftheforest
 type: application
-version: 5.4.0
+version: 5.4.1

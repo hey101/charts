@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.4.2
+appVersion: "7.4.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source, advanced key-value store.
-home: https://truecharts.org/charts/stable/redis
+home: https://github.com/hey101/charts/stable/redis
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.webp
 keywords:
   - redis
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: redis
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/redis
   - https://github.com/bitnami/bitnami-docker-redis
   - https://github.com/truecharts/charts/tree/master/charts/stable/redis
   - https://hub.docker.com/r/bitnami/redis
 type: application
-version: 15.5.1
+version: 15.5.2

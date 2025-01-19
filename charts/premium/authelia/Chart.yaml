@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 4.38.18
+appVersion: "4.38.18"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
-home: https://truecharts.org/charts/premium/authelia
+home: https://github.com/hey101/charts/premium/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.webp
 keywords:
   - authelia
@@ -45,9 +45,10 @@ maintainers:
     url: https://truecharts.org
 name: authelia
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/premium/authelia
   - https://ghcr.io/authelia/authelia
   - https://github.com/authelia/authelia
   - https://github.com/authelia/chartrepo
   - https://github.com/truecharts/charts/tree/master/charts/premium/authelia
 type: application
-version: 26.2.2
+version: 26.2.3

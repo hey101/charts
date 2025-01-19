@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.6.6
+appVersion: "2.6.6"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A borg Backup server
-home: https://truecharts.org/charts/stable/borg-server
+home: https://github.com/hey101/charts/stable/borg-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/borg-server.webp
 keywords:
   - borg-server
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: borg-server
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/borg-server
   - https://ghcr.io/anotherstranger/borg-server
   - https://github.com/AnotherStranger/docker-borg-backup
   - https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
 type: application
-version: 6.6.1
+version: 6.6.2

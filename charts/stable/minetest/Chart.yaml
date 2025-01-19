@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.10.0"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Minetest (server) is a near-infinite-world block sandbox game and a game engine.
-home: https://truecharts.org/charts/stable/minetest
+home: https://github.com/hey101/charts/stable/minetest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minetest.webp
 keywords:
   - minetest
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: minetest
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/minetest
   - https://github.com/truecharts/charts/tree/master/charts/stable/minetest
   - https://ghcr.io/linuxserver/minetest
 type: application
-version: 10.6.2
+version: 10.6.3

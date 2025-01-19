@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.29.2"
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: P2P file synchronization application
-home: https://truecharts.org/charts/stable/syncthing
+home: https://github.com/hey101/charts/stable/syncthing
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/syncthing.webp
 keywords:
   - syncthing
@@ -28,9 +28,10 @@ maintainers:
     url: https://truecharts.org
 name: syncthing
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/syncthing
   - https://github.com/truecharts/charts/tree/master/charts/stable/syncthing
   - https://github.com/syncthing/syncthing
   - https://hub.docker.com/r/syncthing/syncthing
   - https://syncthing.net/
 type: application
-version: 20.6.1
+version: 20.6.2
