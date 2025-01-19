@@ -75,7 +75,7 @@ jobs:
       - name: Fix Pre-Commit issues
         shell: bash
         if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
           pre-commit run --all ||:
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout Catalog
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+          steps.collect-changes.outputs.changesDetected == 'true'
         with:
           fetch-depth: 1
           repository: hey101/scale-catalog
@@ -96,7 +96,7 @@ jobs:
       - name: build catalog
         shell: bash
         if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           ./charttool deps
