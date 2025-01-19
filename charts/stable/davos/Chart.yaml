@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An FTP automation tool that periodically scans given host locations for new files.
-home: https://truecharts.org/charts/stable/davos
+home: https://github.com/hey101/charts/stable/davos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/davos.webp
 keywords:
   - davos
@@ -30,9 +30,10 @@ maintainers:
     url: https://truecharts.org
 name: davos
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/davos
   - https://github.com/truecharts/charts/tree/master/charts/stable/davos
   - https://ghcr.io/linuxserver/davos
   - https://github.com/linuxserver/davos/
   - https://github.com/linuxserver/docker-davos
 type: application
-version: 14.4.2
+version: 14.4.3

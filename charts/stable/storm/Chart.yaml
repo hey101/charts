@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.3.0
+appVersion: "1.3.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Modern Deluge Interface.
-home: https://truecharts.org/charts/stable/storm
+home: https://github.com/hey101/charts/stable/storm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/storm.webp
 keywords:
   - storm
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: storm
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/storm
   - https://ghcr.io/relvacode/storm
   - https://github.com/relvacode/storm
   - https://github.com/relvacode/storm/pkgs/container/storm
   - https://github.com/truecharts/charts/tree/master/charts/stable/storm
 type: application
-version: 7.4.0
+version: 7.4.1

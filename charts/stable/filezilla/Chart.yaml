@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Helm chart for Kubernetes
-home: https://truecharts.org/charts/stable/filezilla
+home: https://github.com/hey101/charts/stable/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.webp
 keywords:
   - filezilla
@@ -32,9 +32,10 @@ maintainers:
     url: https://truecharts.org
 name: filezilla
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/filezilla
   - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
   - https://filezilla-project.org/
   - https://ghcr.io/linuxserver/filezilla
   - https://github.com/linuxserver/docker-filezilla
 type: application
-version: 13.5.3
+version: 13.5.4

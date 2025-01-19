@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.14.2
+appVersion: "1.14.2"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ZeroTier is a smart programmable Ethernet switch for planet Earth
-home: https://truecharts.org/charts/stable/zerotier
+home: https://github.com/hey101/charts/stable/zerotier
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zerotier.webp
 keywords:
   - zerotier
@@ -29,7 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: zerotier
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/zerotier
   - https://github.com/truecharts/charts/tree/master/charts/stable/zerotier
   - https://hub.docker.com/r/zerotier/zerotier
 type: application
-version: 11.4.0
+version: 11.4.1

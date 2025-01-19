@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.15.1
+appVersion: "2.15.1"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Python based monitoring and tracking tool for Plex Media Server
-home: https://truecharts.org/charts/stable/tautulli
+home: https://github.com/hey101/charts/stable/tautulli
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tautulli.webp
 keywords:
   - tautulli
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: tautulli
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/tautulli
   - https://ghcr.io/tautulli/tautulli
   - https://github.com/Tautulli/Tautulli
   - https://github.com/truecharts/charts/tree/master/charts/stable/tautulli
 type: application
-version: 20.5.1
+version: 20.5.2

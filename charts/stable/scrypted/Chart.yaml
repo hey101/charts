@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.121.0
+appVersion: "0.121.0-ja"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Scrypted is a high performance home video integration and automation platform.
-home: https://truecharts.org/charts/stable/scrypted
+home: https://github.com/hey101/charts/stable/scrypted
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/scrypted.webp
 keywords:
   - scrypted
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: scrypted
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/scrypted
   - https://github.com/koush/scrypted
   - https://github.com/truecharts/charts/tree/master/charts/stable/scrypted
   - https://hub.docker.com/r/koush/scrypted
 type: application
-version: 6.21.0
+version: 6.21.1

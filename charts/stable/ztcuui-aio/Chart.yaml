@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.1.28
+appVersion: "2024.1.28"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ZeroTier network controller user interface in a Docker container
-home: https://truecharts.org/charts/stable/ztcuui-aio
+home: https://github.com/hey101/charts/stable/ztcuui-aio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ztcuui-aio.webp
 keywords:
   - ztcuui-aio
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: ztcuui-aio
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/ztcuui-aio
   - https://ghcr.io/kmahyyg/ztncui-aio
   - https://github.com/kmahyyg/ztncui-aio
   - https://github.com/truecharts/charts/tree/master/charts/stable/ztcuui-aio
 type: application
-version: 10.4.0
+version: 10.4.1

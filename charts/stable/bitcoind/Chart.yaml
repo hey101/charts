@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -18,7 +18,7 @@ dependencies:
 deprecated: false
 description: |
   Support the Bitcoin network by hosting your own node! This template provides a full Bitcoin Core node, built in a verifiably trustless way.
-home: https://truecharts.org/charts/stable/bitcoind
+home: https://github.com/hey101/charts/stable/bitcoind
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoind.webp
 keywords:
   - bitcoind
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: bitcoind
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/bitcoind
   - https://bitcoin.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/bitcoind
   - https://hub.docker.com/r/ofawx/bitcoind
 type: application
-version: 7.4.0
+version: 7.4.1

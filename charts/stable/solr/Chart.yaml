@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.7.0
+appVersion: "9.7.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Apache Solr
-home: https://truecharts.org/charts/stable/solr
+home: https://github.com/hey101/charts/stable/solr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/solr.webp
 keywords:
   - solr
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: solr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/solr
   - https://github.com/apache/solr
   - https://github.com/truecharts/charts/tree/master/charts/stable/solr
   - https://hub.docker.com/r/bitnami/solr
 type: application
-version: 12.5.1
+version: 12.5.2

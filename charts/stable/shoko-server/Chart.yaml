@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.0.0
+appVersion: "5.0.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Anime cataloging program designed to automate the cataloging of your collection.
-home: https://truecharts.org/charts/stable/shoko-server
+home: https://github.com/hey101/charts/stable/shoko-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shoko-server.webp
 keywords:
   - shoko-server
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: shoko-server
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/shoko-server
   - https://github.com/ShokoAnime/ShokoServer
   - https://github.com/truecharts/charts/tree/master/charts/stable/shoko-server
   - https://hub.docker.com/r/shokoanime/server
 type: application
-version: 12.2.0
+version: 12.2.1

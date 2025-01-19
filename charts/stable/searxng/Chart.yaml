@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Meta search engine which aggregates results from more than 70 search services.
-home: https://truecharts.org/charts/stable/searxng
+home: https://github.com/hey101/charts/stable/searxng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/searxng.webp
 keywords:
   - searxng
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: searxng
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/searxng
   - https://github.com/truecharts/charts/tree/master/charts/stable/searxng
   - https://github.com/searxng/searxng
   - https://hub.docker.com/r/searxng/searxng
 type: application
-version: 9.4.4
+version: 9.4.5

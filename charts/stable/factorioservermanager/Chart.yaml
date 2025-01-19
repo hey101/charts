@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: "A tool for managing Factorio servers "
-home: https://truecharts.org/charts/stable/factorioservermanager
+home: https://github.com/hey101/charts/stable/factorioservermanager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorioservermanager.webp
 keywords:
   - factorioservermanager
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: factorioservermanager
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/factorioservermanager
   - https://github.com/OpenFactorioServerManager/factorio-server-manager
   - https://github.com/truecharts/charts/tree/master/charts/stable/factorioservermanager
   - https://hub.docker.com/r/ofsm/ofsm
 type: application
-version: 7.4.0
+version: 7.4.1

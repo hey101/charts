@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.9.0
+appVersion: "5.9.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind.
-home: https://truecharts.org/charts/stable/dashdot
+home: https://github.com/hey101/charts/stable/dashdot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashdot.webp
 keywords:
   - dashboard
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: dashdot
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/dashdot
   - https://github.com/MauriceNino/dashdot
   - https://github.com/truecharts/charts/tree/master/charts/stable/dashdot
   - https://hub.docker.com/r/mauricenino/dashdot
 type: application
-version: 10.5.0
+version: 10.5.1

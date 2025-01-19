@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.0
+appVersion: "1.2.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: The open source VNC client
-home: https://truecharts.org/charts/stable/novnc
+home: https://github.com/hey101/charts/stable/novnc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.webp
 keywords:
   - novnc
@@ -31,8 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: novnc
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/novnc
   - https://ghcr.io/nicholaswilde/novnc
   - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
   - https://novnc.com/
 type: application
-version: 12.4.0
+version: 12.4.1

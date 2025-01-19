@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Headless Steam chart.
-home: https://truecharts.org/charts/stable/steam-headless
+home: https://github.com/hey101/charts/stable/steam-headless
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/steam-headless.webp
 keywords:
   - steam-headless
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: steam-headless
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/steam-headless
   - https://github.com/truecharts/charts/tree/master/charts/stable/steam-headless
   - https://github.com/Steam-Headless/docker-steam-headless
   - https://hub.docker.com/r/josh5/steam-headless
 type: application
-version: 5.4.4
+version: 5.4.5

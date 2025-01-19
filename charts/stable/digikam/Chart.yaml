@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Professional Photo Management with the Power of Open Source
-home: https://truecharts.org/charts/stable/digikam
+home: https://github.com/hey101/charts/stable/digikam
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/digikam.webp
 keywords:
   - digikam
@@ -32,9 +32,10 @@ maintainers:
     url: https://truecharts.org
 name: digikam
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/digikam
   - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
   - https://ghcr.io/linuxserver/digikam
   - https://github.com/linuxserver/docker-digikam
   - https://www.digikam.org/
 type: application
-version: 14.1.2
+version: 14.1.3

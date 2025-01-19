@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: rmlint finds space waste and other broken things on your filesystem and offers to remove it.
-home: https://truecharts.org/charts/stable/rmlint
+home: https://github.com/hey101/charts/stable/rmlint
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rmlint.webp
 keywords:
   - rmlint
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: rmlint
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/rmlint
   - https://github.com/sahib/rmlint
   - https://github.com/truecharts/charts/tree/master/charts/stable/rmlint
   - https://hub.docker.com/r/bobbintb/docker-rmlint-unraid
 type: application
-version: 7.4.0
+version: 7.4.1

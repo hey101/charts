@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Omada is a SDN tool for TP-Link Omada hardware
-home: https://truecharts.org/charts/stable/omada-controller
+home: https://github.com/hey101/charts/stable/omada-controller
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/omada-controller.webp
 keywords:
   - omada-controller
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: omada-controller
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/omada-controller
   - https://github.com/truecharts/charts/tree/master/charts/stable/omada-controller
   - https://github.com/mbentley/docker-omada-controller
   - https://hub.docker.com/r/mbentley/omada-controller
 type: application
-version: 16.6.2
+version: 16.6.3

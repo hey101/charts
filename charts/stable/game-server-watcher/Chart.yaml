@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.1.21
+appVersion: "3.1.21"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A simple discord/telegram/slack bot to monitor your game servers and players in style.
-home: https://truecharts.org/charts/stable/game-server-watcher
+home: https://github.com/hey101/charts/stable/game-server-watcher
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/game-server-watcher.webp
 keywords:
   - game-server-watcher
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: game-server-watcher
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/game-server-watcher
   - https://ghcr.io/a-sync/game-server-watcher
   - https://github.com/a-sync/game-server-watcher
   - https://github.com/truecharts/charts/tree/master/charts/stable/game-server-watcher
 type: application
-version: 3.4.0
+version: 3.4.1

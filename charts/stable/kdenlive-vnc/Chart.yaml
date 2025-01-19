@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An instance of kdenlive accessible through vnc and noVnc (=Web Interface)
-home: https://truecharts.org/charts/stable/kdenlive-vnc
+home: https://github.com/hey101/charts/stable/kdenlive-vnc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kdenlive-vnc.webp
 keywords:
   - kdenlive-vnc
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: kdenlive-vnc
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/kdenlive-vnc
   - https://github.com/JonathanTreffler/kdenlive-vnc-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/kdenlive-vnc
   - https://hub.docker.com/r/tessypowder/docker-kdenlive
 type: application
-version: 7.4.0
+version: 7.4.1

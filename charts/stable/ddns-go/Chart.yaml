@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Automatically obtain your public network IPv4 or IPv6 address and resolve it to the corresponding domain name service
-home: https://truecharts.org/charts/stable/ddns-go
+home: https://github.com/hey101/charts/stable/ddns-go
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-go.webp
 keywords:
   - ddns-go
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: ddns-go
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/ddns-go
   - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-go
   - https://github.com/jeessy2/ddns-go
   - https://hub.docker.com/r/jeessy/ddns-go
 type: application
-version: 12.5.1
+version: 12.5.2

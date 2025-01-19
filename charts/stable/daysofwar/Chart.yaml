@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: daysofwar
+appVersion: "daysofwar"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: This Chart will download and install SteamCMD. It will also install Days of War and run it.
-home: https://truecharts.org/charts/stable/daysofwar
+home: https://github.com/hey101/charts/stable/daysofwar
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/daysofwar.webp
 keywords:
   - daysofwar
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: daysofwar
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/daysofwar
   - https://ghcr.io/ich777/steamcmd
   - https://github.com/truecharts/charts/tree/master/charts/stable/daysofwar
   - https://www.steampowered.com/
 type: application
-version: 7.4.0
+version: 7.4.1

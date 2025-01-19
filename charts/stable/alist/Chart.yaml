@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.41.0
+appVersion: "3.41.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Alist program that supports multiple storage, powered by Gin and React
-home: https://truecharts.org/charts/stable/alist
+home: https://github.com/hey101/charts/stable/alist
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alist.webp
 keywords:
   - alist
@@ -33,8 +33,9 @@ maintainers:
     url: https://truecharts.org
 name: alist
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/alist
   - https://github.com/Xhofe/alist
   - https://github.com/truecharts/charts/tree/master/charts/stable/alist
   - https://hub.docker.com/r/xhofe/alist-aria2
 type: application
-version: 11.10.0
+version: 11.10.1

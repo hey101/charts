@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Web-based IRC client in Go.
-home: https://truecharts.org/charts/stable/dispatch
+home: https://github.com/hey101/charts/stable/dispatch
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dispatch.webp
 keywords:
   - dispatch
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: dispatch
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/dispatch
   - https://github.com/khlieng/dispatch
   - https://github.com/truecharts/charts/tree/master/charts/stable/dispatch
   - https://hub.docker.com/r/khlieng/dispatch
 type: application
-version: 7.4.0
+version: 7.4.1

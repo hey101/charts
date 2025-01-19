@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.6.0
+appVersion: "0.6"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Nissan Leaf connected services to MQTT adapter
-home: https://truecharts.org/charts/stable/leaf2mqtt
+home: https://github.com/hey101/charts/stable/leaf2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/leaf2mqtt.webp
 keywords:
   - leaf2mqtt
@@ -32,9 +32,10 @@ maintainers:
     url: https://truecharts.org
 name: leaf2mqtt
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/leaf2mqtt
   - https://ghcr.io/k8s-at-home/leaf2mqtt
   - https://github.com/k8s-at-home/container-images
   - https://github.com/mitsumaui/leaf2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/leaf2mqtt
 type: application
-version: 13.4.0
+version: 13.4.1

@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 20241206.0.0
+appVersion: "20241206"
 dependencies:
   - name: common
     version: 25.4.3
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]
-home: https://truecharts.org/charts/stable/observium
+home: https://github.com/hey101/charts/stable/observium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/observium.webp
 keywords:
   - observium
@@ -36,9 +36,10 @@ maintainers:
     url: https://truecharts.org
 name: observium
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/observium
   - https://github.com/pvrmza/docker-observium
   - https://github.com/truecharts/charts/tree/master/charts/stable/observium
   - https://hub.docker.com/r/pvrmza/docker-observium
   - https://www.observium.org/
 type: application
-version: 10.3.0
+version: 10.3.1

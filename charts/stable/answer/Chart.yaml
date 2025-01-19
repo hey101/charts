@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.0
+appVersion: "1.2.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Q&A platform software for teams at any scales.
-home: https://truecharts.org/charts/stable/answer
+home: https://github.com/hey101/charts/stable/answer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/answer.webp
 keywords:
   - answer
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: answer
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/answer
   - https://github.com/answerdev/answer
   - https://github.com/truecharts/charts/tree/master/charts/stable/answer
   - https://hub.docker.com/r/answerdev/answer
 type: application
-version: 5.4.0
+version: 5.4.1

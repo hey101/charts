@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Pylon is a web based integrated development environment.
-home: https://truecharts.org/charts/stable/pylon
+home: https://github.com/hey101/charts/stable/pylon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pylon.webp
 keywords:
   - pylon
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: pylon
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/pylon
   - https://github.com/truecharts/charts/tree/master/charts/stable/pylon
   - https://ghcr.io/linuxserver/pylon
 type: application
-version: 11.4.2
+version: 11.4.3

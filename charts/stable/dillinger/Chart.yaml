@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.39.1
+appVersion: "3.39.1"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
-home: https://truecharts.org/charts/stable/dillinger
+home: https://github.com/hey101/charts/stable/dillinger
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dillinger.webp
 keywords:
   - dillinger
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: dillinger
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/dillinger
   - https://ghcr.io/linuxserver/dillinger
   - https://github.com/truecharts/charts/tree/master/charts/stable/dillinger
 type: application
-version: 11.4.0
+version: 11.4.1

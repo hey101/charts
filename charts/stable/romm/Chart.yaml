@@ -31,7 +31,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: game library manager focused in retro gaming
-home: https://truecharts.org/charts/stable/romm
+home: https://github.com/hey101/charts/stable/romm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.webp
 keywords:
   - romm
@@ -43,8 +43,9 @@ maintainers:
     url: https://truecharts.org
 name: romm
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/romm
   - https://github.com/truecharts/charts/tree/master/charts/stable/romm
   - https://ghcr.io/rommapp/romm
   - https://github.com/zurdi15/romm
 type: application
-version: 10.18.2
+version: 10.18.3

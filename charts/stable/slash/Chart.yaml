@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.0.0
+appVersion: "1.0.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A bookmarking and link shortening service that enables easy saving and sharing of links.
-home: https://truecharts.org/charts/stable/slash
+home: https://github.com/hey101/charts/stable/slash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/slash.webp
 keywords:
   - slash
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: slash
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/slash
   - https://github.com/boojack/slash
   - https://github.com/truecharts/charts/tree/master/charts/stable/slash
   - https://hub.docker.com/r/yourselfhosted/slash
 type: application
-version: 6.4.0
+version: 6.4.1

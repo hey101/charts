@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Plex to AniList Sync.
-home: https://truecharts.org/charts/stable/plexanisync
+home: https://github.com/hey101/charts/stable/plexanisync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexanisync.webp
 keywords:
   - plexanisync
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: plexanisync
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/plexanisync
   - https://github.com/truecharts/charts/tree/master/charts/stable/plexanisync
   - https://ghcr.io/rickdb/plexanisync
   - https://github.com/RickDB/PlexAniSync
   - https://github.com/RickDB/PlexAniSync/pkgs/container/plexanisync
 type: application
-version: 8.4.2
+version: 8.4.3

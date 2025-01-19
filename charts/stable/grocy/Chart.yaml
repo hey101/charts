@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.3.0
+appVersion: "4.3.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ERP beyond your fridge - grocy is a web-based self-hosted groceries & household management solution for your home
-home: https://truecharts.org/charts/stable/grocy
+home: https://github.com/hey101/charts/stable/grocy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grocy.webp
 keywords:
   - grocy
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: grocy
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/grocy
   - https://ghcr.io/linuxserver/grocy
   - https://github.com/grocy/grocy
   - https://github.com/truecharts/charts/tree/master/charts/stable/grocy
 type: application
-version: 20.5.1
+version: 20.5.2

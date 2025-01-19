@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.27.2
+appVersion: "0.27.2"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An organizer for your porn, written in Go
-home: https://truecharts.org/charts/stable/stash
+home: https://github.com/hey101/charts/stable/stash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stash.webp
 keywords:
   - porn
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: stash
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/stash
   - https://github.com/stashapp/stash
   - https://github.com/truecharts/charts/tree/master/charts/stable/stash
   - https://hub.docker.com/r/stashapp/stash
 type: application
-version: 17.6.0
+version: 17.6.1

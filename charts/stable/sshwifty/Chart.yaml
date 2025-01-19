@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: SSHwifty is a SSH and Telnet connector made for the Web.
-home: https://truecharts.org/charts/stable/sshwifty
+home: https://github.com/hey101/charts/stable/sshwifty
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sshwifty.webp
 keywords:
   - ssh
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: sshwifty
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/sshwifty
   - https://github.com/truecharts/charts/tree/master/charts/stable/sshwifty
   - https://github.com/niruix/sshwifty
   - https://hub.docker.com/r/niruix/sshwifty
 type: application
-version: 7.4.1
+version: 7.4.2

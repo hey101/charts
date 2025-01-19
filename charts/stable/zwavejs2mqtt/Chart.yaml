@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Full featured Z-Wave Control Panel and MQTT Gateway, using NodeJS and Vue.
-home: https://truecharts.org/charts/stable/zwavejs2mqtt
+home: https://github.com/hey101/charts/stable/zwavejs2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zwavejs2mqtt.webp
 keywords:
   - zwavejs2mqtt
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: zwavejs2mqtt
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://github.com/zwave-js/zwave-js-ui
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
 type: application
-version: 21.18.1
+version: 21.18.2

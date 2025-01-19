@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.8.12
+appVersion: "2.8.12"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self hosted virtual browser that runs in Chart
-home: https://truecharts.org/charts/stable/neko
+home: https://github.com/hey101/charts/stable/neko
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.webp
 keywords:
   - neko
@@ -29,6 +29,7 @@ maintainers:
     url: https://truecharts.org
 name: neko
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/neko
   - https://ghcr.io/m1k1o/neko/brave
   - https://ghcr.io/m1k1o/neko/chromium
   - https://ghcr.io/m1k1o/neko/firefox
@@ -42,4 +43,4 @@ sources:
   - https://github.com/m1k1o/neko
   - https://github.com/truecharts/charts/tree/master/charts/stable/neko
 type: application
-version: 8.4.0
+version: 8.4.1
