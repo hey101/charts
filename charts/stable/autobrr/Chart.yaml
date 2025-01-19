@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.57.0
+appVersion: "1.57.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: The modern download automation tool for torrents.
-home: https://truecharts.org/charts/stable/autobrr
+home: https://github.com/hey101/charts/stable/autobrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/autobrr.webp
 keywords:
   - autobrr
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: autobrr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/autobrr
   - https://ghcr.io/autobrr/autobrr
   - https://github.com/autobrr/autobrr
   - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
 type: application
-version: 10.14.0
+version: 10.14.1

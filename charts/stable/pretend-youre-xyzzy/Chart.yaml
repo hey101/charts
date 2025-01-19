@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.0.0
+appVersion: "4"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: pretend-youre-xyzzy, a cards against humanity clone
-home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
+home: https://github.com/hey101/charts/stable/pretend-youre-xyzzy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.webp
 keywords:
   - pretend-youre-xyzzy
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: pretend-youre-xyzzy
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/pretend-youre-xyzzy
   - https://github.com/ajanata/PretendYoureXyzzy
   - https://github.com/emcniece/DockerYourXyzzy
   - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
   - https://hub.docker.com/r/emcniece/dockeryourxyzzy
 type: application
-version: 15.4.0
+version: 15.4.1

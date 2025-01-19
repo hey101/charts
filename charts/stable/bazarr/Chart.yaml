@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements
-home: https://truecharts.org/charts/stable/bazarr
+home: https://github.com/hey101/charts/stable/bazarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bazarr.webp
 keywords:
   - bazarr
@@ -33,9 +33,10 @@ maintainers:
     url: https://truecharts.org
 name: bazarr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/bazarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/bazarr
   - https://ghcr.io/onedr0p/bazarr
   - https://ghcr.io/onedr0p/exportarr
   - https://github.com/morpheus65535/bazarr
 type: application
-version: 21.5.2
+version: 21.5.3

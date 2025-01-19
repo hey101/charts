@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
-home: https://truecharts.org/charts/stable/bwapp
+home: https://github.com/hey101/charts/stable/bwapp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bwapp.webp
 keywords:
   - bwapp
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: bwapp
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/bwapp
   - https://github.com/truecharts/charts/tree/master/charts/stable/bwapp
   - https://hub.docker.com/r/raesene/bwapp
   - https://sourceforge.net/projects/bwapp/
 type: application
-version: 7.4.0
+version: 7.4.1

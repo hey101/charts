@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.12.20241223
+appVersion: "24.12.2024"
 dependencies:
   - name: common
     version: 25.4.3
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
-home: https://truecharts.org/charts/stable/bookstack
+home: https://github.com/hey101/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.webp
 keywords:
   - bookstack
@@ -40,8 +40,9 @@ maintainers:
     url: https://truecharts.org
 name: bookstack
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/bookstack
   - https://ghcr.io/linuxserver/bookstack
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://www.bookstackapp.com/
 type: application
-version: 15.12.0
+version: 15.12.1

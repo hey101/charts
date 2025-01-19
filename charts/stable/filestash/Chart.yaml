@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Dropbox-like file manager that let you manage your data anywhere it is located.
-home: https://truecharts.org/charts/stable/filestash
+home: https://github.com/hey101/charts/stable/filestash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filestash.webp
 keywords:
   - filestash
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: filestash
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/filestash
   - https://github.com/truecharts/charts/tree/master/charts/stable/filestash
   - https://github.com/mickael-kerjean/filestash
   - https://hub.docker.com/r/machines/filestash
   - https://www.filestash.app/
 type: application
-version: 8.4.4
+version: 8.4.5

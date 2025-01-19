@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.2.0
+appVersion: "0.2.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Embystat is a personal web server that can calculate all kinds of statistics from your (local) Emby server.
-home: https://truecharts.org/charts/stable/embystat
+home: https://github.com/hey101/charts/stable/embystat
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/embystat.webp
 keywords:
   - embystat
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: embystat
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/embystat
   - https://ghcr.io/linuxserver/embystat
   - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
 type: application
-version: 11.4.0
+version: 11.4.1

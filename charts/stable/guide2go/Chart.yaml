@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: a xml grabber from schedule direct service
-home: https://truecharts.org/charts/stable/guide2go
+home: https://github.com/hey101/charts/stable/guide2go
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/guide2go.webp
 keywords:
   - guide2go
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: guide2go
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/guide2go
   - https://github.com/alturismo/guide2go
   - https://github.com/truecharts/charts/tree/master/charts/stable/guide2go
   - https://hub.docker.com/r/alturismo/guide2go
 type: application
-version: 7.4.0
+version: 7.4.1

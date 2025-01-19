@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.2.7
+appVersion: "0.2.7"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Unmanic is a simple tool for optimising your file library.
-home: https://truecharts.org/charts/stable/unmanic
+home: https://github.com/hey101/charts/stable/unmanic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.webp
 keywords:
   - media
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: unmanic
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/unmanic
   - https://github.com/Unmanic/unmanic
   - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
   - https://hub.docker.com/r/josh5/unmanic
 type: application
-version: 12.4.0
+version: 12.4.1

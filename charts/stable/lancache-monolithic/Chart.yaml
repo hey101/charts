@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A monolithic lancache service capable of caching all CDNs in a single instance.
-home: https://truecharts.org/charts/stable/lancache-monolithic
+home: https://github.com/hey101/charts/stable/lancache-monolithic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.webp
 keywords:
   - monolithic
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: lancache-monolithic
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/lancache-monolithic
   - https://ghcr.io/ich777/lancache-prefill
   - https://github.com/lancachenet/monolithic
   - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
   - https://hub.docker.com/r/lancachenet/monolithic
 type: application
-version: 10.4.1
+version: 10.4.2

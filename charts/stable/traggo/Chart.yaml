@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.6.1
+appVersion: "0.6.1"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Traggo is a tag-based time tracking tool. In Traggo there are no tasks, only tagged time spans.
-home: https://truecharts.org/charts/stable/traggo
+home: https://github.com/hey101/charts/stable/traggo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traggo.webp
 keywords:
   - time-tracking
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: traggo
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/traggo
   - https://github.com/traggo/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/traggo
   - https://hub.docker.com/r/traggo/server
 type: application
-version: 8.6.1
+version: 8.6.2

@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.12.2
+appVersion: "2024.12.2"
 dependencies:
   - name: common
     version: 25.4.3
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
-home: https://truecharts.org/charts/stable/authentik
+home: https://github.com/hey101/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
 keywords:
   - authentik
@@ -35,6 +35,7 @@ maintainers:
     url: https://truecharts.org
 name: authentik
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/authentik
   - https://ghcr.io/goauthentik/ldap
   - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/radius
@@ -44,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
   - https://goauthentik.io/docs/
 type: application
-version: 27.15.5
+version: 27.15.6

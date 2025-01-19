@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: ee8a20c
+appVersion: "ee8a20c"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self-hosted static file serving app which does nothing more than just serve up static files from a mounted volume.
-home: https://truecharts.org/charts/stable/static
+home: https://github.com/hey101/charts/stable/static
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/static.webp
 keywords:
   - app
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: static
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/static
   - https://ghcr.io/nicholaswilde/static
   - https://github.com/nicholaswilde/docker-static
   - https://github.com/prologic/static
   - https://github.com/truecharts/charts/tree/master/charts/stable/static
 type: application
-version: 12.4.0
+version: 12.4.1

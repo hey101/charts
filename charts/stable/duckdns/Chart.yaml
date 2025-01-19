@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.
-home: https://truecharts.org/charts/stable/duckdns
+home: https://github.com/hey101/charts/stable/duckdns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/duckdns.webp
 keywords:
   - duckdns
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: duckdns
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/duckdns
   - https://github.com/truecharts/charts/tree/master/charts/stable/duckdns
   - https://ghcr.io/linuxserver/duckdns
 type: application
-version: 11.4.2
+version: 11.4.3

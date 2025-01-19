@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.5.0
+appVersion: "4.5.0"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: IRC Highway eBook Downloads.
-home: https://truecharts.org/charts/stable/openbooks
+home: https://github.com/hey101/charts/stable/openbooks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openbooks.webp
 keywords:
   - openbooks
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: openbooks
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/openbooks
   - https://github.com/evan-buss/openbooks
   - https://github.com/truecharts/charts/tree/master/charts/stable/openbooks
   - https://hub.docker.com/r/evanbuss/openbooks
 type: application
-version: 6.4.0
+version: 6.4.1

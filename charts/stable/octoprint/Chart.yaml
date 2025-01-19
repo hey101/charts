@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.10.3
+appVersion: "1.10.3"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: OctoPrint is the snappy web interface for your 3D printer
-home: https://truecharts.org/charts/stable/octoprint
+home: https://github.com/hey101/charts/stable/octoprint
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/octoprint.webp
 keywords:
   - octoprint
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: octoprint
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/octoprint
   - https://github.com/OctoPrint/OctoPrint
   - https://github.com/truecharts/charts/tree/master/charts/stable/octoprint
   - https://hub.docker.com/r/octoprint/octoprint
 type: application
-version: 15.4.0
+version: 15.4.1

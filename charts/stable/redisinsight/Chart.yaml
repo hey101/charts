@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.64.1
+appVersion: "2.64.1"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: GUI for Redis.
-home: https://truecharts.org/charts/stable/redisinsight
+home: https://github.com/hey101/charts/stable/redisinsight
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redisinsight.webp
 keywords:
   - redisinsight
@@ -29,9 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: redisinsight
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/redisinsight
   - https://github.com/RedisInsight/RedisInsight
   - https://github.com/truecharts/charts/tree/master/charts/stable/redisinsight
   - https://hub.docker.com/r/redislabs/redisinsight
   - https://redis.com/redis-enterprise/redis-insight/
 type: application
-version: 9.7.0
+version: 9.7.1

@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: The IYUU automatic seeding tool can automatically seed most PT sites in China, support downloader clusters, multiple disks, multiple download directories, connecting to remote downloaders, etc.
-home: https://truecharts.org/charts/stable/iyuuplus
+home: https://github.com/hey101/charts/stable/iyuuplus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/iyuuplus.webp
 keywords:
   - iyuuplus
@@ -29,7 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: iyuuplus
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/iyuuplus
   - https://github.com/truecharts/charts/tree/master/charts/stable/iyuuplus
   - https://hub.docker.com/r/iyuucn/iyuuplus
 type: application
-version: 11.4.3
+version: 11.4.4

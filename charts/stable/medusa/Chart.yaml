@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An automatic Video Library Manager for TV Shows
-home: https://truecharts.org/charts/stable/medusa
+home: https://github.com/hey101/charts/stable/medusa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/medusa.webp
 keywords:
   - medusa
@@ -33,9 +33,10 @@ maintainers:
     url: https://truecharts.org
 name: medusa
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/medusa
   - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
   - https://ghcr.io/linuxserver/medusa
   - https://github.com/linuxserver/docker-medusa
   - https://pymedusa.com/
 type: application
-version: 12.4.3
+version: 12.4.4

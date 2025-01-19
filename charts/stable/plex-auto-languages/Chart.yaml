@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Automated language selection for Plex TV Shows.
-home: https://truecharts.org/charts/stable/plex-auto-languages
+home: https://github.com/hey101/charts/stable/plex-auto-languages
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-auto-languages.webp
 keywords:
   - plex-auto-languages
@@ -32,8 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: plex-auto-languages
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/plex-auto-languages
   - https://github.com/remirigal/plex-auto-languages
   - https://github.com/truecharts/charts/tree/master/charts/stable/plex-auto-languages
   - https://hub.docker.com/r/remirigal/plex-auto-languages
 type: application
-version: 10.4.0
+version: 10.4.1

@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.0.36
+appVersion: "0.0.36"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self-hosted bookmark database with full-text page content search.
-home: https://truecharts.org/charts/stable/linkwallet
+home: https://github.com/hey101/charts/stable/linkwallet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkwallet.webp
 keywords:
   - bookmarks
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: linkwallet
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/linkwallet
   - https://github.com/tardisx/linkwallet
   - https://github.com/truecharts/charts/tree/master/charts/stable/linkwallet
   - https://hub.docker.com/r/tardisx/linkwallet
 type: application
-version: 7.4.0
+version: 7.4.1

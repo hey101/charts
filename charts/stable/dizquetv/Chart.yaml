@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.5.5
+appVersion: "1.5.5"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Create live TV channel streams from media on your Plex servers.
-home: https://truecharts.org/charts/stable/dizquetv
+home: https://github.com/hey101/charts/stable/dizquetv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dizquetv.webp
 keywords:
   - dizqueTV
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: dizquetv
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/dizquetv
   - https://github.com/truecharts/charts/tree/master/charts/stable/dizquetv
   - https://github.com/vexorian/dizquetv
   - https://hub.docker.com/r/vexorian/dizquetv
 type: application
-version: 16.4.0
+version: 16.4.1

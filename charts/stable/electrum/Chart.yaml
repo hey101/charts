@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Electrum is a Bitcoin wallet focused on speed and simplicity, with low resource usage. It uses remote servers that handle the most complicated parts of the Bitcoin system, and it allows you to recover your wallet from a secret phrase.
-home: https://truecharts.org/charts/stable/electrum
+home: https://github.com/hey101/charts/stable/electrum
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/electrum.webp
 keywords:
   - electrum
@@ -31,8 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: electrum
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/electrum
   - https://electrum.org/
   - https://ghcr.io/ich777/electrum
   - https://github.com/truecharts/charts/tree/master/charts/stable/electrum
 type: application
-version: 7.4.0
+version: 7.4.1

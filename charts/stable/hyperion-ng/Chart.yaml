@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.16
+appVersion: "2.0.16"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Hyperion is an opensource Bias or Ambient Lighting implementation
-home: https://truecharts.org/charts/stable/hyperion-ng
+home: https://github.com/hey101/charts/stable/hyperion-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hyperion-ng.webp
 keywords:
   - hyperion-ng
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: hyperion-ng
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/hyperion-ng
   - https://github.com/hyperion-project/hyperion.ng
   - https://github.com/truecharts/charts/tree/master/charts/stable/hyperion-ng
   - https://hub.docker.com/r/sirfragalot/hyperion.ng
 type: application
-version: 15.4.0
+version: 15.4.1

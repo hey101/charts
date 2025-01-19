@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.06.09
+appVersion: "1.06.09"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: backup all your tasmota devices in one place.
-home: https://truecharts.org/charts/stable/tasmobackup
+home: https://github.com/hey101/charts/stable/tasmobackup
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmobackup.webp
 keywords:
   - tasmobackup
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: tasmobackup
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/tasmobackup
   - https://github.com/danmed/TasmoBackupV1
   - https://github.com/truecharts/charts/tree/master/charts/stable/tasmobackup
   - https://hub.docker.com/r/danmed/tasmobackupv1
 type: application
-version: 8.5.0
+version: 8.5.1

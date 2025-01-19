@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ROOT is a framework for data processing, born at CERN, at the heart of the research on high-energy physics. Every day, thousands of physicists use ROOT applications to analyze their data or to perform simulations.
-home: https://truecharts.org/charts/stable/root
+home: https://github.com/hey101/charts/stable/root
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/root.webp
 keywords:
   - root
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: root
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/root
   - https://github.com/truecharts/charts/tree/master/charts/stable/root
   - https://hub.docker.com/r/bgameiro/arch-cern-root
   - https://root.cern/
 type: application
-version: 7.4.0
+version: 7.4.1

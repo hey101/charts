@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: This Chart will download and install a StarMade Dedicated Server. It will also install a basic server.cfg at the first startup.
-home: https://truecharts.org/charts/stable/starmade
+home: https://github.com/hey101/charts/stable/starmade
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/starmade.webp
 keywords:
   - starmade
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: starmade
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/starmade
   - https://ghcr.io/ich777/starmade-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/starmade
   - https://www.star-made.org/
 type: application
-version: 7.4.0
+version: 7.4.1

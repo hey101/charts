@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open-source ChatGPT experience for LLMs, embedders, and vector databases.
-home: https://truecharts.org/charts/stable/anything-llm
+home: https://github.com/hey101/charts/stable/anything-llm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anything-llm.webp
 keywords:
   - anything-llm
@@ -29,8 +29,9 @@ maintainers:
     url: https://truecharts.org
 name: anything-llm
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/anything-llm
   - https://github.com/truecharts/charts/tree/master/charts/stable/anything-llm
   - https://ghcr.io/mintplex-labs/anything-llm
   - https://github.com/Mintplex-Labs/anything-llm
 type: application
-version: 3.4.5
+version: 3.4.6

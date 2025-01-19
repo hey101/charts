@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: "latest"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Test your General Knowledge in different types of topics.
-home: https://truecharts.org/charts/stable/quiz-game
+home: https://github.com/hey101/charts/stable/quiz-game
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quiz-game.webp
 keywords:
   - quiz-game
@@ -31,9 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: quiz-game
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/quiz-game
   - https://github.com/ASKJR/quiz-game
   - https://github.com/truecharts/charts/tree/master/charts/stable/quiz-game
   - https://hub.docker.com/r/patrickstigler/quiz-game
   - https://registry.hub.docker.com/r/patrickstigler/quiz-game
 type: application
-version: 7.4.0
+version: 7.4.1

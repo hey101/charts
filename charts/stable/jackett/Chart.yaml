@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: API Support for your favorite torrent trackers.
-home: https://truecharts.org/charts/stable/jackett
+home: https://github.com/hey101/charts/stable/jackett
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.webp
 keywords:
   - jackett
@@ -30,9 +30,10 @@ maintainers:
     url: https://truecharts.org
 name: jackett
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/jackett
   - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
   - https://ghcr.io/elfhosted/jackett
   - https://github.com/Jackett/Jackett
   - https://github.com/geek-cookbook/containers/pkgs/container/jackett
 type: application
-version: 23.2.7
+version: 23.2.8

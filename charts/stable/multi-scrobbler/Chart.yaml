@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Track your music listening history from many sources and record to many scrobble clients.
-home: https://truecharts.org/charts/stable/multi-scrobbler
+home: https://github.com/hey101/charts/stable/multi-scrobbler
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/multi-scrobbler.webp
 keywords:
   - multi-scrobbler
@@ -30,7 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: multi-scrobbler
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/multi-scrobbler
   - https://github.com/truecharts/charts/tree/master/charts/stable/multi-scrobbler
   - https://hub.docker.com/r/foxxmd/multi-scrobbler
 type: application
-version: 8.4.1
+version: 8.4.2

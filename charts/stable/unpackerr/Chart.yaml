@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.14.5
+appVersion: "0.14.5"
 dependencies:
   - name: common
     version: 25.4.3
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: This application runs as a daemon on your download host. It checks for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may import them
-home: https://truecharts.org/charts/stable/unpackerr
+home: https://github.com/hey101/charts/stable/unpackerr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpackerr.webp
 keywords:
   - unpackerr
@@ -33,8 +33,9 @@ maintainers:
     url: https://truecharts.org
 name: unpackerr
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/unpackerr
   - https://github.com/davidnewhall/unpackerr
   - https://github.com/truecharts/charts/tree/master/charts/stable/unpackerr
   - https://hub.docker.com/r/golift/unpackerr
 type: application
-version: 15.5.0
+version: 15.5.1

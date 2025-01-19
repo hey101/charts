@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.4.1
+appVersion: "0.4.1"
 dependencies:
   - name: common
     version: 25.4.3
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self-hosted bookmark management tool.
-home: https://truecharts.org/charts/stable/servas
+home: https://github.com/hey101/charts/stable/servas
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.webp
 keywords:
   - servas
@@ -36,8 +36,9 @@ maintainers:
     url: https://truecharts.org
 name: servas
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/servas
   - https://github.com/beromir/Servas
   - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://hub.docker.com/r/beromir/servas
 type: application
-version: 6.12.0
+version: 6.12.1
