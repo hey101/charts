@@ -11,7 +11,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     version: 24.1.11
-    repository: https://petersandor.github.io/truecharts-common
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
