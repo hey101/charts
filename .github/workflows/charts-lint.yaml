@@ -18,6 +18,8 @@ on:
     secrets:
       BOT_TOKEN:
         required: true
+      HEY101_BOT_TOKEN:
+        required: true
 
 jobs:
   lint-and-verify:
