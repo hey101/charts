@@ -28,25 +28,25 @@ jobs:
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
           
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        shell: bash
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir -p "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
+      # - name: Prepare GPG key
+        # shell: bash
+        # run: |
+          # gpg_dir=.cr-gpg
+          # mkdir -p "$gpg_dir"
+          # keyring="$gpg_dir/secring.gpg"
+          # base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          # passphrase_file="$gpg_dir/passphrase"
+          # echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          # echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          # echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
+        # env:
+          # GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          # GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
           
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ secrets.HEY101_BOT_TOKEN }}
           fetch-depth: 0
 
       - name: Prep Helm
@@ -61,16 +61,16 @@ jobs:
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
-      - name: Generate Changelog
-        shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        run: |
-          export GOBIN=/usr/local/bin/
-          go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
+      # - name: Generate Changelog
+        # shell: bash
+        # if: |
+          # steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        # run: |
+          # export GOBIN=/usr/local/bin/
+          # go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
+          # CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          # parthreads=$(($(nproc) * 2))
+          # parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -89,8 +89,8 @@ jobs:
         with:
           fetch-depth: 1
           repository: hey101/scale-catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          ref: ""
+          token: ${{ secrets.HEY101_BOT_TOKEN }}
+          ref: ''
           path: catalog
 
       - name: build catalog
@@ -108,74 +108,9 @@ jobs:
         run: |
           cd catalog
           git config user.name "hey101"
-          git config user.email "bot@truecharts.org"
+          git config user.email "hey101[bot]@users.noreply.github.com"
           git add --all
           git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
           git push
           cd -
           rm -rf catalog
-
-      - name: set git author
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        shell: bash
-        run: |
-          git config user.name "hey101"
-          git config user.email "bot@ipocus.net"
-
-      - name: Install Helm
-        uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
-        with:
-          version: v3.14.0
-
-        # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        shell: bash
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir -p "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Run chart-releaser for dependency apps
-        uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        with:
-          charts_dir: charts/dependency
-          charts_repo_url: https://deps.truecharts.org
-          config: cr.yaml
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"       
-
-      - name: Tag App Releases
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        shell: bash
-        run: |
-          #!/bin/bash
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          echo "Removing Chart Docs prior to regeneration..."
-          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
-          for i in "${CHARTS[@]}"
-          do
-              IFS='/' read -r -a chart_parts <<< "$i"
-              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-                train=${chart_parts[0]}
-                chart=${chart_parts[1]}
-                if [ "${train}" != "dependency" ]; then
-                  echo "creating tag for ${chart}"
-                  version=$(cat charts/${train}/${chart}/Chart.yaml | grep '^version: ' | awk -F" " '{ print $2 }' | head -1)
-                  git tag ${chart}-${version} || echo "tag failed for ${chart}-${version}"
-                fi
-              fi
-          done
-          git push --tags
