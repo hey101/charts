@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
-home: https://truecharts.org/charts/stable/mc-router
+home: https://github.com/hey101/charts/stable/mc-router
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mc-router.webp
 keywords:
   - mc-router
@@ -30,8 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: mc-router
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/mc-router
   - https://github.com/truecharts/charts/tree/master/charts/stable/mc-router
   - https://github.com/itzg/mc-router
   - https://hub.docker.com/r/itzg/mc-router
 type: application
-version: 6.3.7
+version: 6.3.8

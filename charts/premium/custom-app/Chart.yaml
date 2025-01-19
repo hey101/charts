@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Advanced tool to create your own TrueCharts-based Charts
-home: https://truecharts.org/charts/premium/custom-app
+home: https://github.com/hey101/charts/premium/custom-app
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.webp
 keywords:
   - custom
@@ -29,7 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: custom-app
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/premium/custom-app
   - https://github.com/truecharts/charts/tree/master/charts/premium/custom-app
   - https://ghcr.io/linuxserver/jackett
 type: application
-version: 14.1.12
+version: 14.1.13

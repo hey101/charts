@@ -36,4 +36,4 @@ sources:
   - https://github.com/itzg/docker-bungeecord
   - https://hub.docker.com/r/itzg/bungeecord
 type: application
-version: 10.1.92
+version: 10.1.93
