@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "2.6.3"
+appVersion: "2021.11.28"
 dependencies:
   - name: common
     version: 25.3.1
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An Application dashboard and launcher
-home: https://truecharts.org/charts/stable/heimdall
+home: https://github.com/hey101/charts/stable/heimdall
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/heimdall.webp
 keywords:
   - heimdall
@@ -28,8 +28,9 @@ maintainers:
     url: https://truecharts.org
 name: heimdall
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/stable/heimdall
   - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
   - https://fleet.linuxserver.io/image?name=linuxserver/heimdall
   - https://github.com/linuxserver/Heimdall/
 type: application
-version: 23.3.3
+version: 23.3.4
