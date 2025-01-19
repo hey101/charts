@@ -270,7 +270,7 @@ jobs:
   common-tests-complete:
     needs: [lint, unittest, install]
     if: ${{ always() }}
-    name: Common Tets Completed
+    name: Common Tests Completed
     runs-on: ubuntu-latest
     steps:
       - name: Check Results
