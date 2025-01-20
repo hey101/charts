@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/lswl/vertex
-  tag: stable@sha256:9ca1765dc8a3b5573e07ff32ec1f340721fc9e7ce0fd867a1dd8d115b386464a
+  tag: stable@sha256:d21dca5de293b30ec0bf481d2fc917376307d037f265317cc9741bffb68ba24b
 persistence:
   config:
     enabled: true
