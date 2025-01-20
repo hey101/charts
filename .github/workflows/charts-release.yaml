@@ -98,7 +98,7 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
           ./charttool deps
           ./charttool buildSCALE
 
