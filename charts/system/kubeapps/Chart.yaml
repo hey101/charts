@@ -43,4 +43,4 @@ sources:
   - https://ghcr.io/xstar97/my-proxy-service
   - https://github.com/cert-manager
 type: application
-version: 5.2.6
+version: 5.2.7
