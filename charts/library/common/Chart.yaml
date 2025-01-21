@@ -13,7 +13,7 @@ appVersion: "1.10.3"
 dependencies: []
 deprecated: false
 description: Function library for TrueCharts
-home: https://truecharts.org/charts/library/common
+home: https://github.com/hey101/charts/library/common
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/common.webp
 keywords:
   - truecharts
@@ -26,6 +26,7 @@ maintainers:
     url: https://truecharts.org
 name: common
 sources:
+  - https://github.com/hey101/charts/tree/master/charts/library/common
   - https://github.com/truecharts/charts/tree/master/charts/library/common
   - https://ghcr.io/cloudnative-pg/postgis
   - https://ghcr.io/cloudnative-pg/postgresql
@@ -34,4 +35,4 @@ sources:
   - https://hub.docker.com/_/
   - https://hub.docker.com/r/mikefarah/yq
 type: library
-version: 25.4.5
+version: 25.4.6
