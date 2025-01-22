@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/rdesktop
-  tag: latest@sha256:82ef53c5ff3ba25a3f8dc4b7459e2aa4154cc74e69756345c07222610f4a4649
+  tag: latest@sha256:2ae10a2af39195aa838e0f8712fd5a2e3089fff23b42c3e9ec357a3b74404af3
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/rdesktop
   tag: ubuntu-xfce@sha256:3a04e06bc984850cdda226917a1f65d0df30b731d5c194baef0b469b52fddc80
