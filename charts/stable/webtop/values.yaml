@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/webtop
-  tag: latest@sha256:7c70f3f1e54dab63717c9042a3b12a84a081ee830acc0907b14726a7f5d0136a
+  tag: latest@sha256:927c6e98c561633a2fe19c05aedaa3a5d311cdca2aaaa8390e0a8b951e3bacde
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/webtop
   tag: ubuntu-xfce@sha256:542fe2e84670674bb51d664204790035cb9556f8396dca759620d5da44e191cc
