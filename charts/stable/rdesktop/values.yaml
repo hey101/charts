@@ -92,7 +92,7 @@ fedoraICEWMImage:
   pullPolicy: Always
 archICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-icewm@sha256:a7e6be10fb9e9fa81988bf40bbee365a911adb0fb9188e654d06e24b4d604e5f
+  tag: arch-icewm@sha256:28a2b08f072fd7ce9bf1dc753923994a808b60d68edb0bbed24bed9a075b9bfd
   pullPolicy: Always
 workload:
   main:
