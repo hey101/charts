@@ -32,4 +32,4 @@ sources:
   - https://ghcr.io/linuxserver/embystat
   - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
 type: application
-version: 11.4.1
+version: 11.4.2
