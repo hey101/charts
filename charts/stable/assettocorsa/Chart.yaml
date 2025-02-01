@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "assettocor"
 dependencies:
   - name: common
-    version: 25.4.15
+    version: 25.6.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/assettocorsa
   - https://www.assettocorsa.net/
 type: application
-version: 8.0.3
+version: 8.0.4

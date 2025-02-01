@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 25.4.15
+    version: 25.6.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/lloesche/valheim-server-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/valheim
 type: application
-version: 12.4.3
+version: 12.4.4
