@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.18"
 dependencies:
   - name: common
-    version: 25.4.6
+    version: 25.4.15
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/gilbn/theme.park
   - https://github.com/truecharts/charts/tree/master/charts/stable/theme-park
 type: application
-version: 11.6.2
+version: 11.6.3
