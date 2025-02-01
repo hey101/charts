@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/jlesage/mkvtoolnix
   - https://mkvtoolnix.download/
 type: application
-version: 12.9.3
+version: 12.9.4

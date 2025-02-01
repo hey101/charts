@@ -33,4 +33,4 @@ sources:
   - https://fleet.linuxserver.io/image?name=linuxserver/heimdall
   - https://github.com/linuxserver/Heimdall/
 type: application
-version: 23.3.7
+version: 23.3.8

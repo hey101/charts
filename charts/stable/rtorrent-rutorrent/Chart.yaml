@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/rtorrent-rutorrent
   - https://truecharts.org/charts/stable/rtorrent-rutorrent
 type: application
-version: 6.4.3
+version: 6.4.4

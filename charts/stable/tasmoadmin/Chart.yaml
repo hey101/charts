@@ -35,4 +35,4 @@ sources:
   - https://github.com/TasmoAdmin/TasmoAdmin
   - https://github.com/truecharts/charts/tree/master/charts/stable/tasmoadmin
 type: application
-version: 10.5.4
+version: 10.5.5
