@@ -33,4 +33,4 @@ sources:
   - https://github.com/fluidd-core/fluidd
   - https://github.com/truecharts/charts/tree/master/charts/stable/fluidd
 type: application
-version: 11.5.2
+version: 11.5.3
