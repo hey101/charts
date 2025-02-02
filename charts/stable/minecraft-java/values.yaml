@@ -8,7 +8,7 @@ j21Image:
   pullPolicy: Always
 j21graalvmImage:
   repository: docker.io/itzg/minecraft-server
-  tag: 2025.1.0-java21-graalvm@sha256:7ca33fd6ab208b18cf7acff23f452708d6c4e1f877b118fb7ac892bd383b1ab1
+  tag: 2025.2.0-java21-graalvm@sha256:68b7599afa6ca6c71fd52f1bcde29d70c7efad41389e3da35282142558c10985
   pullPolicy: Always
 j21alpineImage:
   repository: docker.io/itzg/minecraft-server
@@ -24,7 +24,7 @@ j17jdkImage:
   pullPolicy: Always
 j17graalvmImage:
   repository: docker.io/itzg/minecraft-server
-  tag: 2025.1.0-java17-graalvm@sha256:96563e543d0b3d8ea36b43fb97f3786e4e5fb75ff7c7736fda0c3c6668e8b2e4
+  tag: 2025.2.0-java17-graalvm@sha256:130b4d4ca187081a6af9ffb60e00bbecf79c44d4242e174e2d3d0d673385daf8
   pullPolicy: Always
 j17alpineImage:
   repository: docker.io/itzg/minecraft-server
