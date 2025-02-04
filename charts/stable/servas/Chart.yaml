@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.4.1"
 dependencies:
   - name: common
-    version: 25.6.0
+    version: 26.0.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://hub.docker.com/r/beromir/servas
 type: application
-version: 6.12.6
+version: 6.12.7
