@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/ellite/wallos
   - https://github.com/ellite/Wallos
 type: application
-version: 6.7.9
+version: 6.7.10

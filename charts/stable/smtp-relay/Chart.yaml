@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/ix-ai/smtp
   - https://github.com/ix-ai/smtp
 type: application
-version: 5.6.5
+version: 5.6.6

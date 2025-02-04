@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/unpoller/unpoller
   - https://github.com/unifi-poller/unifi-poller
 type: application
-version: 12.7.5
+version: 12.7.6
