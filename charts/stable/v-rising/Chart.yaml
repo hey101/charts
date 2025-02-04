@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "rising"
 dependencies:
   - name: common
-    version: 25.4.6
+    version: 25.6.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/v-rising
   - https://steampowered.com/
 type: application
-version: 7.4.2
+version: 7.4.4

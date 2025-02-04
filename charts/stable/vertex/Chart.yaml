@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "stable"
 dependencies:
   - name: common
-    version: 25.4.6
+    version: 25.6.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://gitlab.lswl.in/lswl/vertex
   - https://hub.docker.com/r/lswl/vertex
 type: application
-version: 7.4.4
+version: 7.4.6
