@@ -33,4 +33,4 @@ sources:
   - https://github.com/kiranshila/Doplarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
 type: application
-version: 11.4.6
+version: 11.4.7

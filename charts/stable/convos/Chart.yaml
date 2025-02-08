@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/convos-chat/convos
   - https://github.com/truecharts/charts/tree/master/charts/stable/convos
 type: application
-version: 8.2.6
+version: 8.2.7
