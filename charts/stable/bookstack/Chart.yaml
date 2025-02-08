@@ -45,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://www.bookstackapp.com/
 type: application
-version: 15.12.7
+version: 15.12.8

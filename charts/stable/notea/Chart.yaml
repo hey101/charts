@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/diamkil/notea
   - https://registry.hub.docker.com/r/diamkil/notea/
 type: application
-version: 7.4.5
+version: 7.4.6

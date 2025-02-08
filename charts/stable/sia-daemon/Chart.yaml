@@ -36,4 +36,4 @@ sources:
   - https://github.com/siafoundation/siad
   - https://github.com/truecharts/charts/tree/master/charts/stable/sia-daemon
 type: application
-version: 7.4.5
+version: 7.4.6

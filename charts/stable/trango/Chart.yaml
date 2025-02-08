@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/tak786/trango-self-hosted
   - https://trango.io/
 type: application
-version: 7.4.5
+version: 7.4.6

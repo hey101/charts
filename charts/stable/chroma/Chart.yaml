@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/chroma-core/chroma
   - https://github.com/chroma-core/chroma
 type: application
-version: 4.5.7
+version: 4.5.8
