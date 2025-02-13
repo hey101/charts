@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jlesage/handbrake
-  tag: v25.02.1@sha256:9c9070330350c42b644a43c3e8cb7b69d61c633208aa38f5cb6986d05219c984
+  tag: v25.02.2@sha256:2943830262f7d3b88f67c7e07a379f9a10493978a337d6bb938d348aae1f0edc
   pullPolicy: IfNotPresent
 service:
   main:
