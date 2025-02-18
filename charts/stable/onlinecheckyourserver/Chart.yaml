@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/ich777/online-check-pushover
   - https://github.com/truecharts/charts/tree/master/charts/stable/onlinecheckyourserver
 type: application
-version: 7.4.7
+version: 7.4.8
