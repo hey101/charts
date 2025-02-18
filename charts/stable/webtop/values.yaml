@@ -8,7 +8,7 @@ ubuntuXFCEImage:
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-xfce@sha256:c01cbe288a3c628d574709caa39e3265d48124701274da8879f7f3c4f9a76f92
+  tag: fedora-xfce@sha256:c5fe2b01817ef0bee1efc0d2ec264723f32dc9b388a73742cfb385db72bc0d37
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/webtop
@@ -20,11 +20,11 @@ alpineKDEImage:
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-kde@sha256:f254b8ff1836f6eea290513ffdf7a7e17db9fa132501bcd41f9a614d5d96a6a2
+  tag: ubuntu-kde@sha256:23124abfbf70c52b76bdaa416c6ca1f19933df93ab9ea93dcbc784b0ad50992a
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-kde@sha256:668b15f95e948b2514f99754f235bb15275ddb493d8d1f1bf9258d0b57ceda90
+  tag: fedora-kde@sha256:088345b8c363a6dc254b1f7dc578cb6cd385a3072ed591796330b88537d22034
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/webtop
@@ -36,7 +36,7 @@ alpineMATEImage:
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-mate@sha256:d89a8d5c5769f0fb5f95301bea5dacb0c9573565694962c2f19d3df80acad0fb
+  tag: ubuntu-mate@sha256:35fbbcff921d9f0071d866d719ae13e3d5a1d1bb6b0a5d743a94fbdae873aa45
   pullPolicy: Always
 fedoraMATEImage:
   repository: lscr.io/linuxserver/webtop
