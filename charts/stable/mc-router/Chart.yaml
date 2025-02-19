@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "1.25.1"
 dependencies:
   - name: common
-    version: 26.2.0
+    version: 26.2.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/itzg/mc-router
   - https://hub.docker.com/r/itzg/mc-router
 type: application
-version: 6.3.17
+version: 6.3.18
