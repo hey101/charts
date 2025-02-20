@@ -1,7 +1,7 @@
 image:
   repository: docker.io/bitnami/memcached
   pullPolicy: IfNotPresent
-  tag: 1.6.36@sha256:0565a927cf44da6505047b4045304c625b0a7999b6aee26bb3c6628edae23b84
+  tag: 1.6.36@sha256:5563717e15fc5212aaa827b75de95659d5307aec2cfb81c854752f1815bb1403
 
 includeCommon: true
 service:
