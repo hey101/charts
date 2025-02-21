@@ -35,4 +35,4 @@ sources:
   - https://clickhouse.com/
   - https://hub.docker.com/r/clickhouse/clickhouse-server
 type: application
-version: 14.10.68
+version: 14.10.69
