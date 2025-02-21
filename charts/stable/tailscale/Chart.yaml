@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.80.0"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.3.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tailscale
   - https://hub.docker.com/r/tailscale/tailscale
 type: application
-version: 10.10.9
+version: 10.10.10
