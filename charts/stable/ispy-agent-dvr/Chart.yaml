@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "6.1.8.0"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.2.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ispy-agent-dvr
   - https://hub.docker.com/r/doitandbedone/ispyagentdvr
 type: application
-version: 11.7.15
+version: 11.7.16

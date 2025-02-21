@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.4.202408"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.2.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/librespeed/speedtest
   - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
 type: application
-version: 15.5.8
+version: 15.5.9
