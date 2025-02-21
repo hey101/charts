@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "0.7.3"
+appVersion: "0.7.4"
 dependencies:
   - name: common
     version: 26.2.1
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/ix-ai/smtp
   - https://github.com/ix-ai/smtp
 type: application
-version: 5.6.11
+version: 5.6.12
