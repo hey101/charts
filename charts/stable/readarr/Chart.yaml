@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.4.10.273"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.4.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -39,4 +39,4 @@ sources:
   - https://github.com/Readarr/Readarr
   - https://readarr.com
 type: application
-version: 24.3.15
+version: 24.3.16

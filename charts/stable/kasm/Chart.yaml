@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.16.1"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.4.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/kasmweb/workspaces
   - https://www.kasmweb.com/
 type: application
-version: 10.5.8
+version: 10.5.9

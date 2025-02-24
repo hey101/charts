@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "3.41.0"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.4.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/alist
   - https://hub.docker.com/r/xhofe/alist-aria2
 type: application
-version: 11.10.8
+version: 11.10.9

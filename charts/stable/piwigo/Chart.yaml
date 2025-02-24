@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "15.3.0"
 dependencies:
   - name: common
-    version: 26.2.1
+    version: 26.4.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://ghcr.io/linuxserver/piwigo
   - https://github.com/linuxserver/docker-piwigo
 type: application
-version: 15.6.17
+version: 15.6.18
