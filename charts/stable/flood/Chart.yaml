@@ -36,4 +36,4 @@ sources:
   - https://github.com/jesec/flood
   - https://hub.docker.com/r/jesec/flood
 type: application
-version: 15.4.10
+version: 15.4.11
