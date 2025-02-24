@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/ich777/steamcmd
   - https://github.com/truecharts/charts/tree/master/charts/stable/arma3exilemod
 type: application
-version: 8.0.9
+version: 8.0.10

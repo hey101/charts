@@ -34,4 +34,4 @@ sources:
   - https://github.com/bakito/adguardhome-sync/
   - https://github.com/truecharts/charts/tree/master/charts/stable/adguardhome-sync
 type: application
-version: 8.4.9
+version: 8.4.10

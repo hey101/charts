@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/ich777/fivemserver
   - https://github.com/truecharts/charts/tree/master/charts/stable/fivem
 type: application
-version: 8.1.9
+version: 8.1.10
