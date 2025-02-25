@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "6.6"
 dependencies:
   - name: common
-    version: 26.4.0
+    version: 26.4.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/traccar/traccar
   - https://hub.docker.com/r/traccar/traccar
 type: application
-version: 18.8.10
+version: 18.8.11
