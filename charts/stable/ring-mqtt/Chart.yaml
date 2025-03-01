@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.8.0"
 dependencies:
   - name: common
-    version: 26.4.2
+    version: 26.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/tsightler/ring-mqtt
   - https://hub.docker.com/r/tsightler/ring-mqtt
 type: application
-version: 10.6.11
+version: 10.6.12

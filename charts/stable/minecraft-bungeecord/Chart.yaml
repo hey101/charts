@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: "2025.1.0"
 dependencies:
   - name: common
-    version: 26.4.2
+    version: 26.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/itzg/docker-bungeecord
   - https://hub.docker.com/r/itzg/bungeecord
 type: application
-version: 10.1.105
+version: 10.1.106

@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.27.2"
 dependencies:
   - name: common
-    version: 26.4.2
+    version: 26.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/stash
   - https://hub.docker.com/r/stashapp/stash
 type: application
-version: 17.6.11
+version: 17.6.12

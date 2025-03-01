@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "cpu"
 dependencies:
   - name: common
-    version: 26.4.2
+    version: 26.4.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/codeproject-ai-server
   - https://hub.docker.com/r/codeproject/ai-server
 type: application
-version: 4.4.11
+version: 4.4.12
