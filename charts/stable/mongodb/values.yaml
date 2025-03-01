@@ -1,7 +1,7 @@
 image:
   repository: docker.io/bitnami/mongodb
   pullPolicy: IfNotPresent
-  tag: 8.0.4@sha256:55d861f952c01528d3c21dd61f2e545626b19907c1badfcc2dc72284288311c1
+  tag: 8.0.4@sha256:10910a74571e8d1f03ae0acf9c7cec739eee034de32ede4d6d51e7353871b83e
 
 includeCommon: true
 workload:
