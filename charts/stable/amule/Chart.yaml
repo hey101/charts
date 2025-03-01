@@ -36,4 +36,4 @@ sources:
   - https://github.com/ngosang/docker-amule
   - https://github.com/truecharts/charts/tree/master/charts/stable/amule
 type: application
-version: 10.2.11
+version: 10.2.12

@@ -33,4 +33,4 @@ sources:
   - https://github.com/mealie-recipes/mealie
   - https://github.com/truecharts/charts/tree/master/charts/stable/mealie
 type: application
-version: 24.4.14
+version: 24.4.15

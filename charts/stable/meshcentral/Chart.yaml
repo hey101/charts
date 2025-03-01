@@ -35,4 +35,4 @@ sources:
   - https://github.com/Ylianst/MeshCentral
   - https://github.com/truecharts/charts/tree/master/charts/stable/meshcentral
 type: application
-version: 17.4.13
+version: 17.4.14

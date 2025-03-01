@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sabnzbd
   - https://sabnzbd.org/
 type: application
-version: 21.5.15
+version: 21.5.16

@@ -35,4 +35,4 @@ sources:
   - https://gitlab.com/tinyMediaManager/tinyMediaManager
   - https://hub.docker.com/r/tinymediamanager/tinymediamanager
 type: application
-version: 12.4.14
+version: 12.4.15
