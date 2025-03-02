@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/kasmweb/workspaces
   - https://www.kasmweb.com/
 type: application
-version: 10.5.12
+version: 10.5.13

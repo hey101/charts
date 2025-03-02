@@ -35,4 +35,4 @@ sources:
   - https://github.com/tsightler/ring-mqtt
   - https://hub.docker.com/r/tsightler/ring-mqtt
 type: application
-version: 10.6.12
+version: 10.6.13
