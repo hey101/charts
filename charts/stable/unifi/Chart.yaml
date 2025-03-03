@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "9.0.114"
 dependencies:
   - name: common
-    version: 26.4.3
+    version: 27.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
   - https://unifi-network.ui.com
 type: application
-version: 23.0.13
+version: 23.0.14

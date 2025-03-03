@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 26.4.3
+    version: 27.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://cert-manager.io/
   - https://hub.docker.com/_/hello-world
 type: application
-version: 9.4.16
+version: 9.4.17

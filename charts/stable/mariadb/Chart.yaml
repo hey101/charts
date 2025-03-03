@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "11.7.2"
 dependencies:
   - name: common
-    version: 26.4.3
+    version: 27.0.0
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://hub.docker.com/r/bitnami/mariadb
   - https://mariadb.org
 type: application
-version: 15.7.13
+version: 15.7.14
