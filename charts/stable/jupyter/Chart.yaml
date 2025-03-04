@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/jupyter/scipy-notebook
   - https://hub.docker.com/r/jupyter/tensorflow-notebook
 type: application
-version: 10.4.13
+version: 10.4.14

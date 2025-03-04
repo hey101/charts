@@ -34,4 +34,4 @@ sources:
   - https://hub.docker.com/r/kopia/kopia
   - https://kopia.io/docs/installation/#docker-images
 type: application
-version: 13.5.13
+version: 13.5.14

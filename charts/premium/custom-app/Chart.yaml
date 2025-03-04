@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/premium/custom-app
   - https://ghcr.io/linuxserver/jackett
 type: application
-version: 14.1.27
+version: 14.1.28

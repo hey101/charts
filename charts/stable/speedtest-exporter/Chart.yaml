@@ -35,4 +35,4 @@ sources:
   - https://github.com/MiguelNdeCarvalho/speedtest-exporter/
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
 type: application
-version: 12.4.12
+version: 12.4.13
