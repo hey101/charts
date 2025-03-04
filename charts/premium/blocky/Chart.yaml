@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.25"
 dependencies:
   - name: common
-    version: 26.4.3
+    version: 27.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://hub.docker.com/r/spx01/blocky
   - https://quay.io/oriedge/k8s_gateway
 type: application
-version: 16.10.18
+version: 16.10.19
