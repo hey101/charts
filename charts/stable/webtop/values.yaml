@@ -48,7 +48,7 @@ archMATEImage:
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-i3@sha256:1dc8a3e89d137c0da748bb2ebe504776f1ab5b5df225db56986f9091253c1011
+  tag: alpine-i3@sha256:f802a272cede324cc80ff1446003854e029579de5dda2a0332c902c60b2c2144
   pullPolicy: Always
 ubuntuI3Image:
   repository: lscr.io/linuxserver/webtop
@@ -64,7 +64,7 @@ archI3Image:
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-openbox@sha256:b1d627f479dd6ae7531809d69be2ecd58928597c9d33a0a5d51f1d5afcb6d654
+  tag: alpine-openbox@sha256:a71537c78167db741a195cd017d71ad489f1ea5e2dfc226dc4c1b8f1d3d1a939
   pullPolicy: Always
 ubuntuOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
@@ -80,7 +80,7 @@ archOpenBoxImage:
   pullPolicy: Always
 alpineICEWMImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-icewm@sha256:def5a02369ff5ef57e73989d7a92a9b037367d8e49f080f18b2fa4494045d4a0
+  tag: alpine-icewm@sha256:417ea597f8d1615106b0bb8dbd94167785abe9a44704cee5981d73d7e8c0c221
   pullPolicy: Always
 ubuntuICEWMImage:
   repository: lscr.io/linuxserver/webtop
