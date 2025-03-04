@@ -27,7 +27,8 @@ By default WebDAV is disabled by default, as per [upstream docs](https://manual.
 - Enter Seafile Pod Shell
 - Use the CLI to enter the Seafile WebDAV (`seafdav.conf`) config file
 - Use vi commands to edit the `Enabled` to `true` and change the share name as desired (default is `/seafdav`).
-> Use `i` to insert text and and `:wq`, and `ESC key` to exit insert mode
+
+  > Use `i` to insert text and and `:wq`, and `ESC key` to exit insert mode
 
 - Restart Seafile and your WebDAV share will be accessible using your domain.com/seafdav
 
