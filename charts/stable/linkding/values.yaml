@@ -1,6 +1,6 @@
 image:
   repository: docker.io/sissbruecker/linkding
-  tag: 1.39.0@sha256:5b86511c5e8d8bdb25e944b108164d7ddd3b8159376fd262349d9f3b99c4c27c
+  tag: 1.39.1@sha256:f663de3765a89c96af5381e38cfbf8a75cabbb257716653a52163000421ca45a
   pullPolicy: IfNotPresent
 service:
   main:
