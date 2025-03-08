@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/portainer/portainer-ce
   - https://hub.docker.com/r/portainer/portainer-ee
 type: application
-version: 10.9.18
+version: 10.9.19

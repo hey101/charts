@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/redislabs/redisinsight
   - https://redis.com/redis-enterprise/redis-insight/
 type: application
-version: 9.7.14
+version: 9.7.15

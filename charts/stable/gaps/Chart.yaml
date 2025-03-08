@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gaps
   - https://hub.docker.com/r/housewrecker/gaps
 type: application
-version: 20.4.13
+version: 20.4.14

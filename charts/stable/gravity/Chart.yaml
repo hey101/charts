@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/beryju/gravity
   - https://github.com/BeryJu/gravity
 type: application
-version: 5.12.19
+version: 5.12.20
