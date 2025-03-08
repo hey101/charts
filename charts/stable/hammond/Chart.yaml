@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.0.24"
 dependencies:
   - name: common
-    version: 27.0.0
+    version: 27.1.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/alfhou/hammond/pkgs/container/hammond
   - https://github.com/truecharts/charts/tree/master/charts/stable/hammond
 type: application
-version: 11.4.13
+version: 11.4.14

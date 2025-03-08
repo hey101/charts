@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "palworld"
 dependencies:
   - name: common
-    version: 27.0.0
+    version: 27.1.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/palworld
   - https://github.com/truecharts/charts/tree/master/charts/stable/palworld
 type: application
-version: 5.2.13
+version: 5.2.14
