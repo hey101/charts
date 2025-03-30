@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/mikenye/tar1090
-  tag: latest@sha256:1961b195067d1327d9d0dc6da939b45b6f87ea787eae4b49baf56e2f415038aa
+  tag: latest@sha256:20401c4ee8e5cd4c5ee6fab5107bda522f15515fc96c1d8ca82a48a0a725e217
 persistence: {}
 portal:
   open:
