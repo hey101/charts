@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/meeb/tubesync
-  tag: latest@sha256:db5399b0a861eef3ca76764a57e686ada5898581becd86a8228739da07cb737a
+  tag: latest@sha256:689464b8980a8a5ddc571f7c04a75b7a613011872a716c99ecf80ef125891c19
 persistence:
   config:
     enabled: true
