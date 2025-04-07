@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
-    version: 27.1.3
+    version: 27.1.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/hotio/autoscan
   - https://hotio.dev/containers/autoscan
 type: application
-version: 10.4.23
+version: 10.4.24
