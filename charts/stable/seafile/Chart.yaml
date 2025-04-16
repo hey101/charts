@@ -23,7 +23,7 @@ dependencies:
     tags: []
     import-values: []
   - name: memcached
-    version: 14.5.9
+    version: 14.5.10
     repository: oci://tccr.io/truecharts
     condition: memcached.enabled
     alias: ""
