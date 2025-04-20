@@ -1,6 +1,6 @@
 image:
   repository: docker.io/itzg/minecraft-bedrock-server
-  tag: latest@sha256:37b69ebe2736024ddb4d2535511043b6b168372ac07fba42567e8ed54795d24b
+  tag: latest@sha256:4bfeea7df214abe9c2853e73325fde32fa1c138df007c1b7b37d80edd365a2af
   pullPolicy: Always
 service:
   main:
