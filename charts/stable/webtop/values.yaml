@@ -60,7 +60,7 @@ fedoraI3Image:
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-i3@sha256:bc681729b99b7c1389bc7187ba5ab69fd01e36ba9fe77610eb012231d0c1cd86
+  tag: arch-i3@sha256:b0c45a24274219c8f4f9be9733e24aa96b9b7f70c3233e6ba168a7f93f5042db
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
