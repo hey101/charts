@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/grafana/grafana-image-renderer
-  tag: latest@sha256:4cdbbbbbf6c4efcdcf35b968ec7e04ba54febcd6c408aeac1347b80e90064b1c
+  tag: latest@sha256:0460b9d71ee1cd10cce8fb635307a727aae45bcaf406fe86ef87f5c3bf7ed2b4
 persistence: {}
 portal:
   open:
