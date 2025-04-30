@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/bsyed/troddit
-  tag: latest@sha256:5f7fc8190bf8e26f49806fb8e704f3bdab0e7c2f47e920ad959d33e152e8ba53
+  tag: latest@sha256:f519a584d6d77ff8c18f2ad46edf3efc545a3f8439128098bb83a1b40f65e7a1
 persistence: {}
 portal:
   open:
