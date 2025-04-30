@@ -1,7 +1,7 @@
 image:
   repository: friendica
   pullPolicy: IfNotPresent
-  tag: 2024.12@sha256:cbb5b99a51364cfe66fd9c0056ade8be1a01166048d130ab143d9fb74e279147
+  tag: 2024.12@sha256:f62a05498ac159f8bf2953b2bb41505b5ea65c3c8d3f70688adfb8855937044d
 securityContext:
   container:
     runAsNonRoot: false
