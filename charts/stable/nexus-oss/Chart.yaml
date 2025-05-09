@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "3.80.0"
 dependencies:
   - name: common
-    version: 27.1.4
+    version: 28.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nexus-oss
   - https://hub.docker.com/r/sonatype/nexus3
 type: application
-version: 7.12.27
+version: 7.12.28
