@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/escaping/core-keeper-dedicated
-  tag: latest@sha256:ba470349cf9d2160619153061342f495c228c86aa39ad055b1ba6d262d0aabf5
+  tag: latest@sha256:8b31d5dba8b5ac376c6c0b8e774217d2448cbf75610b603ec73ab3c28dbec2f0
 persistence:
   datafiles:
     enabled: true
