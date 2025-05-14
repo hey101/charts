@@ -25,7 +25,7 @@ cublasCuda11FfmpegImage:
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.28.0-aio-gpu-nvidia-cuda-12@sha256:627674d92225f2b9f20e98ca2f4fd692efaeb12622fee17e432503b7e4c8b1af
+  tag: v2.29.0-aio-gpu-nvidia-cuda-12@sha256:85d5b0c2c388deca9e42a96aa23a01be327792a3cbeb5d26ce8d902927c70039
 allInOneCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
