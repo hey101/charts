@@ -1,7 +1,7 @@
 image:
   repository: docker.io/whyour/qinglong
   pullPolicy: IfNotPresent
-  tag: 2.19.0@sha256:ef2723d67050ac4d74c8daccb4ab3821ba840a7663d3bf67b60623f69e9fefd6
+  tag: 2.19.0@sha256:47283f9e05a09001ae58fff1c82c2c81d50ac2be162acdc05245bd3986b8adbe
 service:
   main:
     ports:
