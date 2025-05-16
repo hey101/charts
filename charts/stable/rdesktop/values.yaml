@@ -28,7 +28,7 @@ fedoraKDEImage:
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-kde@sha256:4ad2b3a305aa967240998fda66a6f94a6a23313d33f4f56fc8da39045ba5dc78
+  tag: arch-kde@sha256:ce366e7bc88ffb6dde40b31f5a0f5228cfd21e13f0dd3be1606e35bed20b4184
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -60,7 +60,7 @@ fedoraI3Image:
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-i3@sha256:af7055b42fe66c8c0afc677b2ea4e4ee0c5f87bf0c03f8b8e4adac1515aa0d37
+  tag: arch-i3@sha256:79a6606b18627501b23d067882d2f5008676e5e8879eb98ba2e790f3b0bdc1c7
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -92,7 +92,7 @@ fedoraICEWMImage:
   pullPolicy: Always
 archICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-icewm@sha256:5bb820db6e3d851c74c6205bf6ee80d8d0d236b71bd37bf67909ce27d1ed051e
+  tag: arch-icewm@sha256:a799fc261d27c67c0d9ba646919675f1753a00680f6c6f4ed5b0774903a7605d
   pullPolicy: Always
 workload:
   main:
