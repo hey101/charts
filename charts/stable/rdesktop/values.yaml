@@ -44,7 +44,7 @@ fedoraMATEImage:
   pullPolicy: Always
 archMATEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-mate@sha256:2c6f5af71f035135d65a6563c7101342526c233604e0012671b7fc355310a07a
+  tag: arch-mate@sha256:dcc5000b41e272b7d8ee55d7f2beafa6f199ceb41fae11f07df86cedc9a9e178
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/rdesktop
