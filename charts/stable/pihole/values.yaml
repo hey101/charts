@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/pi-hole/pihole
   pullPolicy: IfNotPresent
-  tag: 2025.05.0@sha256:7f2f90fa59253bce6ec6db15c2bc2296206785da7a5b014780e5837881d86573
+  tag: 2025.05.1@sha256:db38df3e050606bd014c801c2cbb0b13f263d3122d3d817a8cbcee807688af24
 pihole:
   webPassword: somepassword"
   dnsServers:
