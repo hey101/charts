@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "2.8.2"
+appVersion: "2.9.0"
 dependencies:
   - name: common
     version: 27.1.4
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/linuxserver/smokeping
   - https://oss.oetiker.ch/smokeping/
 type: application
-version: 12.4.35
+version: 12.4.36
