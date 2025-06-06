@@ -1,7 +1,7 @@
 image:
   repository: docker.io/edgd1er/webnut
   pullPolicy: IfNotPresent
-  tag: latest@sha256:8f81c665472bb59ea1586853b15aafc6a2811cc1285d6ce1d2e88a4230e937f3
+  tag: latest@sha256:7caa180bd2b96e5f6fc5f02a07ed6aea2e88340c0f322c2451f0d9b3f6413af0
 service:
   main:
     ports:
