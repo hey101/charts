@@ -12,7 +12,7 @@ fedoraXFCEImage:
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-xfce@sha256:cecf0f50ff33ba6ad4cf574def3fd4ba8487d9726e0b6c2918c8795a1ae7a780
+  tag: arch-xfce@sha256:5000fb3de826141a7acef2e85f3c6d55887e390c3017b941272aaef03d70137e
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/webtop
@@ -28,7 +28,7 @@ fedoraKDEImage:
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-kde@sha256:0faa8efe5b66c243a43e0cfd1409c977d0d313cb20cee03f035dd5dd28d6e00a
+  tag: arch-kde@sha256:ebc08f4df93a8c3455bd433c088b8095025418d00f5548ff8a5cf7d69bb48032
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/webtop
@@ -44,7 +44,7 @@ fedoraMATEImage:
   pullPolicy: Always
 archMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-mate@sha256:bfe4358fe2251b5a25bd3e0f9744ffd6b436a29df9cb2afbed9e74c8ab9965e5
+  tag: arch-mate@sha256:e54abcce28cc5b9001094c8befe64bda54e47efb35699232385bbbae671f5744
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/webtop
@@ -60,7 +60,7 @@ fedoraI3Image:
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-i3@sha256:8a4ab2c140eca435788cb80023907677ec7e14860f0b1543c694aa86721839de
+  tag: arch-i3@sha256:4c1bbf2fa3342568199f22779dfb7532f6a149e86c231fd37a8711fa78f79026
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
@@ -76,7 +76,7 @@ fedoraOpenBoxImage:
   pullPolicy: Always
 archOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-openbox@sha256:1b4b645e391a8313d9e9e1e3e822a623e59d55abe70b4a0d5181e6b918332ce7
+  tag: arch-openbox@sha256:4bd8ca2ed93456957bcdb6f92aba10f4fc111f73b17c261b46511ca5d4f05742
   pullPolicy: Always
 alpineICEWMImage:
   repository: lscr.io/linuxserver/webtop
@@ -92,7 +92,7 @@ fedoraICEWMImage:
   pullPolicy: Always
 archICEWMImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-icewm@sha256:29f46770e4848856d40512a23647b55854cb1fae8e84836f68597836e53b75d1
+  tag: arch-icewm@sha256:a7a2a142b770560b23db4d06a66653445181296a839441a2bdbb4f6a770c7125
   pullPolicy: Always
 service:
   main:
