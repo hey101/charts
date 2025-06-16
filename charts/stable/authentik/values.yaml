@@ -8,7 +8,7 @@ geoipImage:
   pullPolicy: IfNotPresent
 ldapImage:
   repository: ghcr.io/goauthentik/ldap
-  tag: 2025.6.1@sha256:5c7930494b10566aa99a78e27e2bbe85146415c6798ffda288e5fc655cda16ba
+  tag: 2025.6.2@sha256:370032939be75853577c84ef6af924ab9428643b9af31533f7ca8bf980bd1c7c
   pullPolicy: IfNotPresent
 radiusImage:
   repository: ghcr.io/goauthentik/radius
@@ -16,7 +16,7 @@ radiusImage:
   pullPolicy: IfNotPresent
 proxyImage:
   repository: ghcr.io/goauthentik/proxy
-  tag: 2025.6.1@sha256:c525c84bae83631930260821ba82b7d6333e439c05739f6f412c7f77439de0d2
+  tag: 2025.6.2@sha256:28b0c3cb55ad82f08b9c0a32854fac0b7bd347149c57a1b1dc9ecdb88a72d6c9
   pullPolicy: IfNotPresent
 authentik:
   credentials:
