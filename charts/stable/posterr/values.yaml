@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/petersem/posterr
-  tag: latest@sha256:b9553bdfea4eb121cdd5db876aa3916d534a6c299cba259a2f85656609a3d853
+  tag: latest@sha256:4ea4495f0fc74be136a8514f92207c63ac646c67cd5b2e3025a6f9aa0788c7cb
 service:
   main:
     ports:
