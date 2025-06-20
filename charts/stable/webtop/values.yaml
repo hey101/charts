@@ -32,7 +32,7 @@ archKDEImage:
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-mate@sha256:4ce02bdb89318a136d37d5a21207f0f599aae0de07637b321c87d32ce443b4fa
+  tag: alpine-mate@sha256:9e8c099d1aeef11b2244b0850e1c60abea58aadc17a4c3d2eb1b366112da1cfc
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
