@@ -31,7 +31,6 @@ title: Installation Guide
   Make sure whatever filesystem the data is located on supports FSYNC and doesn't squash permissions. NFS servers may need to set <code>no_root_squash</code>
 
   For more info about ArchiveBox's filesystem requirements, see here:
-
   - [ArchiveBox Filesystem Requirements](https://github.com/ArchiveBox/ArchiveBox#storage-requirements)
   - [ArchiveBox Issue #742](https://github.com/ArchiveBox/ArchiveBox/issues/742) (example of common filesystem issue with NFS)
   - [ArchiveBox Issue #1304](https://github.com/ArchiveBox/ArchiveBox/issues/1304)

@@ -9,11 +9,9 @@ title: Installation Notes
 - In your discord server run the following commands in any channel that the bot has access to, you will be DM by the bot for the reply:
 
 - `.setupplex`
-
   - Authenticate with your _**plex**_ `username` | `email` | `token` and `password`.
 
 - `.roleadd @role`
-
   - This is the role that will trigger the bot to get the email from the user and invite them to Plex.
 
 - `.setuplibs`
