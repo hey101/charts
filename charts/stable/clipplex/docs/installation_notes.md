@@ -7,7 +7,6 @@ title: Installation Notes
 - Optionally Set `Streamable Login` and `Streamable Password` to your account details.
 
 - Set `Plex URL` to the url of plex, typically you can use:
-
   - `http://plex.ix-plex.svc.cluster.local:32400`
   - `http://IP:32400`
   - `https://plex.mydomain.tld`
