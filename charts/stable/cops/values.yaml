@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/cops
-  tag: 3.6.5@sha256:0846203086e0f2b9e0c69d590ff72027c361e1f8cfdce40e7d4f27df2aeca4a3
+  tag: 3.6.5@sha256:1bb454705567e4448dda67cbb866d09feaeebce49c8e65e6610d013d1ecebf0d
 securityContext:
   container:
     readOnlyRootFilesystem: false
