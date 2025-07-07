@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: registry.gitlab.com/timvisee/send
-  tag: latest@sha256:869e141ac150b0b04b63e01e0f06b34f9915c5ff5278c1552902b6088bed4285
+  tag: latest@sha256:5e8d9bb4f14fc96d3923d681fcf8ba971a74b057cadd03c9b4d8cde71713c826
 
 securityContext:
   container:
