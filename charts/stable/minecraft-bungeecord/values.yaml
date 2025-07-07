@@ -1,6 +1,6 @@
 image:
   repository: itzg/bungeecord
-  tag: 2025.4.0@sha256:7430800707678f28906a6d8a2116f1054103c5523df7baf01b91fd0b4fba8aec
+  tag: 2025.6.0@sha256:f14b7eb0ca1958b2a32c28ff285fe2f047c08ea65f5eca02a9f3a9362e9e9877
   pullPolicy: Always
 j11Image:
   repository: itzg/bungeecord
