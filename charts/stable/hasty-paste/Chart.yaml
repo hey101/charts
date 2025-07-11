@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.1.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
