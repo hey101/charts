@@ -1,6 +1,6 @@
 image:
   repository: docker.io/homebridge/homebridge
-  tag: 2025-06-29@sha256:fdfae0c9f86ae3340c6bcec0d1811f741eff1c070512204cfcc28e1f1e674002
+  tag: 2025-07-11@sha256:b65c52cda9c9ad0c71cb2dc112db08ec1fafab7ca9c06fe932c6910aa4b049bc
   pullPolicy: IfNotPresent
 
 securityContext:
