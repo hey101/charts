@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/cloudreve/cloudreve
-  tag: 3.8.3@sha256:b6c8bfd463898354831c311fb3967a410714a5319b5a86c4bf5d89e0487cc5bd
+  tag: 4.2.0@sha256:2341c577534a15ef67acb9b1b08b115b133d3e26e55fcc2f7261c7a252ff3718
 persistence:
   avatarpath:
     enabled: true
