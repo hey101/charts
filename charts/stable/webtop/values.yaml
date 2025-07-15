@@ -36,7 +36,7 @@ alpineMATEImage:
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-mate@sha256:36d3aaff54791dd7e672bba8a6cea8e8338091f93d2144dd638547c8cb003e9f
+  tag: ubuntu-mate@sha256:19e20db963552f944f3423c733b02b0bb587d7c8ac92afb325a160df76135739
   pullPolicy: Always
 fedoraMATEImage:
   repository: lscr.io/linuxserver/webtop
