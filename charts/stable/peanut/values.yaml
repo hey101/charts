@@ -1,6 +1,6 @@
 image:
   repository: docker.io/brandawg93/peanut
-  tag: 5.8.0@sha256:1b18ed528245f1983291a3ae6406a0de31bb9b0baf62d4d4bda56224498a9225
+  tag: 5.9.0@sha256:c3de1f218ae99ae77e1501bdb3981f9269fc43835bd5c34a070cda1983982822
   pullPolicy: IfNotPresent
 securityContext:
   container:
