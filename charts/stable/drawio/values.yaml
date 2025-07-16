@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jgraph/drawio
-  tag: 28.0.4@sha256:4ef7714aedeb10706380c1e534fdd4a947fab7d59c0b7e6cdb402d9c9db57c4a
+  tag: 28.0.5@sha256:52fe10c2f079db8db044a138b1416e33ab0126bbc54ba1eeb261fec027af6b8b
   pullPolicy: IfNotPresent
 securityContext:
   container:
