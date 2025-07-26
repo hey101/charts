@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/coderaiser/cloudcmd
-  tag: latest@sha256:763a99d36c483c73a342d752343b3ff1899c250e3a9e76891a9f8ef470c051ba
+  tag: latest@sha256:1896437c8f6aca035463b7cdc88bd21371f9a28061f7eb132990a38890a01bbb
 persistence:
   appdata:
     enabled: true
