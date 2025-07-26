@@ -1,7 +1,7 @@
 image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v3.2.0@sha256:98c11dda3c902c871bb95597b722cf46539feda732cd158e0af4f1fa3612eeac
+  tag: v3.2.2@sha256:f661c8f35f25d315f5fa98783789fa6c3eee6606460e24493ce88c00834e59c9
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -33,7 +33,7 @@ allInOneCuda11Image:
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v3.2.0-aio-cpu@sha256:6aae1e565d63e8d3950ead6ba5d5fbac85e5a011e4fceb7590cc12c514899dc1
+  tag: v3.2.2-aio-cpu@sha256:4f3baca9f3fde5ceab0a32427e3b33ad56b37b5dac35d8a1a2a97e2ffe4dd094
 securityContext:
   container:
     runAsNonRoot: false
