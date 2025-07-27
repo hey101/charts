@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/tccr/traefik
-  tag: v3.4.5@sha256:9180d0a3bc9556092e143b72992af32ff872df7fb6a2ed18831b62a9b51cfc23
+  tag: v3.4.5@sha256:23e9b05042cd70bad729cee35c2c1cbb7d731b5a13b8a22ee922fcb9e50eb723
   pullPolicy: IfNotPresent
 
 workload:
