@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.23.16"
 dependencies:
   - name: common
-    version: 28.13.0
+    version: 28.14.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/uptime-kuma
   - https://hub.docker.com/r/louislam/uptime-kuma
 type: application
-version: 12.4.18
+version: 12.4.19
