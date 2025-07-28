@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.1"
 dependencies:
   - name: common
-    version: 28.14.0
+    version: 28.15.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://gitlab.com/draganczukp/simply-shorten
   - https://hub.docker.com/r/draganczukp/simply-shorten
 type: application
-version: 10.4.19
+version: 10.4.20
