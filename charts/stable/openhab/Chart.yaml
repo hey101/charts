@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "4.3.6"
+appVersion: "5.0.0"
 dependencies:
   - name: common
     version: 28.15.0
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
   - https://hub.docker.com/r/openhab/openhab
 type: application
-version: 11.6.26
+version: 11.6.27
