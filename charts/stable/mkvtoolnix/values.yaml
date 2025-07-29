@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jlesage/mkvtoolnix
-  tag: v25.07.2@sha256:5042a02b26a9ac11a914343ce4a96ee1284a921a9bdeb535db6700d99e77785b
+  tag: v25.07.2@sha256:7c07ea194bbbde78765aaa3bc77a9674104459930efcf811774ce515effc5998
   pullPolicy: IfNotPresent
 service:
   main:
