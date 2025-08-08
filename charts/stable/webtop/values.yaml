@@ -4,7 +4,7 @@ image:
   tag: latest@sha256:4002c4ecffa1adf609a72cf4bdbca2bf85c3456b0a166b97a8dbe234cfc7fdfa
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-xfce@sha256:d027be18e0e793d7a79f6b4d3d21dc2636daeb879fa77679b1a1f1faa7bc9140
+  tag: ubuntu-xfce@sha256:3f249a11767e807d2f9027762679cd557e1c77c2764ed46e6679c182f4098a49
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/webtop
@@ -20,7 +20,7 @@ alpineKDEImage:
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-kde@sha256:87405a1f6d8f487679655f992b0638e521179a914795881457561b2695665ecf
+  tag: ubuntu-kde@sha256:34b5a2fb8409a8ceaf48fa612f496b9c69540b7383b9409cd2e79237104542d5
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/webtop
