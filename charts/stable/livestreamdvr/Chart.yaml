@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "master"
 dependencies:
   - name: common
-    version: 28.15.1
+    version: 28.16.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/livestreamdvr
   - https://hub.docker.com/r/mrbrax/twitchautomator
 type: application
-version: 7.4.43
+version: 7.4.44
