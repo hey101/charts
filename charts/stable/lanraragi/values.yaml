@@ -1,6 +1,6 @@
 image:
   repository: docker.io/difegue/lanraragi
-  tag: v.0.9.41@sha256:67725ebbd11dc8c73ed073eefdd3aafd2d6b0675a1f867850b8a7f8fb9f39bea
+  tag: v.0.9.50@sha256:ed97c2e973f0034a898472177736382a28b09c57c1cbeabbef32692d243325da
   pullPolicy: IfNotPresent
 service:
   main:
