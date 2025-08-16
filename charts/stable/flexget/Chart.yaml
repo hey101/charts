@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "3.17.8"
 dependencies:
   - name: common
-    version: 28.16.0
+    version: 28.16.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/wiserain/docker-flexget
   - https://hub.docker.com/r/wiserain/flexget
 type: application
-version: 11.5.54
+version: 11.5.55
