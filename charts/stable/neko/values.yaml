@@ -5,7 +5,7 @@ image:
 braveImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/brave
-  tag: 3.0.6@sha256:ebae69a74e3d79a1e24ae0a5c1428da57dc6eaf796c21b4e0610d5f1c739c6b2
+  tag: 3.0.7@sha256:788f91133b0501f2a3c0c417a2a876b3520fc3d99fac2a1f4a2e3a5f903e17e6
 chromeImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/google-chrome
