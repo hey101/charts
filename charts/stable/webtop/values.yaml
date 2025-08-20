@@ -1,18 +1,18 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/webtop
-  tag: latest@sha256:9d28b40dad34c2b5910b69520d30cfc6b6cd0d890de192e02bbbbdf59d3a0c86
+  tag: latest@sha256:848201a24f4036259ce4ed1e12959019085d3769c54b9cd3c9fb2abcbe534f38
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-xfce@sha256:aa9c377b475333113528900704b4c0161e7ecd1b00aa660d21659443ce7b2ba4
+  tag: ubuntu-xfce@sha256:b2239bbb590f0982b7ada0cf89b07ad1fbf9bc81da83526a06d1326575b34172
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-xfce@sha256:a61c631888d9c179d487c6b040059ac0ee566a65d14dab3cffb5503d46cee78c
+  tag: fedora-xfce@sha256:5e8add11e6ba89ace68b9defb502509f416a36edb55cab7302fbda4058a90214
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-xfce@sha256:c61e046c42b98491bda0b84c60ded5b2a91217770dcfc279e5eba62efa22b334
+  tag: arch-xfce@sha256:cd81450195ef8d662e1c65b2b5fdf10b78ddc9ff4397e46534636fbeeaf441d1
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/webtop
