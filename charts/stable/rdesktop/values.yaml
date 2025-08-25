@@ -24,7 +24,7 @@ ubuntuKDEImage:
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-kde@sha256:5010a6c9a5f102c1bd6ebc57b135fdf8c086b3a3732236ce7496c1a331d74452
+  tag: fedora-kde@sha256:edb0fe8eea2a9903314f48ce644a1b1b0ece1b2459ac342f08defe733e9ed894
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/rdesktop
