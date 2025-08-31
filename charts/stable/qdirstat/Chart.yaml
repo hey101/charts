@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "25.07.2"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.16.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/qdirstat
   - https://hub.docker.com/r/jlesage/qdirstat
 type: application
-version: 11.7.26
+version: 11.7.27
