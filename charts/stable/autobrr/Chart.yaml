@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.66.0"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.17.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/autobrr/autobrr
   - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
 type: application
-version: 10.14.34
+version: 10.14.35

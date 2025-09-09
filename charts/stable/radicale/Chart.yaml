@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "3.5.5.0"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.17.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://hub.docker.com/r/tomsquest/docker-radicale
   - https://radicale.org/
 type: application
-version: 7.5.35
+version: 7.5.36

@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2.42.5"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.17.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/filebrowser
   - https://hub.docker.com/r/filebrowser/filebrowser
 type: application
-version: 11.5.43
+version: 11.5.44

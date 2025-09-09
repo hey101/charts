@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "25.08.1"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.17.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/makemkv
   - https://hub.docker.com/r/jlesage/makemkv
 type: application
-version: 12.8.33
+version: 12.8.34

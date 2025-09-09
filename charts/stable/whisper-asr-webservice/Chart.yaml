@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.9.1"
 dependencies:
   - name: common
-    version: 28.16.2
+    version: 28.17.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/whisper-asr-webservice
   - https://hub.docker.com/r/onerahmet/openai-whisper-asr-webservice
 type: application
-version: 6.7.26
+version: 6.7.27
