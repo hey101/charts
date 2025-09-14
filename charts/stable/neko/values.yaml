@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/firefox
-  tag: 3.0.7@sha256:5a256094e3ba74d43929ca5d10a57209f22cb044f75cf3469b20566f40b07cf7
+  tag: 3.0.8@sha256:665701060335b662a806a7fc269ccbdcff5d054ddf5e9b0f4b31e12bab231b0e
 braveImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/brave
