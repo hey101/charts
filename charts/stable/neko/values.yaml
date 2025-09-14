@@ -37,7 +37,7 @@ vlcImage:
 xfceImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/xfce
-  tag: 3.0.7@sha256:1c35a207e0f01e6ce13af1b634e8555d7819d8f2712b0750b98138023b88ec9f
+  tag: 3.0.8@sha256:efd66abe96e30a5d8830734bad81252c83940c1ccf952634c6f7491aebb10938
 
 securityContext:
   container:
