@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.188.0"
 dependencies:
   - name: common
-    version: 28.18.1
+    version: 28.18.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/xen-orchestra
   - https://hub.docker.com/r/ronivay/xen-orchestra
 type: application
-version: 10.16.61
+version: 10.16.62
