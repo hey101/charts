@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "6.8"
+appVersion: "6.10"
 dependencies:
   - name: common
     version: 28.18.2
@@ -34,4 +34,4 @@ sources:
   - https://github.com/traccar/traccar
   - https://hub.docker.com/r/traccar/traccar
 type: application
-version: 18.8.33
+version: 18.8.34
