@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2.16.0"
 dependencies:
   - name: common
-    version: 28.18.0
+    version: 28.18.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/Tautulli/Tautulli
   - https://github.com/truecharts/charts/tree/master/charts/stable/tautulli
 type: application
-version: 20.5.29
+version: 20.5.30
