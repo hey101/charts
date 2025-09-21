@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.28.1"
 dependencies:
   - name: common
-    version: 28.18.2
+    version: 28.19.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/beryju/gravity
   - https://github.com/BeryJu/gravity
 type: application
-version: 5.12.36
+version: 5.12.37
