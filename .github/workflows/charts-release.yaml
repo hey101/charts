@@ -44,7 +44,7 @@ jobs:
           # GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
           
       - name: Checkout
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           token: ${{ secrets.HEY101_BOT_TOKEN }}
           fetch-depth: 0
@@ -83,7 +83,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout Catalog
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         with:
