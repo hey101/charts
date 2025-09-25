@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: "0.13.0"
+appVersion: "0.13.1"
 dependencies:
   - name: common
     version: 28.20.0
@@ -37,4 +37,4 @@ sources:
   - https://quay.io/brancz/kube-rbac-proxy
   - https://volsync.readthedocs.io/
 type: application
-version: 2.7.36
+version: 2.7.37
