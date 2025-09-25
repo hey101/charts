@@ -1,6 +1,6 @@
 image:
   repository: docker.io/seafileltd/seafile-mc
-  tag: 12.0.10@sha256:eee85e8d6f14c3edc7485bf6c9f099a4b01a11dd2357b04b66bde1dc2cebad33
+  tag: 12.0.14@sha256:8d0dd6b682c12cb0e1d4f1f73ba223b0176e9e3d43805408a2f631706e9c10e8
   pullPolicy: IfNotPresent
 service:
   main:
