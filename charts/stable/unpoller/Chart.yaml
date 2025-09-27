@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2.15.4"
 dependencies:
   - name: common
-    version: 28.20.0
+    version: 28.20.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/unpoller/unpoller
   - https://github.com/unifi-poller/unifi-poller
 type: application
-version: 12.7.33
+version: 12.7.34
