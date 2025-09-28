@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.2.2"
 dependencies:
   - name: common
-    version: 28.20.1
+    version: 28.21.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/phpmyadmin
   - https://hub.docker.com/r/phpmyadmin/phpmyadmin
 type: application
-version: 7.4.33
+version: 7.4.34

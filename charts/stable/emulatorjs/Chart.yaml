@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.9.2"
 dependencies:
   - name: common
-    version: 28.20.1
+    version: 28.21.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
   - https://ghcr.io/linuxserver/emulatorjs
 type: application
-version: 11.4.54
+version: 11.4.55
