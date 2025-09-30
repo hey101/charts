@@ -36,11 +36,11 @@ alpineMATEImage:
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-mate@sha256:7fec470cc4f25cc02f045145896c9705b685dc230670146f4763da4df3e5f13a
+  tag: ubuntu-mate@sha256:bdea5646aefc79adf2662f64b0bd9d01b5707138002a6bdd4701e70d1ba16116
   pullPolicy: Always
 fedoraMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-mate@sha256:e854f7e3433d24c39cb8115f705c4ffcbfb08f230e0b60794b26924d106cb003
+  tag: fedora-mate@sha256:712af0bd671aa61dbf36b1c3902bef1641ce1ae8664db1dc7d64d00d6a2ba21d
   pullPolicy: Always
 archMATEImage:
   repository: lscr.io/linuxserver/webtop
