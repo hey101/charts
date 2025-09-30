@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 17.5.0
+    version: 17.5.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://ghcr.io/rommapp/romm
   - https://github.com/zurdi15/romm
 type: application
-version: 10.18.73
+version: 10.18.74
