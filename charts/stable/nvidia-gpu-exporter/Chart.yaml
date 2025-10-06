@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "1.4.0"
 dependencies:
   - name: common
-    version: 28.22.0
+    version: 28.23.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/utkuozdemir/nvidia_gpu_exporter
   - https://hub.docker.com/r/utkuozdemir/nvidia_gpu_exporter
 type: application
-version: 4.5.36
+version: 4.5.37

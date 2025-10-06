@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "dayz"
 dependencies:
   - name: common
-    version: 28.22.0
+    version: 28.23.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/dayz
   - https://www.bohemia.net/games/dayz
 type: application
-version: 7.4.34
+version: 7.4.35
