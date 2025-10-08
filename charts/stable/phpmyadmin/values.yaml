@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/phpmyadmin/phpmyadmin
-  tag: 5.2.3@sha256:cb698865b646fd5968b17ce32aef6a7060317d1115ea975690a1b1c6b383e4c3
+  tag: 5.2.3@sha256:42a200db07b4e70fbf32c594ad4521cf16399b8e54bbb5adceae98e7566dfbeb
 portal:
   open:
     enabled: true
