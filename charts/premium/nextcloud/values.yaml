@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
-  tag: 24.04.12.4.1@sha256:580ae484f914582cc24d13803a37c33820434a11aed105a922ffd079c5adcfd0
+  tag: 25.04.6.1.1@sha256:83028c0bad42f6040c5b2a4d0aab50e2428238fbb628349c5d135e075e05f35d
 
 nextcloud:
   # Initial Credentials
