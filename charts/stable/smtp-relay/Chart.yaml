@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.7.7"
 dependencies:
   - name: common
-    version: 28.23.0
+    version: 28.24.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/ix-ai/smtp
   - https://github.com/ix-ai/smtp
 type: application
-version: 5.6.41
+version: 5.6.42

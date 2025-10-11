@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.15.0"
 dependencies:
   - name: common
-    version: 28.23.0
+    version: 28.24.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/nwithan8/tauticord
   - https://github.com/truecharts/charts/tree/master/charts/stable/tauticord
 type: application
-version: 7.8.42
+version: 7.8.43
