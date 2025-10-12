@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "20250519"
 dependencies:
   - name: common
-    version: 28.24.0
+    version: 28.25.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/pvrmza/docker-observium
   - https://www.observium.org/
 type: application
-version: 10.3.51
+version: 10.3.52

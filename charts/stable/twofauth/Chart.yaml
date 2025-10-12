@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "5.6.0"
 dependencies:
   - name: common
-    version: 28.24.0
+    version: 28.25.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/twofauth
   - https://hub.docker.com/r/2fauth/2fauth
 type: application
-version: 3.6.38
+version: 3.6.39
