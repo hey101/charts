@@ -1,6 +1,6 @@
 image:
   repository: docker.io/sirfragalot/hyperion.ng
-  tag: 2.1.1@sha256:ba45c548035df5ed3d81c5934a21aeb1b77773b1ec9f6ec32e523b0891be3cd1
+  tag: 2.1.1@sha256:e8aeec950b4b2a310c4e99566d0c76594fcd1a5d49b836f0d78680d189d6ae5c
   pullPolicy: IfNotPresent
 service:
   main:
