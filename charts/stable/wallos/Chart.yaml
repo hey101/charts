@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "4.5.0"
 dependencies:
   - name: common
-    version: 28.26.1
+    version: 28.26.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://ghcr.io/ellite/wallos
   - https://github.com/ellite/Wallos
 type: application
-version: 6.7.65
+version: 6.7.66
