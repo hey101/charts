@@ -3,7 +3,7 @@ image:
   tag: 3.5.0@sha256:cc21a2830e837eb58759d67c5e55a3b52c30122b0cf8e61a82e8339ef3b55dfb
 thanosImage:
   repository: quay.io/thanos/thanos
-  tag: v0.40.0@sha256:04847c121a69600014172a7148feced1cfdb43bc2b95660270cba25d515a913a
+  tag: v0.40.1@sha256:aae7b2b030ed00d88abd8c5a357d08b46f22151ca0d50d9c796223fa332389c8
 alertmanagerImage:
   repository: docker.io/bitnami/alertmanager
   tag: 0.28.1@sha256:a4d7b66fd4c5359b788ac499ab546d63cdd76bb4a19014ba24e7e2e162892d50
