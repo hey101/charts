@@ -23,7 +23,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.13.3
+    version: 17.13.4
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://friendi.ca/
   - https://hub.docker.com/_/friendica
 type: application
-version: 16.14.129
+version: 16.14.130
