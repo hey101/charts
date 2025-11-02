@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "arma3"
 dependencies:
   - name: common
-    version: 28.26.2
+    version: 28.26.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://ghcr.io/ich777/steamcmd
   - https://github.com/truecharts/charts/tree/master/charts/stable/arma3
 type: application
-version: 8.0.39
+version: 8.0.40
