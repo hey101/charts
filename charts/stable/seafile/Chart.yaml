@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 17.9.4
+    version: 17.9.5
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/seafileltd/seafile-mc
   - https://seafile.com
 type: application
-version: 7.10.83
+version: 7.10.84
