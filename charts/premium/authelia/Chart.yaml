@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.13.5
+    version: 17.13.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -51,4 +51,4 @@ sources:
   - https://github.com/authelia/chartrepo
   - https://github.com/truecharts/charts/tree/master/charts/premium/authelia
 type: application
-version: 26.2.86
+version: 26.2.87
