@@ -35,4 +35,4 @@ sources:
   - https://ghcr.io/linuxserver/smokeping
   - https://oss.oetiker.ch/smokeping/
 type: application
-version: 12.4.80
+version: 12.4.81
