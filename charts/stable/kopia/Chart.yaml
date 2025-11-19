@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "0.22.0"
 dependencies:
   - name: common
-    version: 28.26.3
+    version: 28.26.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://hub.docker.com/r/kopia/kopia
   - https://kopia.io/docs/installation/#docker-images
 type: application
-version: 13.5.46
+version: 13.5.47
