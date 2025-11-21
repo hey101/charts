@@ -56,7 +56,7 @@ ubuntuI3Image:
   pullPolicy: Always
 fedoraI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-i3@sha256:f750bd659efaf0198daeee3ab91d7b9348cbbd7039f03752ba6628ead62bf5dd
+  tag: fedora-i3@sha256:10b4995727ea23a6e9827f6682961e851a96378431ea63f1f4252102ce9422fb
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/webtop
