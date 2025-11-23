@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2025.11.0"
 dependencies:
   - name: common
-    version: 28.26.4
+    version: 28.27.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/esphome/esphome
   - https://hub.docker.com/r/esphome/esphome
 type: application
-version: 21.11.77
+version: 21.11.78

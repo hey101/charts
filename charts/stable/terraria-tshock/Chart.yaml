@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "tshock"
 dependencies:
   - name: common
-    version: 28.26.4
+    version: 28.27.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/terraria-tshock
   - https://tshock.co/
 type: application
-version: 8.4.41
+version: 8.4.42

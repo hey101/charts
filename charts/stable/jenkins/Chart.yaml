@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: "2.538"
 dependencies:
   - name: common
-    version: 28.26.4
+    version: 28.27.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/jenkinsci/docker
   - https://hub.docker.com/r/jenkins/jenkins
 type: application
-version: 9.28.85
+version: 9.28.86
