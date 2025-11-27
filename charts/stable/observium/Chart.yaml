@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 17.9.7
+    version: 17.11.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/pvrmza/docker-observium
   - https://www.observium.org/
 type: application
-version: 10.3.69
+version: 10.3.70
