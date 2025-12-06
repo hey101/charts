@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/lazylibrarian
   pullPolicy: IfNotPresent
-  tag: latest@sha256:4e672724d145864ddf1c28cf0b1cdb2e6461f0eac8557276d4b0e0407d85a2cd
+  tag: latest@sha256:9f0161cc4e198a4a17407fd5bfdc166300038a1bceb4c735e99ab7380dfdb899
 service:
   main:
     ports:
