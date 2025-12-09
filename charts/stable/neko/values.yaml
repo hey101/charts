@@ -17,7 +17,7 @@ chromiumImage:
 edgeImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/microsoft-edge
-  tag: 3.0.8@sha256:3d70fc44d45bb227fb9827a532b5993d62d3384d4bfe332a2e0f76426fc3804f
+  tag: 3.0.9@sha256:79c754cc5a8fbf77392de49aa0de9f62ebe681002a2534550e5b1d4867774285
 remminaImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/m1k1o/neko/remmina
