@@ -1,7 +1,7 @@
 image:
   repository: docker.io/jlesage/czkawka
   pullPolicy: IfNotPresent
-  tag: v25.12.5@sha256:c1c51e42de989d23d0f34087369456746590cdee7db8c30ffb9041d8c7a6b1e1
+  tag: v25.12.6@sha256:ae7eff54d479b06e93a9ee773598ecf177802ba07fd92ace02e65f0a3bb7a4f5
 securityContext:
   container:
     readOnlyRootFilesystem: false
