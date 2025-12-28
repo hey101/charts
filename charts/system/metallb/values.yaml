@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/tccr/alpine
   pullPolicy: IfNotPresent
-  tag: latest@sha256:6dc807ae4f2867cb2d00d061f8f579f1966420ad792c179ac68072ab235109f8
+  tag: latest@sha256:a1d1977752c09046b44905a8ceea301820b4cdba1d7097a41f0aaca0d390522c
 
 service:
   main:
