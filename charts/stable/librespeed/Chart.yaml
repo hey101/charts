@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "5.4.202408"
+appVersion: "5.5.0"
 dependencies:
   - name: common
     version: 28.27.4
@@ -34,4 +34,4 @@ sources:
   - https://github.com/librespeed/speedtest
   - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
 type: application
-version: 15.5.43
+version: 15.5.44
