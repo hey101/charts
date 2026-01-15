@@ -1,6 +1,6 @@
 image:
   repository: docker.io/revenz/fileflows
-  tag: 25.12@sha256:eab6f07588bd78dbcb213957c50664a3171793300c3d91b65a5fdc0b3f974ada
+  tag: 26.01@sha256:b43aaf5d125e86dca706ae17cb96ba68f294c32c8e83b511f7cbb52722dd4fdf
   pullPolicy: IfNotPresent
 securityContext:
   container:
