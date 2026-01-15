@@ -1,7 +1,7 @@
 image:
   repository: docker.io/automaticrippingmachine/automatic-ripping-machine
   pullPolicy: IfNotPresent
-  tag: 2.20.7@sha256:50d9d293d99b6949f0115b2e002063bfcefe0d57d391e7e57efd28239c2df477
+  tag: 2.21.0@sha256:cf7cc471c7bea49b472a22f49054adb65cdb211141f09af4114ac6974d8624d8
 
 securityContext:
   container:
