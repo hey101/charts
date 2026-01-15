@@ -1,7 +1,7 @@
 image:
   repository: docker.io/zedeus/nitter
   pullPolicy: IfNotPresent
-  tag: latest@sha256:c0275459df4de2331a1ceac61c42be30a8731e168f582851134b5ec25af75171
+  tag: latest@sha256:765a0b248910435bfa7f9bf1821c911eefdf61389544c9341bc1e7362a22e56e
 
 service:
   main:
