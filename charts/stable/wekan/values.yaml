@@ -1,6 +1,6 @@
 image:
   repository: docker.io/wekanteam/wekan
-  tag: v7.97@sha256:4c33ae9938717c0ee1c11b948b53fabf326a0853f3382675e497768597220ccc
+  tag: v8.19@sha256:5d80f3ba42924d41f3055a24f16bbcdbb56dcf3558b0c950a95576f4d8531638
   pullPolicy: IfNotPresent
 service:
   main:
