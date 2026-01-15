@@ -20,7 +20,7 @@ hastyPaste:
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/enchant97/hasty-paste
-  tag: 1.10.0@sha256:fab62283672928d3313bc4e2c7cb91c133c8a00c3d094417ce58c2c6d11272e1
+  tag: 2.3.0@sha256:b6d7f307fd45e66138812bae1503a383367dfce69b0629cc25a5f285fb141287
 persistence:
   config:
     enabled: true
