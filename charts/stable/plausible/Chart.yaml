@@ -24,7 +24,7 @@ dependencies:
     tags: []
     import-values: []
   - name: clickhouse
-    version: 17.3.0
+    version: 17.3.1
     repository: oci://oci.trueforge.org/truecharts
     condition: clickhouse.enabled
     alias: ""
