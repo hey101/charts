@@ -2,7 +2,7 @@
 image:
   repository: docker.io/redmine
   pullPolicy: IfNotPresent
-  tag: 6.1.0
+  tag: 6.1.1@sha256:3fdac4f3499eb3328c3e791ec4214eb421b5fd3992da3eecc8747fb31eb59a1c
 redmine:
   plugins_migrate: true
   no_db_migrate: false
