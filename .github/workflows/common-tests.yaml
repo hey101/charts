@@ -21,8 +21,7 @@ on:
 
 jobs:
   check_changes:
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     outputs:
       changes_detected: ${{ steps.filter.outputs.changed }}
 
@@ -291,8 +290,7 @@ jobs:
     needs: [lint, unittest, install]
     if: ${{ always() }}
     name: Common Tets Completed
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     steps:
       - name: Check Results
         run: |

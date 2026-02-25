@@ -16,8 +16,7 @@ on:
 jobs:
   generate-install-matrix:
     name: Generate matrix for install
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     outputs:
       matrix1: |
         {
@@ -580,8 +579,7 @@ jobs:
       - install-charts6
     if: ${{ always() }}
     name: Install successful
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     steps:
       - name: Check install matrix status
         run: |

@@ -14,8 +14,7 @@ concurrency:
 
 jobs:
   generate-readme:
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     name: "Generate readme files"
     steps:
       - name: Checkout
@@ -112,8 +111,7 @@ jobs:
           git push
 
   lock-threads:
-    runs-on:
-      group: default
+    runs-on: ubuntu-latest
     steps:
       - uses: dessant/lock-threads@7266a7ce5c1df01b1c6db85bf8cd86c737dadbe7 # v6
         with:
