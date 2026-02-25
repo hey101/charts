@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./values.schema.json
 image:
   repository: docker.io/difegue/lanraragi
-  tag: v.0.9.41@sha256:67725ebbd11dc8c73ed073eefdd3aafd2d6b0675a1f867850b8a7f8fb9f39bea
+  tag: v.0.9.60@sha256:985566a301ab40834dca01c23d240bc88bb850b7e1f2cce30b535744b993210d
   pullPolicy: IfNotPresent
 service:
   main:
