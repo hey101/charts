@@ -42,4 +42,3 @@ sources:
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/kubelet-csr-approver
 type: application
 version: 2.16.1
-

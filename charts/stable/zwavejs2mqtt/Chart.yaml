@@ -45,4 +45,3 @@ sources:
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
 type: application
 version: 24.24.1
-

@@ -43,4 +43,3 @@ sources:
   - https://registry.hub.docker.com/r/nightscout/cgm-remote-monitor-travis
 type: application
 version: 8.16.1
-

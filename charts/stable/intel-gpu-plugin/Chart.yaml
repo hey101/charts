@@ -41,4 +41,3 @@ sources:
   - https://hub.docker.com/r/intel/intel-gpu-plugin
 type: application
 version: 1.18.1
-

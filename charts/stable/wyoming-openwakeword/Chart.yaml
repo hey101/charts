@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/rhasspy/wyoming-openwakeword
 type: application
 version: 5.6.1
-

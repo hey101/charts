@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/grafana/grafana-image-renderer
 type: application
 version: 8.16.1
-

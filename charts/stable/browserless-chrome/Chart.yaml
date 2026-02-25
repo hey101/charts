@@ -43,4 +43,3 @@ sources:
   - https://hub.docker.com/r/browserless/chrome
 type: application
 version: 12.16.1
-

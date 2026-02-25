@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/charmcli/soft-serve
 type: application
 version: 9.18.1
-

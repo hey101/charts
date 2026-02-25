@@ -45,4 +45,3 @@ sources:
   - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-opengl-g3
 type: application
 version: 8.16.1
-

@@ -48,4 +48,3 @@ sources:
   - https://hub.docker.com/r/baserow/baserow
 type: application
 version: 17.10.1
-

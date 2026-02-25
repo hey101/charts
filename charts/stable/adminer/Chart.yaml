@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/_/adminer
 type: application
 version: 11.16.1
-

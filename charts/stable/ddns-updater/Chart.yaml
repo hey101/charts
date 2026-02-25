@@ -41,4 +41,3 @@ sources:
   - https://hub.docker.com/r/qmcgaw/ddns-updater
 type: application
 version: 12.16.1
-

@@ -43,4 +43,3 @@ sources:
   - https://hub.docker.com/r/portainer/portainer-ee
 type: application
 version: 11.24.1
-

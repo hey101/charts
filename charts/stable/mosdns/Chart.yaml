@@ -41,4 +41,3 @@ sources:
   - https://hub.docker.com/r/601096721/mosdns
 type: application
 version: 12.16.1
-

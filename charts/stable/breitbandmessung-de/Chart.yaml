@@ -46,4 +46,3 @@ sources:
   - https://hub.docker.com/r/shneezin/breitbandmessung-node
 type: application
 version: 8.16.1
-

@@ -45,4 +45,3 @@ sources:
   - https://hub.docker.com/r/teslamate/teslamate
 type: application
 version: 5.18.1
-

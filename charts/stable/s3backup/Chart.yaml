@@ -43,4 +43,3 @@ sources:
   - https://registry.hub.docker.com/r/joch/s3backup/
 type: application
 version: 8.16.1
-

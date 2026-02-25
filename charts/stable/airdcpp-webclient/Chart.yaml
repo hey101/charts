@@ -44,4 +44,3 @@ sources:
   - https://hub.docker.com/r/gangefors/airdcpp-webclient
 type: application
 version: 13.17.1
-

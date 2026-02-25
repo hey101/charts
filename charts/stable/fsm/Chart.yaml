@@ -42,4 +42,3 @@ sources:
   - https://registry.hub.docker.com/r/ofsm/ofsm
 type: application
 version: 8.16.1
-

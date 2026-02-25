@@ -44,4 +44,3 @@ sources:
   - https://hub.docker.com/r/edchamberlain/namecheap_ddns
 type: application
 version: 8.16.1
-

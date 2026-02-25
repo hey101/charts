@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/nodered/node-red
 type: application
 version: 22.17.1
-

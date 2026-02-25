@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/wiserain/flexget
 type: application
 version: 12.18.1
-

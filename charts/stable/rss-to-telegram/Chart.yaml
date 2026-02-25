@@ -44,4 +44,3 @@ sources:
   - https://hub.docker.com/r/bokker/rss.to.telegram
 type: application
 version: 8.16.1
-

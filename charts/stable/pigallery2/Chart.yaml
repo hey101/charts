@@ -48,4 +48,3 @@ sources:
   - https://hub.docker.com/r/bpatrik/pigallery2
 type: application
 version: 8.16.1
-

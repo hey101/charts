@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/_/registry
 type: application
 version: 17.16.1
-

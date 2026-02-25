@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/jeessy/ddns-go
 type: application
 version: 13.20.1
-

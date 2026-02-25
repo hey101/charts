@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/koush/scrypted
 type: application
 version: 7.19.1
-

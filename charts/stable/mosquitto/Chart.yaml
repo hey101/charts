@@ -44,4 +44,3 @@ sources:
   - https://hub.docker.com/_/eclipse-mosquitto
 type: application
 version: 17.16.1
-

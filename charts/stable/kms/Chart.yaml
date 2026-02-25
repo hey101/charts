@@ -41,4 +41,3 @@ sources:
   - https://hub.docker.com/r/pykmsorg/py-kms
 type: application
 version: 21.16.1
-

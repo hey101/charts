@@ -43,4 +43,3 @@ sources:
   - https://hub.docker.com/r/semaphoreui/semaphore
 type: application
 version: 6.18.1
-

@@ -40,4 +40,3 @@ sources:
   - https://hub.docker.com/r/domoticz/domoticz
 type: application
 version: 15.17.1
-

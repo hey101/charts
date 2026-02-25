@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/cyfershepard/jellystat
 type: application
 version: 6.16.1
-

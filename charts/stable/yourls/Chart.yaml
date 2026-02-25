@@ -51,4 +51,3 @@ sources:
   - https://hub.docker.com/_/yourls
 type: application
 version: 10.24.1
-

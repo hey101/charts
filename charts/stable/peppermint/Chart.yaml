@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/pepperlabs/peppermint
 type: application
 version: 4.16.1
-

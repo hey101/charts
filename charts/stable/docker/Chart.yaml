@@ -40,4 +40,3 @@ sources:
   - https://hub.docker.com/_/docker
 type: application
 version: 12.7.1
-

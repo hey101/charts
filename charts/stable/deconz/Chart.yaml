@@ -45,4 +45,3 @@ sources:
   - https://hub.docker.com/r/deconzcommunity/deconz
 type: application
 version: 18.18.1
-

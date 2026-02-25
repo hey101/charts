@@ -44,4 +44,3 @@ sources:
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/sia-daemon
 type: application
 version: 8.16.1
-

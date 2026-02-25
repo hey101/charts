@@ -42,4 +42,3 @@ sources:
   - https://hub.docker.com/r/tiltedphoques/st-reborn-server
 type: application
 version: 8.17.1
-
