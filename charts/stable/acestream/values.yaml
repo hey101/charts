@@ -2,7 +2,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/vstavrinov/acestream-service
-  tag: 2.0.2.8@sha256:f70398ee687e499bf967201706b7fa33d3df71bf30de9a8bf2c40af0e46dd9a4
+  tag: 2.1.1.1@sha256:b7d90643e3f6529e53210161ba3674814f8b761da679f5840bea90957d5da674
 persistence:
   acestreamcache:
     enabled: true
