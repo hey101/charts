@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/minekube/gate
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:9192f14a86e5e648470d01f45bde3cd74d6ba0351517f5be3fc6c1a12a3ff209
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: tcp
+        port: 25565
+      query:
+        enabled: true
+        protocol: udp
+        port: 25565
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+# https://gate.minekube.com/guide/lite.html
+# https://gate.minekube.com/guide/config/
+configmap:
+  config:
+    enabled: true
+    data:
+      config.yml: |
+        config:
+          bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+          query:
+            enabled: true
+            port: {{ .Values.service.main.ports.query.port }}
+            showPlugins: false
+          lite:
+            enabled: true
+            routes:
+              - host: minecraft.local
+                backend: localhost:25565
+persistence:
+  config-file:
+    enabled: true
+    type: configmap
+    objectName: config
+    mountPath: /config.yml
+    subPath: config.yml

@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/lmscommunity/lyrionmusicserver
+  pullPolicy: IfNotPresent
+  tag: 9.2.0@sha256:2e19e5cbb1e25e872594da80cef979a9c3b6d3ea004cd0f7ec4283058297267b
+service:
+  main:
+    ports:
+      main:
+        port: 9000
+  cli:
+    enabled: true
+    ports:
+      cli:
+        enabled: true
+        port: 9090
+        targetPort: 9090
+  playertcp:
+    enabled: true
+    ports:
+      slimprototcp:
+        enabled: true
+        port: 3483
+        targetPort: 3483
+  playerudp:
+    enabled: true
+    ports:
+      slimprotoudp:
+        enabled: true
+        port: 3483
+        protocol: udp
+        targetPort: 3483
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"

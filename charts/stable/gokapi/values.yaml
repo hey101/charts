@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/f0rc3/gokapi
+  tag: v2.2.2@sha256:c37eeb468293e9e07029c099dc406cc737f61a21b69bb97f1889d98fc5a7bff7
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+  data:
+    enabled: true
+    mountPath: /app/data
+
+service:
+  main:
+    ports:
+      main:
+        port: 53842
+        protocol: http
+        targetPort: 53842
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GOKAPI_LENGTH_ID: "15"
+            GOKAPI_MAX_FILESIZE: "102400"
+            GOKAPI_MAX_MEMORY_UPLOAD: "20"
+            GOKAPI_PASSWORD: changme
+            GOKAPI_USERNAME: admin

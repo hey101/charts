@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/almarklein/timetagger
+  tag: v26.1.3-nonroot@sha256:18a81afcb249142426fcff47bf9b54c343ca718a916f03d9722b84f8d7fafac6
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/_timetagger
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 1000
+    runAsUser: 1000
+service:
+  main:
+    ports:
+      main:
+        port: 10286
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TIMETAGGER_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/autobrr/autobrr
+  pullPolicy: IfNotPresent
+  tag: v1.73.0@sha256:6b0e57048087e5b7b626b0f02d39e91c8287d32691c26c709b3957227df12f7c
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 7474
+
+autobrr:
+  # ERROR | DEBUG |INFO | WARN | TRACE
+  log_level: DEBUG
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: tcp
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  autobrr-config:
+    enabled: true
+    type: configmap
+    objectName: autobrr-config
+    mountPath: /config/config.toml
+    subPath: config.toml
+    readOnly: true

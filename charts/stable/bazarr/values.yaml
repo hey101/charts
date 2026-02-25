@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/bazarr
+  pullPolicy: IfNotPresent
+  tag: 1.5.5@sha256:69d11a77a7c4fbf09fa33f4c6a8f746dcd78bdd5ea0fb467c67cb34a53501634
+exportarrImage:
+  repository: ghcr.io/onedr0p/exportarr
+  tag: v2.3.0@sha256:af535d94061cf97a52e1661945ffba78c03f9443eae7c0da1a80a5a4be56b520
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 6767
+        protocol: http
+        targetPort: 6767
+  metrics:
+    enabled: "{{ .Values.metrics.main.enabled }}"
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        port: 7879
+
+workload:
+  main:
+    podSpec:
+      containers:
+        exportarr:
+          enabled: "{{ .Values.metrics.main.enabled }}"
+          imageSelector: exportarrImage
+          args:
+            - bazarr
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            APIKEY: "{{ .Values.metrics.main.apiKey }}"
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+metrics:
+  main:
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    # Required for exportarr
+    apiKey: ""

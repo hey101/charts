@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/banhcanh/docker-fmd2
+  tag: latest@sha256:153ccc161e7ed9f2b44f6ec7176ed4e5e53fc0962465d3556176b6489eae20eb
+persistence:
+  lua:
+    enabled: true
+    mountPath: /app/FMD2/lua
+  user:
+    enabled: true
+    mountPath: /app/FMD2/userdata
+  config:
+    enabled: true
+    mountPath: /config/.wine
+  data:
+    enabled: true
+    mountPath: /app/FMD2/data
+  downloads:
+    enabled: true
+    mountPath: /downloads
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6080
+        protocol: tcp
+        targetPort: 6080

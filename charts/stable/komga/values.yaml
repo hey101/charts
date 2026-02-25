@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/gotson/komga
+  tag: 1.24.1@sha256:a84a0424e2f8235ba9373ed10b9b903e0feecdbb500a1b4aebac01f08e9e57db
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+          probes:
+            liveness:
+              port: "{{ .Values.service.main.ports.main.port }}"
+              path: /actuator/health
+            readiness:
+              port: "{{ .Values.service.main.ports.main.port }}"
+              path: /actuator/health
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+service:
+  main:
+    ports:
+      main:
+        port: 10085
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"

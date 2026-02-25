@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/wisemapping/wisemapping
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:ac01f83808a573f95ac189ec3aa02412792d5eb6af2a44058e8383fb0cfb03a9
+
+# When this is defined, the contents will be mounted
+# as configmap into the container at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.
+wisemappingConfig: {}
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init-config:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/
+              if [ ! -f /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties ]; then
+                echo "Config file not found, copying dummy..."
+                cp /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.dummy /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+                echo "Config file copied, you can now edit it at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties"
+              fi
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            ADMIN_EMAIL: "change@me.com"
+
+persistence:
+  config:
+    # Only enable when not using wisemappingConfig
+    enabled: false
+    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/
+    targetSelector:
+      main:
+        main: {}
+        init-config: {}
+
+cnpg:
+  main:
+    enabled: true
+    user: wisemapping
+    database: wisemapping

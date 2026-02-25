@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/squat/generic-device-plugin
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:8e74085edef446b02116d0e851a7a5576b4681e07fe5be75c4e5f6791a8ad0f7
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --domain
+            - truecharts.org
+            - --device
+            - |
+              name: tun
+              groups:
+                - count: 1000
+                  paths:
+                    - path: /dev/net/tun
+securityContext:
+  container:
+    readOnlyRootFilesystem: true
+    privileged: true
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+persistence:
+  dev:
+    enabled: true
+    type: hostPath
+    hostPath: /dev
+    mountPath: /dev
+  device-plugin:
+    enabled: true
+    type: hostPath
+    hostPath: /var/lib/kubelet/device-plugins
+    mountPath: /var/lib/kubelet/device-plugins
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp

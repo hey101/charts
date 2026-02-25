@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/ellite/wallos
+  tag: 4.6.1@sha256:46f25daeebedbe00f409abdc82f07d1bde6818dc9fee8b360b0b09c453c4b999
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8282
+        protocol: tcp
+        targetPort: 80
+
+persistence:
+  database:
+    enabled: true
+    mountPath: "/var/www/html/db"
+  logos:
+    enabled: true
+    mountPath: "/var/www/html/images/uploads/logos"

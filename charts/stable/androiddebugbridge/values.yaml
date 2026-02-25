@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/barnybbb/adb-hass-androidtv
+  tag: latest@sha256:412502ea35369f8925b39c45bc230ae1b7823a88c15d68b31b6ed34df9c460c1
+persistence: {}
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5037
+        protocol: tcp
+        targetPort: 5037
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            bootwait: "10"
+            checkfreq: "30"
+            devicelist: 10.0.0.192:5555

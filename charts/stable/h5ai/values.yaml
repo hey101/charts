@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/awesometic/h5ai
+  tag: latest@sha256:efa4514bd2099c521bc0d7974e93404d5f09fbbde161402bbcb0d1222259c133
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  directorystorage:
+    enabled: true
+    mountPath: /h5ai
+    readOnly: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: tcp
+        targetPort: 80

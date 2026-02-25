@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/seafileltd/seafile-mc
+  tag: 13.0.18@sha256:d9a472513b826eb9c807caa52faccabc8b65a97ccbc806d98968aaea8dc0d79f
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: http
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # Init for Seafile admin
+            INIT_SEAFILE_ADMIN_EMAIL: "me@example.com"
+            INIT_SEAFILE_ADMIN_PASSWORD: "a_very_secret_password"
+            # for Seafile server
+            TIME_ZONE: "UTC"
+            SEAFILE_LOG_TO_STDOUT: "true"
+            SITE_ROOT: "/"
+            SEAFILE_SERVER_HOSTNAME: "seafile.mydomain.com"
+            SEAFILE_SERVER_PROTOCOL: "https"
+            # other secrets
+            JWT_PRIVATE_KEY: "a_very_very_very_very_secret_key"
+            # for database
+            SEAFILE_MYSQL_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            SEAFILE_MYSQL_DB_PORT: "3306"
+            SEAFILE_MYSQL_DB_USER: "seafile"
+            SEAFILE_MYSQL_DB_CCNET_DB_NAME: "ccnet_db"
+            SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: "seafile_db"
+            SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: "seahub_db"
+            INIT_SEAFILE_MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
+            SEAFILE_MYSQL_DB_PASSWORD: "{{ .Values.mariadb.password }}"
+            # for cached
+            CACHE_PROVIDER: "redis"
+            ## for redis
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PORT: "6379"
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
+            # for notification
+            ENABLE_NOTIFICATION_SERVER: "false"
+            NOTIFICATION_SERVER_URL: ""
+            # for seadoc
+            ENABLE_SEADOC: "false"
+            SEADOC_SERVER_URL: ""  # only valid in ENABLE_SEADOC = true
+            # Seafile AI
+            ENABLE_SEAFILE_AI: "false"
+            SEAFILE_AI_SERVER_URL: "<required when ENABLE_SEAFILE_AI=true>"
+            # Matedata server
+            MD_FILE_COUNT_LIMIT: "100000"
+
+persistence:
+  storage:
+    enabled: true
+    mountPath: "/shared/seafile"
+
+mariadb:
+  enabled: true
+
+redis:
+  enabled: true

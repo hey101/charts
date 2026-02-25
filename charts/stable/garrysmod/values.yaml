@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: garrysmod@sha256:8b7aa732d5317ea6ea3cd0c53d599af9121fd438fa6c4c536e48cc1f2cb4bfc7
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "4020"
+            GAME_NAME: garrysmod
+            GAME_PARAMS: -secure +maxplayers 12 +map gm_flatgrass
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp

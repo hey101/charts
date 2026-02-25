@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/coderaiser/cloudcmd
+  tag: 19.6.2@sha256:405886e6877a2ef952f19393f102275d3ce1b7901ade85571be0812490842f39
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /root
+  mountpath:
+    enabled: true
+    mountPath: /UNRAID
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8765
+        protocol: tcp
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOME: /root

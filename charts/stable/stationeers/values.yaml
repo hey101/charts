@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: stationeers@sha256:26d2c8d6d1930fc3e12f7536705e9d55f3b19e11c8e18f79f78a17268f814e82
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  gameport:
+    enabled: true
+    ports:
+      gameport:
+        enabled: true
+        port: 27500
+        protocol: udp
+        targetPort: 27500
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "600760"
+            GAME_PARAMS: AutoSave true SaveInterval 300
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

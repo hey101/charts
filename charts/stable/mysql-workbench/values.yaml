@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/mysql-workbench
+  pullPolicy: IfNotPresent
+  tag: 8.0.46@sha256:5c2e681e02797534ddbfa96aac1880637eadf05cbdd128342c8de597c61a0fef
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        protocol: http
+        port: 10134
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    capabilities:
+      add:
+        - IPC_LOCK
+    runAsUser: 0
+    runAsGroup: 0

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: lscr.io/linuxserver/pyload-ng
+  tag: latest@sha256:1448a5d378f369d5973286665c5abaff6dad44fdb9089a87b388e31ee4f7a9d0
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  pathdownloads:
+    enabled: true
+    mountPath: /downloads
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+        protocol: http
+        targetPort: 8000
+  port9666:
+    enabled: true
+    ports:
+      port9666:
+        enabled: true
+        port: 9666
+        protocol: tcp
+        targetPort: 9666
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:

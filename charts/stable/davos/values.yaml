@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/davos
+  pullPolicy: IfNotPresent
+  tag: 2.2.2@sha256:3d623a05753ad37db517180a2b397add40984112751aa5aa54e14ba432a1f314
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+service:
+  main:
+    ports:
+      main:
+        port: 10081
+        protocol: http
+        targetPort: 8080
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

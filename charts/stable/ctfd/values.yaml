@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/ctfd/ctfd
+  tag: 3.8.2@sha256:870e396fddf8dd1273252bae5842bda96e45d5ebbe83d1d737ef76c513055619
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8000
+        port: 10613
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # filesystem  | s3
+            UPLOAD_PROVIDER: filesystem
+            # set storage locations.
+            UPLOAD_FOLDER: "{{ .Values.persistence.uploads.mountPath }}"
+            LOG_FOLDER: "{{ .Values.persistence.logs.mountPath }}"
+            SECRET_KEY:
+              secretKeyRef:
+                name: ctfd-secrets
+                key: SECRET_KEY
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            MAIL_USEAUTH: false
+            MAILFROM_ADDR: ""
+            MAIL_SERVER: ""
+            MAIL_PORT: 587
+            MAIL_USERNAME: ""
+            MAIL_PASSWORD: ""
+            MAIL_TLS: false
+            MAIL_SSL: false
+            # CTFd will not load any plugins which may alleviate issues preventing CTFd from starting, default is false.
+            SAFE_MODE: true
+            REVERSE_PROXY: false
+            # majorleaguecyber
+            OAUTH_CLIENT_ID: ""
+            OAUTH_CLIENT_SECRET: ""
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+redis:
+  enabled: true
+  redisUsername: default
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: "/uploads"
+  logs:
+    enabled: true
+    mountPath: "/logs"

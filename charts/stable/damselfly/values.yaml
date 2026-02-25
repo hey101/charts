@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/webreaper/damselfly
+  tag: latest@sha256:6dedb903ee37463619495aad8652d2aaf23ccba61acf253e1ada764f4529dd13
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  pictures:
+    enabled: true
+    mountPath: /pictures
+  thumbs:
+    enabled: true
+    mountPath: /thumbs
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6363
+        protocol: tcp
+        targetPort: 6363

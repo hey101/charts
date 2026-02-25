@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/chrome
+  tag: latest@sha256:b41b5df4623e756e2c70957ef1ac1f1432f06bddadfaed958b1b3f5fe4935843
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /chrome
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1280"
+            EXTRA_PARAMETERS: ""

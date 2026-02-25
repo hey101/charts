@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/papermerge/papermerge
+  pullPolicy: IfNotPresent
+  tag: 3.5.3@sha256:78c7a24609066b253cad18c6f8486af505e3b8da30aa73a45f064359a6516d16
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 12000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PAPERMERGE__SECURITY__SECRET_KEY:
+              secretKeyRef:
+                name: papermerge-secrets
+                key: PAPERMERGE__SECURITY__SECRET_KEY
+            PAPERMERGE__AUTH__USERNAME: admin
+            PAPERMERGE__AUTH__PASSWORD: admin
+            PAPERMERGE__DATABASE__URL: '{{ printf "postgresql://%s:%s@%s:5432/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password .Values.cnpg.main.creds.host .Values.cnpg.main.database }}'
+            PAPERMERGE__REDIS__URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+persistence:
+  config:
+    enabled: true
+    mountPath: "/core_app/index_db"
+  media:
+    enabled: true
+    mountPath: "/core_app/media"
+  varrun:
+    enabled: false
+redis:
+  enabled: true
+  redisUsername: papermerge
+cnpg:
+  main:
+    enabled: true
+    user: papermerge
+    database: papermerge

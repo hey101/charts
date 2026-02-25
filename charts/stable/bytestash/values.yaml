@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/jordan-dalby/bytestash
+  tag: 1.5.11@sha256:f5ca5cc8c33d76eda8969757d5b6da653c39ca8d946b3f7bfbc86df1360bf525
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: http
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data/snippets"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BASE_PATH: ""
+            JWT_SECRET: "bytestash JWT secret"
+            TOKEN_EXPIRY: "24h"
+            ALLOW_NEW_ACCOUNTS: "false"
+            DEBUG: "false"
+            DISABLE_ACCOUNTS: "false"
+            DISABLE_INTERNAL_ACCOUNTS: "false"
+            OIDC_ENABLED: "false"
+            OIDC_DISPLAY_NAME: ""
+            OIDC_ISSUER_URL: ""
+            OIDC_CLIENT_ID: ""
+            OIDC_CLIENT_SECRET: ""
+            OIDC_SCOPES: ""

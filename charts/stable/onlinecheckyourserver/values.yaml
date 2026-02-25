@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/online-check-pushover
+  tag: latest@sha256:84e0c894ff0481831084f3c1c1e6620200766cd18b798a2b8626405eeb01b987
+persistence: {}
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOST: google.com
+            PING_INTERVAL: "300"
+            PING_RETRY: "3600"
+            PING_TIMEOUT: "10"
+            PUSHOVER_APP_TOKEN: ""
+            PUSHOVER_MESSAGE: google.com is offline!
+            PUSHOVER_PRIORITY: "0"
+            PUSHOVER_TITLE: Online Check
+            PUSHOVER_USER_TOKEN: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

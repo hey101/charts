@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/antelle/keeweb
+  tag: latest@sha256:8ff5e10baa2ca50967964bf26af41461da79ef62a481094a00f75726623bcb36
+persistence:
+  nginx:
+    enabled: true
+    mountPath: /etc/nginx/external
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  http:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 8004
+        protocol: http
+        targetPort: 80
+  main:
+    ports:
+      main:
+        port: 8003
+        protocol: https
+        targetPort: 443

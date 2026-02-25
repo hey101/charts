@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/sublivion/gridcoinwalletgui
+  tag: latest@sha256:0f55fda060f92686cc886beb3da46b31fa872078ef546ae59864a7c03d57966d
+persistence:
+  appdataconfigpath:
+    enabled: true
+    mountPath: /headless/.GridcoinResearch/
+  boincdatadir:
+    enabled: true
+    mountPath: /var/lib/boinc-client/
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: vncpassword
+            VNC_RESOLUTION: 1920x1080

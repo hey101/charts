@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: oci.trueforge.org/containerforge/duplicacy
+  tag: 1.8.0@sha256:31f00a0a7b10e9a85f3b30c9715eef65b28bbd89a104ec465232a6b982768b26
+securityContext:
+  container:
+    runAsGroup: 0
+    runAsUser: 0
+    readOnlyRootFilesystem: false
+service:
+  main:
+    ports:
+      main:
+        port: 3875
+        protocol: http
+        targetPort: 3875
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  cache:
+    enabled: true
+    mountPath: /cache
+  logs:
+    enabled: true
+    mountPath: /logs

@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/cloudreve/cloudreve
+  tag: 4.14.1@sha256:bfe2a29707f93c16253d293b59bc28133400b35398de117a8c5473130179e5cc
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CR_CONF_Database.Type: postgres
+            CR_CONF_Database.Host: "{{ .Values.cnpg.main.creds.host }}"
+            CR_CONF_Database.User: "{{ .Values.cnpg.main.user }}"
+            CR_CONF_Database.Name: "{{ .Values.cnpg.main.database }}"
+            CR_CONF_Database.Password: "{{ .Values.cnpg.main.creds.password }}"
+            CR_CONF_Database.Port: 5432
+            CR_CONF_Redis.Server: '{{ .Values.redis.creds.plain | trimAll "\"" }}:6379'
+            CR_CONF_Redis.User: "{{ .Values.redis.redisUsername }}"
+            CR_CONF_Redis.Password: "{{ .Values.redis.creds.redisPassword }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/cloudreve/data"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5212
+        targetPort: 5212
+redis:
+  enabled: true
+  redisUsername: default
+cnpg:
+  main:
+    enabled: true
+    user: cloudreve
+    database: cloudreve

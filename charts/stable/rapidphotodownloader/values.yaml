@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/rapidphotodownloader
+  tag: latest@sha256:fef9de67f31ace4d9eedd05c79159ec0aa1307cb2bffec38383778479d8e4154
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /rapidphotodownloader
+  destinantionfolder:
+    enabled: true
+    mountPath: /media/destination
+  sourcefolder:
+    enabled: true
+    mountPath: /media/source
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "881"
+            CUSTOM_RES_W: "1024"
+            DL_URL: https://launchpad.net/rapid/pyqt/0.9.17/+download/install.py
+            FORCE_UPDATE: ""

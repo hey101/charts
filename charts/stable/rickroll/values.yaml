@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/modem7/docker-rickroll
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:cf1515b10f698b9f207dee2c1e8904efc0737b7fc282119d1d5a989b5f35e1bd
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10289
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            TITLE: "Rickroll"
+            HEIGHT: "100vh"
+            WIDTH: "100%"
+            HEADLINE: ""

@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/flood
+  pullPolicy: IfNotPresent
+  tag: "4.12.6@sha256:25b29cdb82615d905f75c54d5fc0c3e0b4e56c81a6a46ead19c8133758fe5517"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FLOOD_OPTION_RUNDIR: /data
+service:
+  main:
+    ports:
+      main:
+        port: 10036
+        targetPort: 3000
+persistence:
+  data:
+    enabled: true
+    mountPath: /data

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/petersem/posterr
+  tag: latest@sha256:c0a11cb7a7bf76ac307775efe153d31ec16d469381af750e130a0089f6ff8e76
+service:
+  main:
+    ports:
+      main:
+        port: 9876
+        protocol: http
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/src/app/config
+  custom:
+    enabled: true
+    mountPath: /usr/src/app/public/custom
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/calibre-web
+  pullPolicy: IfNotPresent
+  tag: "0.6.26@sha256:8f41abe20bcbee8d9ef45cdb65e954861561a48d95eebc02db33fef436fd8b0f"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8083
+        protocol: http
+        targetPort: 8083
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

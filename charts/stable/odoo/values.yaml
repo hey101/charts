@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: public.ecr.aws/docker/library/odoo
+  pullPolicy: IfNotPresent
+  tag: 19.0@sha256:aba5b4d3b94e568fb34aa5527f5e65b4d49c8f972692249850126767bcb35ec0
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000
+service:
+  main:
+    ports:
+      main:
+        port: 8069
+odoo:
+  additionalConf: []
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init-db:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          env:
+            ODOO_RC: /etc/odoo/odoo.conf
+          command:
+            - /bin/bash
+          args:
+            - -c
+            - |
+              /usr/bin/odoo --config=/etc/odoo/odoo.conf \
+                            --stop-after-init \
+                            --without-demo=all \
+                            --init=base
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /web/health
+            readiness:
+              enabled: true
+              type: http
+              path: /web/health
+            startup:
+              enabled: true
+              type: http
+              path: /web/health
+          env:
+            ODOO_RC: /etc/odoo/odoo.conf
+persistence:
+  odoo:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/var/lib/odoo"
+        init-db:
+          mountPath: "/var/lib/odoo"
+  addons:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/mnt/extra-addons"
+        init-db:
+          mountPath: "/mnt/extra-addons"
+  odoo-config:
+    enabled: true
+    type: configmap
+    objectName: odoo-config
+    targetSelector:
+      main:
+        main:
+          mountPath: /etc/odoo/odoo.conf
+          subPath: odoo.conf
+          readOnly: true
+        init-db:
+          mountPath: /etc/odoo/odoo.conf
+          subPath: odoo.conf
+          readOnly: true
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: odoo
+    database: odoo

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/meeb/tubesync
+  tag: latest@sha256:671cd4397931e55d17ae3a668e81f4c69664dc0e2406c9644e97b80d7d7abd07
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /downloads
+  varrun:
+    enabled: false
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4848
+        protocol: tcp
+        targetPort: 4848
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_CONNECTION: ""
+            http_PASS: ""
+            http_USER: ""
+            TUBESYNC_DEBUG: "False"
+            TUBESYNC_HOSTS: ""
+            TUBESYNC_WORKERS: "2"

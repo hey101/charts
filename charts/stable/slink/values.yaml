@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/anirdev/slink
+  pullPolicy: IfNotPresent
+  tag: v1.9.6@sha256:9e766ccf499d399b65f7861dc192b406a28b636df04f12e2a2fbe8c0ce23ad44
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    runAsNonRoot: false
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ORIGIN: "{{ .Values.chartContext.appUrl }}"
+            USER_APPROVAL_REQUIRED: true
+            IMAGE_MAX_SIZE: "15M"
+persistence:
+  database:
+    enabled: true
+    mountPath: "/app/var/data"
+  images:
+    enabled: true
+    mountPath: "/app/slink/images"
+ingress:
+  main:
+    required: true

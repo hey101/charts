@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/xavierh/goaccess-for-nginxproxymanager
+  tag: latest@sha256:30f38e5f30ec09a6c850dac4d8f7769f6a15ca03bdb1a5a8725fbe3bc6219b93
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /opt/log
+    readOnly: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 7880
+        protocol: tcp
+        targetPort: 7880
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BASIC_AUTH: "True"
+            BASIC_AUTH_PASSWORD: x
+            BASIC_AUTH_USERNAME: x
+            DEBUG: "False"
+            EXCLUDE_IPS: ""
+            SKIP_ARCHIVED_LOGS: "False"

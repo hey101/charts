@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/acockburn/appdaemon
+  pullPolicy: IfNotPresent
+  tag: 4.5.13@sha256:cabcb3a4e739db2572ecb8dc3cee685300ab27274efda83a6d8ce4d3988dc647
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5050
+        protocol: http
+        targetPort: 5050
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            DASH_URL: "http://0.0.0.0:5050"
+            HA_URL: "ha-url"
+            LATITUDE: 46
+            LONGITUDE: -94
+            ELEVATION: 1217
+            TIMEZONE: "{{ .Values.TZ }}"
+            TOKEN: "REPLACETHIS"
+persistence:
+  conf:
+    enabled: true
+    mountPath: /conf

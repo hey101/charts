@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/bitnamisecure/memcached
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:6ea3bea7f844da516b02c647dc330586bc982615142bc16fa42192315deaf69d
+
+service:
+  main:
+    ports:
+      main:
+        port: 11211
+        protocol: tcp
+        targetPort: 11211
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      memcached.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}

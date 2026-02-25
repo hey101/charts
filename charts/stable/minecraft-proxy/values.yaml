@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: 2025.10.0-java21@sha256:28a4f84f538cee00099cee8370b075594b258f93c5feeaefb0fde736aa9636ab
+  pullPolicy: Always
+j8Image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: 2025.10.0-java8@sha256:4d4639ec1e3f74723e6a4174dcb9d861b08ec07635b9e891c4660c5baa952dfa
+  pullPolicy: Always
+j17Image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: 2025.10.0-java17@sha256:7043620f1ac866e86fee922c1c22a035800db95c2fe511778de4f22ac19e9f19
+  pullPolicy: Always
+j25Image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: 2025.10.0-java25@sha256:0737c64aac9a090a37c282ef1c2dba90b202fa3f2c9ffc0157df3b61fa2d0334
+  pullPolicy: Always
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "secretrconpass"
+            TYPE: "BUNGEECORD"
+            ONLINE_MODE: false
+            MEMORY: 512M
+            INIT_MEMORY: 512M
+            MAX_MEMORY: 512M
+            NETWORKADDRESS_CACHE_TTL: 60
+            REPLACE_ENV_VARIABLES: false
+            ENV_VARIABLE_PREFIX: "CFG_"
+            # GENERIC_PACKS: "configs-v9.0.1,mods-v4.3.6"
+            # GENERIC_PACKS_PREFIX: "https://cdn.example.org/"
+            # GENERIC_PACKS_SUFFIX="".zip"
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+            # PLUGINS: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  server:
+    enabled: true
+    mountPath: "/server"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"

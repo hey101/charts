@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: pavlovvr@sha256:6131e0be611e55f4df02feb7e249d9ffa1724ff4911a8f38a640e39cf9a9a2f7
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+secretEmv:
+  PASSWRD: ""
+  USERNAME: ""
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 7777
+        protocol: tcp
+        targetPort: 7777
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 7777
+        protocol: udp
+        targetPort: 7777
+  udp2:
+    enabled: true
+    ports:
+      udp2:
+        enabled: true
+        port: 8177
+        protocol: udp
+        targetPort: 8177
+  udp3:
+    enabled: true
+    ports:
+      udp3:
+        enabled: true
+        port: 7977
+        protocol: udp
+        targetPort: 7977
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "622970"
+            GAME_PARAMS: ""
+            VALIDATE: "false"

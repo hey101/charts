@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/techno-tim/littlelink-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:e84ea9d93b60362cf9e292dba43adb604e375d9206d5fcf1de6bb766a20aabd1
+service:
+  main:
+    ports:
+      main:
+        port: 10040
+        targetPort: 3000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # See upstream for more ENV
+            META_TITLE: "techno tim"
+            META_DESCRIPTION: "techno tim link page"
+            META_AUTHOR: "techno tim"

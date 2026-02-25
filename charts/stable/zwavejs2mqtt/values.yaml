@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/zwavejs/zwave-js-ui
+  pullPolicy: IfNotPresent
+  tag: 11.12.0@sha256:ca599b5d7afd4832848c8fb7a7eded38ea3494bce560a14c1b8304f6497fe17a
+service:
+  main:
+    ports:
+      main:
+        port: 8091
+        targetPort: 8091
+  ws:
+    enabled: true
+    ports:
+      ws:
+        enabled: true
+        port: 10046
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/usr/src/app/store"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              # custom: true
+              # spec:
+              #   failureThreshold: 5
+              #   httpGet:
+              #     path: /health
+              #     port: http
+              #     httpHeaders:
+              #       - name: Accept
+              #         value: text/plain
+              #   initialDelaySeconds: 30
+              #   periodSeconds: 10
+              #   timeoutSeconds: 10
+            readiness:
+              enabled: true
+              # custom: true
+              # spec:
+              #   failureThreshold: 5
+              #   httpGet:
+              #     path: /health
+              #     port: http
+              #     httpHeaders:
+              #       - name: Accept
+              #         value: text/plain
+              #   initialDelaySeconds: 30
+              #   periodSeconds: 10
+              #   timeoutSeconds: 10
+            startup:
+              enabled: false
+              # custom: true
+              # spec:
+              #   failureThreshold: 5
+              #   httpGet:
+              #     path: /health
+              #     port: http
+              #     httpHeaders:
+              #       - name: Accept
+              #         value: text/plain
+              #   initialDelaySeconds: 30
+              #   periodSeconds: 10
+              #   timeoutSeconds: 10

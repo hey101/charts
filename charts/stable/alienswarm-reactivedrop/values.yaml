@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: alienswarmreactivedrop@sha256:bb03282a0b85fee8340505ca1f49b7351f79812f123e3753fd19476896c8a28d
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprconport:
+    enabled: true
+    ports:
+      tcprconport:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "563560"
+            GAME_NAME: reactivedrop
+            GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
+            readiness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
+            startup:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp

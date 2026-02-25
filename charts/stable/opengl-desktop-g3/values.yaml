@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/accetto/ubuntu-vnc-xfce-opengl-g3
+  tag: latest@sha256:702e7283c30bf53b1cdc12bb29b8f2539bbf42ebe291912a6f694435a884bd6f
+persistence:
+  internalshare:
+    enabled: true
+    mountPath: /UNRAID_SHARE
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  webuivnc:
+    enabled: true
+    ports:
+      webuivnc:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

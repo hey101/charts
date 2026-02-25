@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/esphome
+  pullPolicy: IfNotPresent
+  tag: "2026.2.1@sha256:5919a13f8a97b4f6b04ed0387e604bf867927557787528626df56b8336d319ae"
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    privileged: true
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6052
+        targetPort: 6052
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            ESPHOME_DASHBOARD_USE_PING: false
+            ESPHOME_DASHBOARD_RELATIVE_URL: /
+            # ESPHOME_QUICKWIZARD:
+            # ESPHOME_IS_HASSIO:
+            # DISABLE_HA_AUTHENTICATION:
+            # USERNAME:
+            # PASSWORD:
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  # caches platformio packages to prevent excess downloads
+  cache:
+    enabled: true
+    mountPath: /cache
+  # caches compiled code to not require rebuilds
+  build:
+    enabled: true
+    mountPath: /build

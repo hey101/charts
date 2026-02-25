@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/taxel/plextraktsync
+  tag: 0.35.0@sha256:7a0c03e629a8b309fafb11a36d4a24f6efc7a9bc5a039d0baf665e872cf766fa
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+plextraktsync:
+  cron_enabled: true
+  task: "sync"
+  schedule: "0 */6 * * *"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+  plextraktsync-cron:
+    enabled: "{{ .Values.plextraktsync.cron_enabled }}"
+    type: CronJob
+    schedule: "{{ .Values.plextraktsync.schedule }}"
+    podSpec:
+      restartPolicy: Never
+      containers:
+        cron:
+          primary: true
+          enabled: true
+          imageSelector: "image"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          args:
+            - "{{ .Values.plextraktsync.task }}"
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /app/config
+      plextraktsync-cron:
+        cron:
+          mountPath: /app/config

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/homarr-labs/homarr
+  tag: v1.53.2@sha256:6d5c2adc2231afa99bc4fcd62c54f52167fc791551f22a962d3aaca7be8f4d11
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SECRET_ENCRYPTION_KEY: "changemeplease"
+service:
+  main:
+    ports:
+      main:
+        port: 10245
+        targetPort: 7575
+persistence:
+  appdata:
+    enabled: true
+    mountPath: "/appdata"
+  varrun:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

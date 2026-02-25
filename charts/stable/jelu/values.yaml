@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/wabayang/jelu
+  tag: latest@sha256:d8238d460636c1b8d972b785bf37e4f4de54b6f8df1a36a11b6c219f1c8c5196
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  databasepath:
+    enabled: true
+    mountPath: /database
+  imagespath:
+    enabled: true
+    mountPath: /files/images
+  importspath:
+    enabled: true
+    mountPath: /files/imports
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 11111
+        protocol: tcp
+        targetPort: 11111

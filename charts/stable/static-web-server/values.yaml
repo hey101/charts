@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/static-web-server/static-web-server
+  pullPolicy: IfNotPresent
+  tag: 2.41.0@sha256:34bb160fd62d2145dabd0598f36352653ec58cf80a8d58c8cd2617097d34564d
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 38080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SERVER_ROOT: "/public"
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+persistence:
+  config:
+    enabled: true
+    mountPath: "/public"

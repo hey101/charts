@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/m1k1o/blog
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:ae937fc969af2385762d086717562c0c37bf006dd97fe6e35649a7184242e355
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10111
+        protocol: http
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            BLOG_TITLE: "Blog"
+            BLOG_NAME: "Max Musermann"
+            BLOG_LANG: "en"
+            BLOG_DB_CONNECTION: "postgres"
+            BLOG_POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            BLOG_POSTGRES_PORT: "5432"
+            BLOG_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            BLOG_POSTGRES_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            BLOG_POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            BLOG_NICK: username
+            BLOG_PASS: password
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+cnpg:
+  main:
+    enabled: true
+    user: blog
+    database: blog

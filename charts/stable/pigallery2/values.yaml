@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/bpatrik/pigallery2
+  tag: latest@sha256:d7a61b6daa410537064d4f661122545bc4d9b16cd91a3862d654c3555cb63992
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/data/config
+  db:
+    enabled: true
+    mountPath: /app/data/db
+  image:
+    enabled: true
+    mountPath: /app/data/images/
+    readOnly: true
+  tmp:
+    enabled: true
+    mountPath: /app/data/tmp
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: tcp
+        targetPort: 80

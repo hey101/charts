@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/iyuucn/iyuuplus
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:3d8215c91557e187bf0aad3932ad4e5783044545754518922d1830eda39dcbe0
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8787
+        port: 10188
+persistence:
+  config:
+    enabled: true
+    mountPath: "/IYUU/db"
+  torrents:
+    enabled: true
+    mountPath: "/torrents"
+  btbackup:
+    enabled: true
+    mountPath: "/BT_backup"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

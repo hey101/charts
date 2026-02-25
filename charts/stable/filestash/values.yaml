@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/machines/filestash
+  tag: latest@sha256:1312173bc6f828971d57e050764edf7803c82d523a128a89fba28761b0bb222f
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8334
+        port: 8334
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPLICATION_URL: "http://localhost:8334"
+            GDRIVE_CLIENT_ID: ""
+            GDRIVE_CLIENT_SECRET: ""
+            DROPBOX_CLIENT_ID: ""
+            ONLYOFFICE_URL: ""
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data/state

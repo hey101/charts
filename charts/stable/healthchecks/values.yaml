@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/healthchecks
+  tag: 4.0.20260216@sha256:9748ad5de1a8aaede64e54d742424f2e8a92ed661814c232b333e567de40d829
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10074
+        targetPort: 8000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            REGENERATE_SETTINGS: "True"
+            SITE_ROOT: "https://healthchecks.domain"
+            SITE_NAME: ""
+            SUPERUSER_EMAIL: "email@healthchecks.io"
+            SUPERUSER_PASSWORD: "myVeryStrongPassword"

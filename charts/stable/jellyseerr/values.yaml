@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/jellyseerr
+  tag: "2.7.3@sha256:14df0148897eb453a5fb8895ce42dc1cb108caff6cede4999fcc1dc46f57a982"
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10241
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            JELLYFIN_TYPE: ""
+            LOG_LEVEL: "info"

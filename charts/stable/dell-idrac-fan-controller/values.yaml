@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/tigerblue77/dell_idrac_fan_controller
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:cec67104bf19d3ba4b75817b896e8748fa052dabe99e15955b753ae487968756
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            IDRAC_HOST: ""
+            IDRAC_USERNAME: ""
+            IDRAC_PASSWORD: ""
+            FAN_SPEED: 5
+            CPU_TEMPERATURE_THRESHOLD: 50
+            CHECK_INTERVAL: 60
+            DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE: false

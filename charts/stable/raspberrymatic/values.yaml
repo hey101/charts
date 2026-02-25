@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/jens-maus/raspberrymatic
+  tag: latest@sha256:4b22b4f407c42375be1d13442f55fd0477f6713db0a0168db7bccfe9c44533da
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/local
+  control:
+    enabled: true
+    hostPath: /run/udev/control
+    mountPath: /run/udev/control
+    type: hostPath
+  modules:
+    enabled: true
+    hostPath: /lib/modules
+    mountPath: /lib/modules
+    readOnly: true
+    type: hostPath
+  sys:
+    enabled: true
+    hostPath: /sys
+    mountPath: /sys
+    type: hostPath
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  ccu:
+    enabled: true
+    ports:
+      ccu1:
+        enabled: true
+        port: 2001
+        targetPort: 2001
+      ccu2:
+        enabled: true
+        port: 2010
+        targetPort: 2010
+      ccu3:
+        enabled: true
+        port: 9292
+        targetPort: 9292
+      ccu4:
+        enabled: true
+        port: 8181
+        targetPort: 8181
+  main:
+    ports:
+      main:
+        port: 10581
+        protocol: http
+        targetPort: 80

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/theme-park
+  pullPolicy: IfNotPresent
+  tag: 1.22.0@sha256:f019257a3e0c2fbf326eb8bc7dac81bdae202cda887533140d0748ecf54fe711
+service:
+  main:
+    ports:
+      main:
+        port: 10244
+        targetPort: 8080
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"

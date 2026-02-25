@@ -1,0 +1,46 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: unsorted
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/max_kubernetes_version: 1.32.0
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/min_kubernetes_version: 1.24.0
+  truecharts.org/train: stable
+  trueforge.org/category: Other
+  trueforge.org/max_helm_version: "4.1"
+  trueforge.org/max_kubernetes_version: 1.35.0
+  trueforge.org/min_helm_version: "3.14"
+  trueforge.org/train: stable
+apiVersion: v2
+appVersion: main
+dependencies:
+  - name: common
+    version: 28.32.5
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Socials is a single-page website that stores all your social media and personal websites to share. It is similar to tappy.tech, sociallinks.co, and linktr.ee, but open-source and built using Typescript, Sass, Express.js and EJS. Self-hosting or publishing as a static website or Chart is recommended!
+home: https://trueforge.org/truetech/truecharts/charts/stable/socials
+icon: https://trueforge.org/img/hotlink-ok/chart-icons/socials.webp
+keywords:
+  - socials
+  - Other
+kubeVersion: '>=1.27.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@trueforge.org
+    url: https://trueforge.org
+name: socials
+sources:
+  - https://ghcr.io/diamkil/socials
+  - https://github.com/diamkil/socials
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/socials
+  - https://registry.hub.docker.com/r/diamkil/socials/
+type: application
+version: 8.16.1
+

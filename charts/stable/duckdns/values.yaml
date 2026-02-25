@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/duckdns
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:f8c485090831ba6ddbf4124ea3525977d39a838ec856e5327ccc01d884c3241c
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            SUBDOMAINS: ""
+            LOG_FILE: false
+            TOKEN: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

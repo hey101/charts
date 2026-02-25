@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/doublecommander
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:3dd43957680b424ce7cf432968a84021bd8093705d3104d20ed4ddffa2d75d8d
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10034
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - SYS_CHROOT
+                - KILL
+                - NET_BIND_SERVICE
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

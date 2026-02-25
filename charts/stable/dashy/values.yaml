@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/lissy93/dashy
+  tag: latest@sha256:907c84359d481b1d1693dd0fed986aeb10c4cf384219ee1de91568dec00a9abb
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10310
+        protocol: http
+        targetPort: 8080
+resources:
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+  requests:
+    cpu: 200m
+    memory: 500Mi
+dashy:
+  # Enable config directory mount from host path
+  enabled: false
+  configDirectoryHostPath: ""
+  configDirectoryHostReadOnly: true
+# Leave empty if you plan to use config directory from host path
+dashyConfig: {}
+# pageInfo:
+#   title: Home Lab
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NODE_ENV: production
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+persistence:
+  icons:
+    enabled: true
+    mountPath: /app/public/item-icons

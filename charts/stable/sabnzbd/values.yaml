@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/sabnzbd
+  pullPolicy: IfNotPresent
+  tag: 4.5.5@sha256:8844423c4ce2e5d2b5a9c6b9ebc35c18452cc3865133c7908389455bae2b6698
+exportarrImage:
+  repository: ghcr.io/onedr0p/exportarr
+  pullPolicy: IfNotPresent
+  tag: v2.3.0@sha256:af535d94061cf97a52e1661945ffba78c03f9443eae7c0da1a80a5a4be56b520
+service:
+  main:
+    ports:
+      main:
+        port: 10097
+  metrics:
+    enabled: "{{ .Values.metrics.main.enabled }}"
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        port: 8990
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.main.ports.main.port }}"
+              path: /api?mode=version
+            readiness:
+              port: "{{ .Values.service.main.ports.main.port }}"
+              path: /api?mode=version
+            startup:
+              port: "{{ .Values.service.main.ports.main.port }}"
+              path: /api?mode=version
+          env:
+            SABNZBD__HOST_WHITELIST_ENTRIES: ""
+            SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
+        exportarr:
+          enabled: "{{ .Values.metrics.main.enabled }}"
+          imageSelector: exportarrImage
+          args:
+            - sabnzbd
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            APIKEY: "{{ .Values.metrics.main.apiKey }}"
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+        exportarr:
+          mountPath: /config
+          readOnly: true
+metrics:
+  main:
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    # Required for exportarr
+    apiKey: ""
+
+resources:
+  limits:
+    memory: 3600Mi
+  requests:
+    memory: 300Mi

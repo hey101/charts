@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/emberstack/kubernetes-reflector
+  pullPolicy: IfNotPresent
+  tag: 10.0.10@sha256:aecb62bc2cb5b53c1448d78d5eb2790b229551249e4fadf28ffc261d9d8796d7
+operator:
+  register: true
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "configmaps"
+          - "secrets"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+          - "create"
+          - "update"
+          - "patch"
+          - "delete"
+      - apiGroups:
+          - ""
+        resources:
+          - "namespaces"
+        verbs:
+          - "watch"
+          - "list"
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+kubernetesReflector:
+  logLevel: Information
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true
+      containers:
+        main:
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          env:
+            ES_Serilog__MinimumLevel__Default: "{{ .Values.kubernetesReflector.logLevel }}"
+            ES_Reflector__Watcher__Timeout: ""
+            ES_Reflector__Kubernetes__SkipTlsVerify: "false"
+          probes:
+            liveness:
+              type: http
+              path: /health/ready
+              port: 8080
+            readiness:
+              type: http
+              path: /health/ready
+              port: 8080
+            startup:
+              type: http
+              path: /health/ready
+              port: 8080
+service:
+  main:
+    enabled: false

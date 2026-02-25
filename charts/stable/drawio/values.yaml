@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/jgraph/drawio
+  tag: 29.5.2@sha256:324fc8d667319a2249d36cd6e7bc4b6a528611834513d039cecc6bf5cef195d8
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10214
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}

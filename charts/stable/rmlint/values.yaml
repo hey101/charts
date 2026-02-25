@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/bobbintb/docker-rmlint-unraid
+  tag: latest@sha256:7ebbd4b68173e8be8ed650f2082719cfa176af4cebcc934158c69fdef646433b
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  searchlocation:
+    enabled: true
+    mountPath: /root
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8321
+        protocol: tcp
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GUAC_PASS: ""
+            GUAC_USER: ""

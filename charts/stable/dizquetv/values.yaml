@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/vexorian/dizquetv
+  pullPolicy: IfNotPresent
+  tag: 1.7.0@sha256:693fa26624aa6cce8f84c0f883af78e62c5308c287eb506fdadb0870f42bddc3
+nvidiaImage:
+  repository: docker.io/vexorian/dizquetv
+  pullPolicy: IfNotPresent
+  tag: 1.7.0-nvidia@sha256:909c6f6f3c3ab2480a911612e6c25882f347d56bcec7b932d6c977ba1ebb5dd5
+
+service:
+  main:
+    ports:
+      main:
+        port: 10071
+        targetPort: 8000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/node/app/.dizquetv

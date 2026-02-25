@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/ombi
+  pullPolicy: IfNotPresent
+  tag: 4.53.4@sha256:28e9546a9f2f369ccddc455bf691ee1a7253ee7ea2b626726474efe69fcce164
+service:
+  main:
+    ports:
+      main:
+        port: 3579
+        targetPort: 3579
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    allowPrivilegeEscalation: true

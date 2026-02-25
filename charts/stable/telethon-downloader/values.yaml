@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/jsavargas/telethon_downloader
+  tag: latest@sha256:7d782d2a99a8e262b3d9c63719aa545cdeb6de858595832c264f37734571de13
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  pathdownload:
+    enabled: true
+    mountPath: /download
+  pathwatch:
+    enabled: true
+    mountPath: /watch
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TG_API_HASH: " "
+            TG_API_ID: " "
+            TG_AUTHORIZED_USER_ID: " "
+            TG_BOT_TOKEN: ""
+            TG_PROGRESS_DOWNLOAD: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/electrum
+  tag: latest@sha256:91a90d3c0900e21437505a83aa1da1670afff8649edf30c26953e51cbde1649d
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /electrum
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1024"
+            DATA_PERM: "770"

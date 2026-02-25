@@ -1,0 +1,64 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: unsorted
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/max_kubernetes_version: 1.32.0
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/min_kubernetes_version: 1.24.0
+  truecharts.org/train: stable
+  trueforge.org/category: custom
+  trueforge.org/max_helm_version: "4.1"
+  trueforge.org/max_kubernetes_version: 1.35.0
+  trueforge.org/min_helm_version: "3.14"
+  trueforge.org/train: stable
+apiVersion: v2
+appVersion: 3.5.4
+dependencies:
+  - name: common
+    version: 28.32.5
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 17.14.0
+    repository: oci://oci.trueforge.org/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: valkey
+    version: 0.3.0
+    repository: oci://oci.trueforge.org/truecharts
+    condition: redis.enabled
+    alias: redis
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 16.17.0
+    repository: oci://oci.trueforge.org/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Advanced Template to create your own TrueCharts-based Charts
+home: https://trueforge.org/truetech/truecharts/charts/stable/app-template
+icon: https://trueforge.org/img/hotlink-ok/chart-icons/app-template.webp
+keywords:
+  - custom
+kubeVersion: '>=1.27.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@trueforge.org
+    url: https://trueforge.org
+name: app-template
+sources:
+  - https://ghcr.io/miguelndecarvalho/speedtest-exporter
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/app-template
+type: application
+version: 15.36.1
+

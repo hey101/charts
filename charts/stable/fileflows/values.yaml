@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/revenz/fileflows
+  tag: 26.01@sha256:2558e8c8fdcc16427a341f2b13b79b85e4083e3e9fe058b6c37fc868a029f4cf
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    allowPrivilegeEscalation: true
+    privileged: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+service:
+  main:
+    ports:
+      main:
+        port: 10242
+        targetPort: 5000
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/Data
+  logs:
+    enabled: true
+    mountPath: /app/Logs
+  temp:
+    enabled: true
+    mountPath: /temp
+  media:
+    enabled: true
+    mountPath: /media

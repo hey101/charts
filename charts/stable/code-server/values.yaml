@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/code-server
+  pullPolicy: IfNotPresent
+  tag: "4.109.2@sha256:841cf00f26ed44db1d0be33cf2e9afff96ac298fd655d484d28be5d86b945930"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10063
+        protocol: http
+        targetPort: 8443
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            PROXY_DOMAIN: ""
+          args:
+            - --user-data-dir
+            - "/config/.vscode"
+            - --auth
+            - none
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

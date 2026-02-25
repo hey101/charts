@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/boinc
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:fc18c126e0a7398be886f53466f154e40be943ff1fc22ff79e71a949aacba376
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        protocol: http
+        port: 10142
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASSWORD: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

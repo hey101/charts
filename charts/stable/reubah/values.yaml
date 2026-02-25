@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/dendianugerah/reubah
+  pullPolicy: IfNotPresent
+  tag: main@sha256:2db201bb197110681012b9721a6b92a502f3fc46f79e3f1d5cad1b6367dfcda1
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+persistence:
+  app:
+    enabled: true
+    mountPath: "/app/tmp"
+    type: emptyDir
+  tmp:
+    enabled: true
+    mountPath: "/tmp"
+    type: emptyDir

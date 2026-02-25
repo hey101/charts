@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: dods@sha256:5e0ed6189a9f94d0cd6f69eff78b6162d76f97b127046085de0061931348a7a9
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "232290"
+            GAME_NAME: dod
+            GAME_PARAMS: -secure +maxplayers 24 +map dod_kalt
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp

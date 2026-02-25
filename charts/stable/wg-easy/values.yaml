@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/wg-easy/wg-easy
+  pullPolicy: IfNotPresent
+  tag: 15.2.2@sha256:cf815209439101842f81d62bb25f7d66140e4cf8c100b4de5d0e84569d38732a
+securityContext:
+  container:
+    PUID: 0
+    runAsUser: 0
+    runAsGroup: 0
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    privileged: true
+    capabilities:
+      add:
+        - NET_ADMIN
+        - NET_RAW
+        - SYS_MODULE
+service:
+  main:
+    ports:
+      main:
+        port: 51821
+  vpn:
+    enabled: true
+    ports:
+      vpn:
+        enabled: true
+        protocol: udp
+        port: 51820
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            HOST: "0.0.0.0"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            INSECURE: false
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/wireguard"
+  modules:
+    enabled: true
+    hostPath: "/lib/modules"
+    mountPath: "/lib/modules"
+    readOnly: true
+    type: hostPath

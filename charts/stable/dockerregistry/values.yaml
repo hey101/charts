@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: registry
+  tag: 3@sha256:6c5666b861f3505b116bb9aa9b25175e71210414bd010d92035ff64018f9457e
+persistence:
+  datastoragepath:
+    enabled: true
+    mountPath: /var/lib/registry
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: tcp
+        targetPort: 5000

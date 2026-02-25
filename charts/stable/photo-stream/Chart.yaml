@@ -1,0 +1,48 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: unsorted
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/max_kubernetes_version: 1.32.0
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/min_kubernetes_version: 1.24.0
+  truecharts.org/train: stable
+  trueforge.org/category: Productivity
+  trueforge.org/max_helm_version: "4.1"
+  trueforge.org/max_kubernetes_version: 1.35.0
+  trueforge.org/min_helm_version: "3.14"
+  trueforge.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 28.32.5
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Photo Stream is a simpler home for your photos. Easy to use, self hosted, no tracking, just photos.
+home: https://trueforge.org/truetech/truecharts/charts/stable/photo-stream
+icon: https://trueforge.org/img/hotlink-ok/chart-icons/photo-stream.webp
+keywords:
+  - photo-stream
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Photos
+  - MediaServer-Photos
+kubeVersion: '>=1.27.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@trueforge.org
+    url: https://trueforge.org
+name: photo-stream
+sources:
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/photo-stream
+  - https://github.com/waschinski/photo-stream
+  - https://hub.docker.com/r/waschinski/photo-stream
+type: application
+version: 8.16.1
+

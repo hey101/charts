@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/hytale
+  tag: 1.0.0@sha256:798b6ad7ff20ba87147dd275eb196cd5e1dc7112b322f3cdc3ada8e987cbd23a
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          stdin: true
+          tty: true
+          env:
+            HYTALE_AUTO_UPDATE: false
+            HYTALE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            HYTALE_ALLOW_OP: true
+            HYTALE_BACKUP_ENALBED: false
+            HYTALE_BACKUP_DIR: /app/backup
+            HYTALE_BACKUP_FREQ: 30
+            # HYTALE_EXTRA_ARGS:
+            # HYTALE_JAVA_ARGS:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+service:
+  main:
+    ports:
+      main:
+        port: 5520
+        protocol: udp
+persistence:
+  app:
+    enabled: true
+    mountPath: /app

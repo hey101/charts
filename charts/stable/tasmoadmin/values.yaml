@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/tasmoadmin/tasmoadmin
+  tag: v4.3.4@sha256:9d0869cb47d7d525f69ca555708c00b52dd899acc02e4d3e268bd949e29bb6fd
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TASMO_DEBUG: 1
+
+service:
+  main:
+    ports:
+      main:
+        port: 9541
+        protocol: http
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data

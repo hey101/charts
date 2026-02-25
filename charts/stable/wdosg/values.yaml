@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/soulraven1980/wdosg
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:d5e93091bf58ed9b441a5fc94d3deb8880c626a4385c4cdda6ba75363fdc263a
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3001
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # required for Credentials for IGDB
+            TWITCH_CLIENT_ID: "fake_client_id"
+            TWITCH_CLIENT_SECRET: "fake_access_secret"
+persistence:
+  database:
+    enabled: true
+    mountPath: "/app/database"
+  library:
+    enabled: true
+    mountPath: "/app/wdosglibrary"

@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/kopia
+  tag: 0.22.3@sha256:d1e5e5c13a3d74dedc123b658e24d11883b81e898c9f4fa18483b595b30dacdf
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 51515
+
+kopia:
+  user: "user"
+  password: "secret"
+  server_username: "user"
+  server_password: "password"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "kopia-secrets"
+          args:
+            - --server-username={{ .Values.kopia.server_username }}
+            - --server-password={{ .Values.kopia.server_password }}
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  cache:
+    enabled: true
+    mountPath: "/config/cache"
+  logs:
+    enabled: true
+    mountPath: "/config/logs"
+  rclone:
+    enabled: true
+    mountPath: "/config/rclone"

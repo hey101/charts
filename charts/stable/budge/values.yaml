@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/budge
+  tag: 0.0.9@sha256:5719275a94cc3b345231f7d2d264512384785c5189636198ddc111f770478c26
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10165
+        protocol: http
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NODE_ENV: "production"
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

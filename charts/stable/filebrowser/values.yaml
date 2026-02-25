@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/filebrowser/filebrowser
+  pullPolicy: IfNotPresent
+  tag: v2.60.0@sha256:a7b81cab28cf93de4c3ac97403d92f38d23191d7247e9c37611d4afa2d8d0c69
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            FB_ADDRESS: ""
+            FB_BASEURL: ""
+            FB_DATABASE: "/database/filebrowser.db"
+            FB_CONFIG: "/config/filebrowser.json"
+            FB_ROOT: "/data"
+            FB_PORT: "{{ .Values.service.main.ports.main.port }}"
+service:
+  main:
+    ports:
+      main:
+        port: 10187
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  database:
+    enabled: true
+    mountPath: /database
+  data:
+    enabled: true
+    mountPath: /data

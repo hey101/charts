@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/doplarr
+  tag: "3.7.0@sha256:164ea129221514ef5180a53118ff841d8c83ae74d5357f57c0221318e450b267"
+  pullPolicy: IfNotPresent
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            OVERSEERR__URL: ""
+            DISCORD__MAX_RESULTS: 25
+            DISCORD__REQUESTED_MSG_STYLE: ":plain"
+            SONARR__URL: ""
+            SONARR__QUALITY_PROFILE: ""
+            SONARR__LANGUAGE_PROFILE: ""
+            RADARR__URL: ""
+            RADARR__QUALITY_PROFILE: ""
+            PARTIAL_SEASONS: true
+            LOG_LEVEL: ":info"
+            OVERSEERR__API: ""
+            OVERSEERR__DEFAULT_ID: ""
+            SONARR__API: ""
+            RADARR__API: ""
+            DISCORD__ROLE_ID: ""
+            DISCORD__TOKEN: ""

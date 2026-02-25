@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/phasecorex/red-discordbot
+  tag: full@sha256:d9dda967dd25b47df9fa69cba02e90b920cf2d18c3dc2a6f34d9ed0a6f58bb4c
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PREFIX: ""
+            TOKEN: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

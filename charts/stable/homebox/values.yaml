@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/sysadminsmedia/homebox
+  pullPolicy: IfNotPresent
+  tag: 0.23.1@sha256:facd9b795952602d5c54eacfcd0f3533040e6b556f461e423a2d2445ed8736f9
+homebox:
+  allow_registration: true
+  auto_increment_asset_id: true
+  max_upload_size: 10
+  log_level: info
+  log_format: text
+  mailer_host: ""
+  mailer_port: 587
+  mailer_from: ""
+  mailer_username: ""
+  mailer_password: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: homebox-secret
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10603
+persistence:
+  data:
+    enabled: true
+    mountPath: /data

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/nzbget
+  pullPolicy: IfNotPresent
+  tag: "26.0.0@sha256:d43e912fd711f04ae01aed217423c24cc1138bc1fb90b18a99430b2238bcfabc"
+service:
+  main:
+    ports:
+      main:
+        port: 10057
+        targetPort: 6789
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

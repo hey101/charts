@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/oscam
+  pullPolicy: IfNotPresent
+  tag: 11943-ls6@sha256:740785603b79ac9465ed9a544566ca93ca2eae78de3455f32d04b0b55f89cfb4
+service:
+  main:
+    ports:
+      main:
+        port: 10062
+        targetPort: 8888
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 20

@@ -1,0 +1,154 @@
+name: "Chore: Daily Tasks"
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: lock
+
+jobs:
+  generate-readme:
+    runs-on:
+      group: default
+    name: "Generate readme files"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ secrets.OR_PAT }}
+          fetch-depth: 1
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - uses: actions/setup-go@7a3fe6cf4cb3a834922a1244abfce67bcef6a0c5 # v6
+        with:
+          go-version: stable
+          cache: true
+          cache-dependency-path: |
+            **/go.mod
+            **/go.sum
+
+      - name: Install ./forgetool
+        shell: bash
+        run: |
+          VERSION="3.0.2"
+          FILENAME="forgetool_${VERSION}_linux_amd64.tar.gz"
+          URL="https://github.com/trueforge-org/forgetool/releases/download/v${VERSION}/${FILENAME}"
+
+          mkdir -p temp
+          cd temp
+          # Download the archive
+          curl -L -o "$FILENAME" "$URL"
+
+          # Extract the archive
+          tar -xzf "$FILENAME"
+
+          cd ..
+
+      - name: Transcode icons to webp
+        shell: bash
+        run: |
+          # Find all files named icon.* in all subfolders and transcode to webp
+          find . -type f -name 'icon.*' | while read -r FILE
+          do
+              DIR=$(dirname "$FILE")  # get the directory of the current file
+              EXT=${FILE##*.}  # file extension
+              QUALITY=75  # quality for the image
+
+              # Transcode to icon.webp
+              if [[ "$EXT" != "webp" && ! -f "${DIR}/icon.webp" ]]; then
+                  echo "converting file to icon.webp: $FILE"
+                  cwebp -resize 150 150  -m 6 -mt -q $QUALITY "$FILE" -o "${DIR}/icon.webp" &>/dev/null || echo "transcode failed for icon.webp"
+              fi
+
+              # Transcode to icon-small.webp
+              if [[ ! -f "${DIR}/icon-small.webp" ]]; then
+                  echo "converting file to icon-small.webp: $FILE"
+                  cwebp -resize 32 32 -m 6 -mt -q $QUALITY "$FILE" -o "${DIR}/icon-small.webp" &>/dev/null || echo "transcode failed for icon-small.webp"
+              fi
+
+              # Only remove the original file if:
+              # 1. it's not already a webp
+              # 2. icon.webp exists in the same directory
+              if [[ "$EXT" != "webp" && -f "${DIR}/icon.webp" ]]; then
+                  rm "$FILE"
+              fi
+          done
+
+      - name: Fix Fixable Pre-Commit issues
+        shell: bash
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+
+        # Clean up chart.yaml after pre-commit changes
+        # Avoids un-needed git diff changes, due to quoting and array ordering
+      - name: Fix Chart.yaml
+        shell: bash
+        run: |
+           ./temp/forgetool charts genmeta
+
+      - name: Cleanup
+        run: |
+          rm -rf changes.json
+          rm -rf master
+
+      - name: Commit changes
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git pull
+          git add --all
+          git commit -sm "Commit daily changes" || exit 0
+          git push
+
+  lock-threads:
+    runs-on:
+      group: default
+    steps:
+      - uses: dessant/lock-threads@7266a7ce5c1df01b1c6db85bf8cd86c737dadbe7 # v6
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          issue-inactive-days: "7"
+          exclude-any-issue-labels: ""
+          issue-comment: "This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists"
+          issue-lock-reason: ""
+          pr-inactive-days: "7"
+          pr-comment: "This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this"
+          pr-lock-reason: "resolved"
+          log-output: true
+
+ # check-contributors:
+ #   name: Check Contributors
+ #   runs-on:
+ #     group: default
+ #   steps:
+ #     - name: Checkout
+ #       uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+ #       with:
+ #         token: ${{ secrets.BOT_TOKEN }}
+ #         repository: truecharts/charts
+ #         fetch-depth: 110
+#
+ #     - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+  #      with:
+   #       node-version: 18
+#
+ #     - uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
+  #      with:
+   #       cmd: install --frozen-lockfile
+#
+ #     - name: List missing and unknown contributors
+  #      env:
+   #       PRIVATE_TOKEN: ${{ secrets.BOT_TOKEN }}
+    #    run: |
+     #     awk -F', ' '{ for( i=1; i<=NF; i++ ) print $i }' <<<$(yarn all-contributors check)

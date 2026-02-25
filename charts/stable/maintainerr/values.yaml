@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/jorenn92/maintainerr
+  pullPolicy: IfNotPresent
+  tag: 2.26.1@sha256:8332446ca6f7512bb561d6db2edaef5df1d22cf47432513f35a68e4462347fdc
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 6246
+        port: 6246
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/data"

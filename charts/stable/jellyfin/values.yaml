@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/jellyfin
+  pullPolicy: IfNotPresent
+  tag: 10.11.6@sha256:5393bfe85314a7fe2778c06e0167eba65a9004c1dd3b5623185dbcc0be20120a
+broadcastProxyImage:
+  repository: docker.io/alpine/socat
+  pullPolicy: IfNotPresent
+  tag: 1.8.0.3@sha256:9a44e2731464d8eeb1c1d36fb25c0335fb166ce1064534a2ac53556c4dcd8fb5
+service:
+  main:
+    ports:
+      main:
+        port: 8096
+        targetPort: 8096
+  autodiscovery:
+    enabled: true
+    ports:
+      autodiscovery:
+        enabled: true
+        protocol: udp
+        port: 7359
+        targetPort: 7359
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+    type: "emptyDir"
+  cache:
+    enabled: true
+    mountPath: "/cache"
+    type: "emptyDir"
+  transcode:
+    enabled: true
+    mountPath: "/cache/transcodes"
+    type: "emptyDir"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            JELLYFIN_DATA_DIR: /data
+            JELLYFIN_CONFIG_DIR: /config
+            JELLYFIN_LOG_DIR: /logs
+            JELLYFIN_CACHE_DIR: /cache
+            JELLYFIN_PublishedServerUrl: "{{ $.Values.chartContext.appUrl }}"
+  broadcastproxy:
+    enabled: false
+    type: DaemonSet
+    podSpec:
+      hostNetwork: true
+      # Proxy doesn't seem to respect the TERM signal, so by default
+      # this ends up just hanging until the default grace period ends.
+      # This is unnecesary since this workload only proxies autodiscovery
+      # messages.
+      terminationGracePeriodSeconds: 3
+      containers:
+        broadcastproxy:
+          enabled: true
+          primary: true
+          imageSelector: broadcastProxyImage
+          securityContext:
+            readOnlyRootFilesystem: true
+          command: ["/bin/sh"]
+          # Quite a lot going on here:
+          # - Resolve Jellyfin's autodiscovery service IP from its FQDN via getent hosts
+          # - Export the IP to `$TARGET_IP`
+          # - Check `$TARGET_IP` is not empty (so we can crash if it is - will help to detect templating errors)
+          # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
+          # - Start socat in proxy mode
+          # - On exit remove `/tmp/healthy`
+          args:
+            - "-c"
+            - 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP4-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy'
+          probes:
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+# -- enable Jellyfin autodiscovery on LAN
+autodiscovery:
+  enabled: false
+updated: true

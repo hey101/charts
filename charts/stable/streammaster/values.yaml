@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/carlreid/streammaster
+  pullPolicy: IfNotPresent
+  tag: 0.15.0@sha256:20cb6360594d26b6056e6fdc1d3c541d94b5d44da784267426b0cbe6ad4dbade
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 7095
+  sslport:
+    enabled: true
+    ports:
+      sslport:
+        enabled: true
+        port: 7096
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  logos:
+    enabled: true
+    mountPath: "/config/tv-logos"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEFAULT_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DEFAULT_SSL_PORT: "{{ .Values.service.sslport.ports.sslport.port }}"
+            # Default is 5
+            BACKUP_VERSIONS_TO_KEEP: 5
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+cnpg:
+  main:
+    enabled: true
+    user: streammaster
+    database: streammaster

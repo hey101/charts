@@ -1,0 +1,687 @@
+suite: volsync replication src spec test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials: &credentials
+        mys3:
+          type: s3
+          url: http://some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            AWS_ACCESS_KEY_ID: some-access-key
+            AWS_SECRET_ACCESS_KEY: some-secret-key
+            RESTIC_PASSWORD: some-key
+            RESTIC_REPOSITORY: s3:http://some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
+      - documentIndex: &replicationDestDoc 1
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with overridden region
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials:
+        mys3:
+          type: s3
+          url: http://some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          region: some-region
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            AWS_ACCESS_KEY_ID: some-access-key
+            AWS_SECRET_ACCESS_KEY: some-secret-key
+            RESTIC_PASSWORD: some-key
+            RESTIC_REPOSITORY: s3:http://some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
+            AWS_DEFAULT_REGION: some-region
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with changed defaults
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                trigger:
+                  # Case where schedule starts with a non-alphanumric character,
+                  # such as when using magic-value schedules or schedule that
+                  # starts with an asterisk (e.g. `* * * * *`). This checks if
+                  # the rendered yaml value is quoted
+                  schedule: "@daily"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                  monthly: 4
+                  yearly: 2
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "@daily"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+              monthly: 4
+              yearly: 2
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with storageClassName
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                storageClassName: somestorageclass
+                trigger:
+                  schedule: "1 0 * * *"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "1 0 * * *"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: somestorageclass
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with volumeSnapshotClass
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                volumeSnapshotClassName: somevsc
+                trigger:
+                  schedule: "1 0 * * *"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "1 0 * * *"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            volumeSnapshotClassName: somevsc
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with volumeSnapshotClass and StorageClass
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                storageClassName: somestorageclass
+                volumeSnapshotClassName: somevsc
+                trigger:
+                  schedule: "1 0 * * *"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "1 0 * * *"
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: somestorageclass
+            volumeSnapshotClassName: somevsc
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with customCA
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials:
+        mys3:
+          type: s3
+          url: http://some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          customCA: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
+    asserts:
+      - documentIndex: &secretCaDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *secretCaDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretCaDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-volsync-ca-mys3
+      - documentIndex: *secretCaDoc
+        equal:
+          path: stringData
+          value:
+            ca.crt: |-
+              -----BEGIN CERTIFICATE-----
+              ...
+              -----END CERTIFICATE-----
+      - documentIndex: &replicationCaDestDoc 2
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationCaDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            customCA:
+              secretName: test-release-name-common-test-volsync-ca-mys3
+              key: ca.crt
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationCaDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with customCA and an uppercase credentials name
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: MyS3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials:
+        MyS3:
+          type: s3
+          url: http://some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          customCA: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
+    asserts:
+      - documentIndex: &secretCaDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *secretCaDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretCaDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-volsync-ca-mys3
+      - documentIndex: *secretCaDoc
+        equal:
+          path: stringData
+          value:
+            ca.crt: |-
+              -----BEGIN CERTIFICATE-----
+              ...
+              -----END CERTIFICATE-----
+      - documentIndex: &replicationCaDestDoc 2
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationCaDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            customCA:
+              secretName: test-release-name-common-test-volsync-ca-mys3
+              key: ca.crt
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationCaDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with customCASecretRef
+    set:
+      secret:
+        mys3-ca-secret:
+          enabled: true
+          data:
+            ca.crt: |-
+              -----BEGIN CERTIFICATE-----
+              ...
+              -----END CERTIFICATE-----
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials:
+        mys3:
+          type: s3
+          url: http://some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          customCASecretRef:
+            name: mys3-ca-secret
+            key: ca.crt
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-mys3-ca-secret
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ca.crt: |-
+              -----BEGIN CERTIFICATE-----
+              ...
+              -----END CERTIFICATE-----
+      - documentIndex: *replicationCaDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationCaDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec
+          content:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+      - documentIndex: *replicationCaDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            customCA:
+              secretName: test-release-name-common-test-mys3-ca-secret
+              key: ca.crt
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationCaDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"

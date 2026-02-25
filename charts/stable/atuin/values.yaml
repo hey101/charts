@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/atuinsh/atuin
+  pullPolicy: IfNotPresent
+  tag: v18.12.0@sha256:e953fa9e36ef571d3cb2f9746426129025b8101ad4b88cd0da6783d524cca431
+
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8888
+
+atuin:
+  open_registration: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - start
+          env:
+            ATUIN_HOST: 0.0.0.0
+            ATUIN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            ATUIN_OPEN_REGISTRATION: "{{ .Values.atuin.open_registration }}"
+            ATUIN_CONFIG_DIR: /config
+            ATUIN_DB_URI:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            ATUIN_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            ATUIN_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+cnpg:
+  main:
+    enabled: true
+    user: atuin
+    database: atuin

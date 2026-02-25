@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/pmmp/pocketmine-mp
+  pullPolicy: IfNotPresent
+  tag: 5.41.0@sha256:a4220c37d3d9d63305e4512c1b84a40227393d438c72f1522e34562672877b53
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        targetPort: 19132
+        port: 19132
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          tty: true
+          stdin: true
+          probes:
+            # -- Liveness probe configuration
+            # @default -- See below
+            liveness:
+              enabled: false
+            # -- Redainess probe configuration
+            # @default -- See below
+            readiness:
+              enabled: false
+            # -- Startup probe configuration
+            # @default -- See below
+            startup:
+              enabled: false
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"

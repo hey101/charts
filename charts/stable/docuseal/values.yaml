@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/docuseal/docuseal
+  tag: 2.3.5@sha256:b9ae0ce7f5c18238ecea79d5627d1b614430cdb41c854bb46981963bafdbd183
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10310
+        protocol: http
+        targetPort: 3000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+cnpg:
+  main:
+    enabled: true
+    user: docuseal
+    database: docuseal

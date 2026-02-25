@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/dlandon/z80pack
+  tag: latest@sha256:d076c0e9b9472df1daf2a581f74de689fbd0e781e979d16bb22401fec91969f9
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4200
+        protocol: tcp
+        targetPort: 4200

@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/nwithan8/tauticord
+  pullPolicy: IfNotPresent
+  tag: 5.15.1@sha256:a4c3a10c80abcc4dcb78ceba9c9b8237db40b1f0f743e01bfab46e1c145ae6c3
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+# used for webhook; likely be disabled if not needed
+service:
+  main:
+    ports:
+      main:
+        port: 8283
+        protocol: http
+        targetPort: 8283
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: "{{ .Values.service.main.enabled }}"
+              path: "/ping"
+            readiness:
+              enabled: "{{ .Values.service.main.enabled }}"
+              path: "/ping"
+            startup:
+              enabled: "{{ .Values.service.main.enabled }}"
+              path: "/ping"
+          env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+  # media libraries
+  monitor:
+    enabled: true
+    mountPath: "/monitor"

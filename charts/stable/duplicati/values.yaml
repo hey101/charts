@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/duplicati
+  tag: 2.2.0@sha256:7ae1fd58e09a91d6df22f580932a8f66f020d7565fd900eef8b2b56c4b991db9
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8200
+        targetPort: 8200
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            DUPLICATI__WEBSERVICE_PASSWORD: "SuperSecretPassword"
+            SETTINGS_ENCRYPTION_KEY: "real_encryption_key"
+            # DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /data

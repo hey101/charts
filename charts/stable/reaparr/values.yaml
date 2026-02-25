@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/reaparr/reaparr
+  tag: 0.36.0@sha256:4ea425874dbbc00b21cd4d348e0312ec726c3251e7b7d7890d1ad4e5a73a096b
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 7000
+        port: 7000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LOG_LEVEL: "INFORMATION"
+            LOG_ENV_VARS: false
+            UNMASKED: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /Config
+  downloads:
+    enabled: true
+    mountPath: /Downloads

@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/openaudible/openaudible
+  tag: latest@sha256:de29753bcca6b7a2c465337e073880839b26a5e02fc445cc3ff3d2d0ff383d15
+persistence:
+  config:
+    enabled: true
+    mountPath: /config/OpenAudible
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10325
+        protocol: http
+        targetPort: 3000

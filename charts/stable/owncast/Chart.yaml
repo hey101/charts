@@ -1,0 +1,48 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: unsorted
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/max_kubernetes_version: 1.32.0
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/min_kubernetes_version: 1.24.0
+  truecharts.org/train: stable
+  trueforge.org/category: media
+  trueforge.org/max_helm_version: "4.1"
+  trueforge.org/max_kubernetes_version: 1.35.0
+  trueforge.org/min_helm_version: "3.14"
+  trueforge.org/train: stable
+apiVersion: v2
+appVersion: 0.2.4
+dependencies:
+  - name: common
+    version: 28.32.5
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
+home: https://trueforge.org/truetech/truecharts/charts/stable/owncast
+icon: https://trueforge.org/img/hotlink-ok/chart-icons/owncast.webp
+keywords:
+  - owncast
+  - stream
+  - open source
+  - chat
+kubeVersion: '>=1.27.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@trueforge.org
+    url: https://trueforge.org
+name: owncast
+sources:
+  - https://github.com/owncast/owncast
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/owncast
+  - https://hub.docker.com/r/gabekangas/owncast
+  - https://owncast.online/
+type: application
+version: 16.16.1
+

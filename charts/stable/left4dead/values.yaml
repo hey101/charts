@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/steamcmd
+  tag: l4d@sha256:a4f89fc9a013ce1673949650645cc8b584227725d5b5526270d24eede7d856fc
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "222840"
+            GAME_NAME: left4dead
+            GAME_PARAMS: +maxplayers 4 +map l4d_farm04_barn
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+              type: tcp

@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/ronnieroller/media-roller
+  tag: latest@sha256:3b3be2cddcb8e259b0ef2aece251ebe8adead2e195b39e6ecd9b5d1ec0576dea
+persistence:
+  download:
+    enabled: true
+    mountPath: /download
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000

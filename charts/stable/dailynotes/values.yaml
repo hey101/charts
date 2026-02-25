@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/m0ngr31/dailynotes
+  tag: latest@sha256:d2a9e353de7db428e73f1b918a820b85b54f3634b3a5a6f3afa009bae81c854e
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: tcp
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PREVENT_SIGNUPS: ""

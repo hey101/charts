@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/photostructure/server
+  tag: 2026.2.0-beta@sha256:3bac0fe978f2329455979024fc53f398c969991046714f7255c2928f4510c599
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 1787
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PS_LOG_LEVEL: "error"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /ps/config
+  library:
+    enabled: true
+    mountPath: /ps/library
+  logs:
+    enabled: true
+    mountPath: /ps/logs
+  tempscratchdisk:
+    enabled: true
+    mountPath: /ps/tmp

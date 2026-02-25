@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/cloudflareddns
+  pullPolicy: IfNotPresent
+  tag: 3.0.0@sha256:9d7920895a0a1fad38eeb156f0d73c195beec131bac73dbf4c2c7383f52ab939
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            UPDATE_IPV4: true
+            UPDATE_IPV6: true
+            DETECTION_MODE: "dig-whoami.cloudflare"
+            LOG_LEVEL: 3
+            CF_APITOKEN: "CLOUDFLARETOKEN"
+            #  CF_USER: not needed with API Token
+            #  CF_APIKEY: not needed with API Token
+            CF_HOSTS: "subdomain.example.com, subdomain.example.org"
+            INTERVAL: 300
+persistence:
+  config:
+    enabled: true
+    mountPath: /config

@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: atdr.meo.ws/archiveteam/warrior-dockerfile
+  tag: latest@sha256:19918c64baffa56e7177539e392b6278becd4f0b59a524bd3eed4d29ee6b9a00
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8001
+        protocol: tcp
+        targetPort: 8001

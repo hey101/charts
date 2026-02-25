@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/linuxserver/znc
+  pullPolicy: IfNotPresent
+  tag: 1.10.1@sha256:3a4710776d7dedbc478fecd97f6fff40447c21f7a376c2913be2ff09d8c35fef
+service:
+  main:
+    ports:
+      main:
+        targetPort: 6501
+        port: 6501
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+    mountPath: "/config"
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

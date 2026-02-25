@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/agregarr/agregarr
+  pullPolicy: IfNotPresent
+  tag: v2.4.0@sha256:5f638efaa7ebf19defaea2168ee95a7108709bd5598974f243c19b3993c11e50
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 7171
+        targetPort: 7171
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"

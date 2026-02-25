@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/ich777/debian-mirror
+  tag: latest@sha256:5655e1d17dd35351c25f2e02b105c6ae694d6b0d7a30e957182d6dad016c6233
+persistence:
+  config:
+    enabled: true
+    mountPath: /debian-mirror/config
+  data:
+    enabled: true
+    mountPath: /debian-mirror/data
+  base:
+    enabled: true
+    mountPath: /debian-mirror
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 980
+        protocol: tcp
+        targetPort: 980
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_DIR: "/debian-mirror"
+            CONFIG_DIR: "/debian-mirror/config"
+            MIRROR_DIR: "/debian-mirror/data"
+            APACHE2_PORT: "980"
+            CRON_SCHEDULE: "0 1 * * *"
+            FORCE_UPDATE: "false"
+            DATA_PERM: "770"

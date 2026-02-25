@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/actualbudget/actual
+  pullPolicy: IfNotPresent
+  tag: 26.2.1@sha256:ea21a0b6243797d35ef6c4a8713c87efaba8fec3b3663220fa3af61f352fba5e
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+service:
+  main:
+    ports:
+      main:
+        port: 10293
+        protocol: http
+        targetPort: 5006
+persistence:
+  data:
+    enabled: true
+    mountPath: /data

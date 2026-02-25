@@ -1,0 +1,345 @@
+suite: ingress - traefik metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+
+tests:
+  - it: should pass with ingress created with annotations from traefik
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingressMiddlewares: &ingressMiddlewares
+        traefik:
+          my-compress:
+            enabled: true
+            type: compress
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: my-compress
+                - name: some-existing-middleware-on-this-namespace
+                  expandObjectName: false
+                - name: some-existing-middleware-on-other-namespace
+                  namespace: some-namespace
+                  expandObjectName: false
+    asserts:
+      - documentIndex: &ingressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd,test-release-namespace-some-existing-middleware-on-this-namespace@kubernetescrd,some-namespace-some-existing-middleware-on-other-namespace@kubernetescrd
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with ingress created without traefik annotations when traefik false
+    set:
+      service: *service
+      ingressMiddlewares: *ingressMiddlewares
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isNotSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
+
+  - it: should override default entrypoint(s)
+    set:
+      service: *service
+      ingressMiddlewares: *ingressMiddlewares
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+                - websecure
+              middlewares:
+                - name: my-compress
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
+
+  - it: should add the defined middlewares to the ingress
+    set:
+      service: *service
+      ingressMiddlewares: *ingressMiddlewares
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: my-compress
+                  namespace: test-release-namespace
+                - name: some-other-middleware
+                  namespace: test-other-release-namespace
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd,test-other-release-namespace-test-release-name-common-test-some-other-middleware@kubernetescrd
+
+  - it: should add the the tls annotation
+    set:
+      service: *service
+      ingressMiddlewares: *ingressMiddlewares
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              forceTLS: true
+              entrypoints:
+                - web
+              middlewares:
+                - name: my-compress
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: web
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
+
+  - it: should not add the the tls annotation
+    set:
+      service: *service
+      ingressMiddlewares: *ingressMiddlewares
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              forceTLS: false
+              entrypoints:
+                - web
+              middlewares:
+                - name: my-compress
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.entrypoints: web
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
+
+  # Failures
+  - it: should fail with entrypoint not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints: "not a string"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.entrypoints] to be a [slice], but got [string]
+
+  - it: should fail with middlewares not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.middlewares] to be a [slice], but got [string]
+
+  - it: should fail with chartMiddlewares not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              chartMiddlewares: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.chartMiddlewares] to be a [slice], but got [string]
+
+  - it: should fail with duplicate middlewares
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: chain-basic
+                  namespace: test-release-namespace
+                  expandObjectName: false
+                - name: chain-basic
+                  namespace: test-release-namespace
+                  expandObjectName: false
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Combined traefik middlewares contain duplicates [test-release-namespace-chain-basic@kubernetescrd, test-release-namespace-chain-basic@kubernetescrd]
+
+  - it: should fail with duplicate entrypoints
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - websecure
+                - websecure
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Combined traefik entrypoints contain duplicates [websecure, websecure]
+
+  - it: should fail when a middleware uses the current namespace but is not defined under ingressMiddlewares.traefik
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: my-compress
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Traefik Middleware [my-compress] is not defined under [ingressMiddlewares.traefik]

@@ -1,0 +1,4 @@
+plextraktsync:
+  cron_enabled: true
+  task: "sync"
+  schedule: "*/1 * * * *"

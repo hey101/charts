@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: oci.trueforge.org/containerforge/lazylibrarian
+  pullPolicy: IfNotPresent
+  tag: 7.0.0@sha256:e0c37254c851b78d044853a95f510fb881e196f55032e56910aec9282554863d
+service:
+  main:
+    ports:
+      main:
+        port: 5299
+        targetPort: 5299
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

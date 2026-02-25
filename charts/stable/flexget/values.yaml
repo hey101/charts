@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: docker.io/wiserain/flexget
+  pullPolicy: IfNotPresent
+  tag: 3.18.48@sha256:ca10967375b1dc47f246b1e49580e583940a2132a17cd818867ed684d932036c
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            FG_LOG_LEVEL: info
+            FG_LOG_FILE: flexget.log
+            FG_WEBUI_PASSWD: "jLeT78KBDPW"
+service:
+  main:
+    ports:
+      main:
+        port: 10174
+        targetPort: 5050
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/universalmediaserver/ums
+  tag: latest@sha256:9fe3d6263d6678d3d269db1b142af487d5fa1c9ac6fa0f60e3fd1a2b179973a4
+persistence:
+  config:
+    enabled: true
+    mountPath: /root/.config/UMS/
+  media:
+    enabled: true
+    mountPath: /media
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        port: 5001
+        protocol: tcp
+        targetPort: 5001
+  main:
+    ports:
+      main:
+        port: 9001
+        protocol: http
+        targetPort: 9001
+  sub:
+    enabled: true
+    ports:
+      sub:
+        enabled: true
+        port: 1044
+        protocol: tcp
+        targetPort: 1044

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/accetto/ubuntu-vnc-xfce-inkscape-g3
+  tag: latest@sha256:e1384a52fc7f7009a310c558dbc184c9007154f083f1856427e14c73e82cfcfd
+persistence:
+  internalshare:
+    enabled: true
+    mountPath: /UNRAID_SHARE
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  webuivnc:
+    enabled: true
+    ports:
+      webuivnc:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

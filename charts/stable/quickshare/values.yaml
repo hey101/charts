@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.io/hexxa/quickshare
+  tag: latest@sha256:a47e01e8c3d25ce28b561452c9fee0bbecee4253e59846ad6430ce12ec09d26e
+persistence:
+  storagedata:
+    enabled: true
+    mountPath: /quickshare/root
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8686
+        protocol: tcp
+        targetPort: 8686
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEFAULTADMIN: admin
+            DEFAULTADMINPWD: "1234"

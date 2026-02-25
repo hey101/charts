@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/chroma-core/chroma
+  pullPolicy: IfNotPresent
+  tag: 1.5.1@sha256:7605e7b398f96dba833ed1b6272f815b9d33414dde45c68bd246e84447db8591
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8000
+        port: 10690
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api/v2/heartbeat"
+            readiness:
+              path: "/api/v2/heartbeat"
+            startup:
+              path: "/api/v2/heartbeat"
+          env:
+            IS_PERSISTENT: true
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/chroma/chroma"

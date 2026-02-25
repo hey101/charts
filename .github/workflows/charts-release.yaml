@@ -1,0 +1,264 @@
+name: "Charts/Website: Build-and-Release"
+
+concurrency:
+  group: ${{ github.head_ref }}-charts-website-release
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  #pull_request:
+  #  paths:
+  #    - "charts/**"
+  #    - "website/**"
+  push:
+    branches:
+      - master
+    paths:
+      - "charts/**"
+      - "website/**"
+      - ".github/workflows/charts-release.yaml"
+
+# Use `bash --noprofile --norc -exo pipefail` by default for all `run` steps in this workflow:
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#defaultsrun
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check_changes:
+    runs-on:
+      group: default
+    outputs:
+      changes_detected: ${{ steps.filter.outputs.changed }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Filter paths
+        id: filter
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
+        with:
+          list-files: json
+          filters: |
+            changed:
+            - 'website/**'
+            - '**/docs/**'
+            - '**/Chart.yaml'
+
+
+  release-helm:
+    permissions:
+      pull-requests: write
+    name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
+    runs-on:
+      group: default
+    needs: check_changes
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: Install ./forgetool
+        shell: bash
+        run: |
+          VERSION="3.0.2"
+          FILENAME="forgetool_${VERSION}_linux_amd64.tar.gz"
+          URL="https://github.com/trueforge-org/forgetool/releases/download/v${VERSION}/${FILENAME}"
+
+          mkdir -p temp
+          cd temp
+          # Download the archive
+          curl -L -o "$FILENAME" "$URL"
+
+          # Extract the archive
+          tar -xzf "$FILENAME"
+
+          cd ..
+
+      - name: Get Changelog Format Version
+        shell: bash
+        if: github.event_name == 'push'
+        run: |
+          ver="1"
+          rev="1"
+          key="changelog-format-$ver-rev-$rev"
+          echo "Cache Key is: $key"
+          echo "CHANGELOG_CACHE_KEY=$key" >> $GITHUB_ENV
+
+      - name: Cache Changelog
+        id: cache-changelog
+        if: github.event_name == 'push'
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
+        with:
+          key: ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
+          path: changelog.json.gz
+          restore-keys: |
+            ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
+            ${{ env.CHANGELOG_CACHE_KEY }}-
+
+      - name: Generate Changelog
+        shell: bash
+        if: github.event_name == 'push'
+        run: |
+          export REPO_PATH="./"
+          export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
+          export OUTPUT_DIR="./changelogs"
+          export JSON_FILE="changelog.json"
+
+          ls -l
+
+          if [ -f "$JSON_FILE.gz" ]; then
+            gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
+          fi
+
+          ./temp/forgetool charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
+
+          # TODO: Test remove later
+          echo "temp content:"
+          ls ./temp/
+          echo ""
+          echo "rootcontent"
+          ls ./
+          echo ""
+
+          gzip "$JSON_FILE" --best || echo "Compression failed, ignoring..."
+
+      - name: Fix Pre-Commit issues
+        shell: bash
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+
+      - name: Install Helm
+        uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4 # v4
+        with:
+          version: v3.18.6
+
+      # Optional step if GPG signing is used
+      - name: Prepare GPG key
+        if: github.event_name == 'push'
+        run: |
+          gpg_dir=.cr-gpg
+          mkdir "$gpg_dir"
+          keyring="$gpg_dir/secring.gpg"
+          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          passphrase_file="$gpg_dir/passphrase"
+          echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
+        env:
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
+
+      - name: Helm | Login
+        if: github.event_name == 'push'
+        shell: bash
+        run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
+
+      - name: Release Charts
+        shell: bash
+        if: github.event_name == 'push'
+        env:
+          CR_SKIP_EXISTING: "true"
+        run: |
+          owner=$(cut -d '/' -f 1 <<< "$GITHUB_REPOSITORY")
+          repo=$(cut -d '/' -f 2 <<< "$GITHUB_REPOSITORY")
+          install="$RUNNER_TOOL_CACHE/cr/${{ inputs.version }}/$(uname -m)"
+          echo "$install" >> "$GITHUB_PATH"
+          ./.github/scripts/cr.sh  --quay-token "${{ secrets.QUAY_TOKEN }}" --instal-dir $install
+
+      - name: Helm | Logout
+        shell: bash
+        if: github.event_name == 'push'
+        run: helm registry logout quay.io
+
+      - name: Checkout website repo
+        if: github.event_name == 'push'
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          repository: trueforge-org/website
+          path: website   # checkout into ./website
+          ref: main       # branch to push to
+          token: "${{ secrets.BOT_TOKEN }}"
+
+      - name: Copy docs to website
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          #!/bin/bash
+          echo "Maing sure directories exist..."
+          mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
+          mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
+          mkdir -p website/src/assets || echo "assets path already exists, continuing..."
+
+          ./temp/forgetool charts genchartlist ./charts
+          mv -f charts.json website/src/assets/charts.json
+          mv -f ./website/src/content/docs/truetech/truecharts/charts/description-list.mdx ./description-list.mdx
+          echo "Copying changelogs to docs"
+          rm -rf ./website/src/content/docs/truetech/truecharts/charts/stable ./website/src/content/docs/truetech/truecharts/charts/incubator ./website/src/content/docs/truetech/truecharts/charts/library
+          mkdir -p ./website/src/content/docs/truetech/truecharts/charts/
+          mv -f ./description-list.mdx ./website/src/content/docs/truetech/truecharts/charts/description-list.mdx
+          mkdir -p ./changelogs
+
+          # Check if there are any directories in changelogs
+          if [ -n "$(find ./changelogs -mindepth 1 -type d)" ]; then
+              cp -r ./changelogs/** ./website/src/content/docs/truetech/truecharts/charts/
+          else
+              echo "No directories in ./changelogs. Skipping copy."
+          fi
+
+          export DEBUG=false
+          export STRICT=true
+          go-yq --version
+
+          for item in charts/*/*/Chart.yaml; do
+            # TODO: Move all website docs structure generation to charttool
+            IFS='/' read -r -a chart_parts <<<"$item"
+            ./.github/scripts/chart-docs.sh "${chart_parts[1]}/${chart_parts[2]}"
+          done
+          rm -rf ./website/src/content/docs/truetech/truecharts-common
+          mv ./website/src/content/docs/truetech/truecharts/charts/library/common ./website/src/content/docs/truetech/truecharts-common
+
+      - name: Prefetch contributor icons
+        shell: bash
+        if: github.event_name == 'push'
+        run: |
+          #!/bin/bash
+
+          ## Loop through each contributor
+          ## TODO: reenable later
+          #while read -r contributor; do
+          #    avatar_url=$(echo "$contributor" | grep -oP '"avatar_url": "\K[^"]+')
+          #
+          #    # Download the image
+          #    wget -q "$avatar_url" -O temp_avatar
+          #
+          #    # Generate new filename with original extension
+          #    new_filename="public/assets/contributors/$(basename "$avatar_url" | cut -d '?' -f 1)"
+          #
+          #    echo "converting file: $avatar_url"
+          #    EXT=${FILE##*.} # file extension
+          #    QUALITY=75 # quality for the image
+          #    # convert the image using cwebp and output a file with the extension replaced as .webp
+          #    cwebp -mt -m 6 -q $QUALITY -resize 32 32 "temp_avatar" -o "${new_filename}.webp" &>/dev/null
+          #    rm temp_avatar
+          #
+          #done < src/assets/contributors.json
+
+      - name: Commit and push changes
+        if: github.event_name == 'push'
+        run: |
+          cd website
+          git config user.name "TrueForge-Bot"
+          git config user.email "bot@trueforge.org"
+          # Ensure we rebase in case there are changes from other sources in-between
+          git stash push --include-untracked -m "autogenerated TrueCharts changes"
+          git pull --rebase origin main
+          git stash pop
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Update website with latest charts and docs"
+          git push origin main

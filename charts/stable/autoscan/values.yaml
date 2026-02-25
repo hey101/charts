@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  pullPolicy: IfNotPresent
+  repository: oci.trueforge.org/containerforge/autoscan
+  tag: 1.4.0@sha256:b3fd8e6a39cbde10002c04d617cba4af91e2f1b3e3a4fbf846afe1768d7109a0
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3030
+        protocol: http
+        targetPort: 3030
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_LOGIN: ""
+            PLEX_PASSWORD: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
