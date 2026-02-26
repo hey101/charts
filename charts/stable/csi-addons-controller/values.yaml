@@ -2,7 +2,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: quay.io/csiaddons/k8s-controller
-  tag: v0.13.0
+  tag: v0.13.0@sha256:2853259820aca2380b4edfc2fa6512650734e4996ffc184787a3b2f3198119e1
 
 csi_addons_controller:
   reclaim_space_timeout: 3m
