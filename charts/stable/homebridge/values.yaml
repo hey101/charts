@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./values.schema.json
 image:
   repository: docker.io/homebridge/homebridge
-  tag: 2025-07-25@sha256:6f869d799bfe7c203b7d46a8dcba382005eaf66a5dd6940874c46ebf211b0bae
+  tag: 2025-12-28@sha256:083ee619cac419fe2d234dec057cdc162e76c4d0c10ecedc3d451b56c36042a6
   pullPolicy: IfNotPresent
 
 securityContext:
