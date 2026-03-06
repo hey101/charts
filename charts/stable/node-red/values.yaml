@@ -2,7 +2,7 @@
 image:
   repository: docker.io/nodered/node-red
   pullPolicy: IfNotPresent
-  tag: 4.1.5@sha256:7dfe40efdd7b9f21916f083802bfe60a762bc020969d95553ffa020c97a72eb9
+  tag: 4.1.7@sha256:cf2d5657f12faebffaf1cea10203f277a2445434dec6a997212080ec0080f6c5
 service:
   main:
     ports:
