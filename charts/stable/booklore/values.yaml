@@ -2,7 +2,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/booklore-app/booklore
-  tag: v2.0.1@sha256:e5c51133c0c50e97004bf711a34521c698e4b27b6847e54fe304c08ff4aa8ee1
+  tag: v2.0.6@sha256:fa229a1469b17a44161144655190f27bb9036b909a31584e26ca828c30bd37dd
 service:
   main:
     ports:
