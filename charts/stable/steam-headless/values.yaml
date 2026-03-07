@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./values.schema.json
 image:
   repository: docker.io/josh5/steam-headless
-  tag: latest@sha256:58dd92284171523788803da259e6d4ad8831ba2c4adb6f5f73a0557b7c33fdda
+  tag: latest@sha256:16cd181bb78f5d7c3ca3529ea9e522c969181c10e3975a9e497bbec921917ba3
   pullPolicy: IfNotPresent
 
 securityContext:
